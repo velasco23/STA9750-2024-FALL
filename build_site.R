@@ -9,4 +9,3 @@ if(!quarto::quarto_binary_sitrep()){
 quarto::quarto_render(".")
 system("git add docs/*")
 if(!any(grepl("rstudio", search()))){q("no")}
-
