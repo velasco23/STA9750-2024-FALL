@@ -6,7 +6,7 @@ Hi, my name is Jorge Velasco. I’m an engineering manager at Con Edison, where 
 
 Outside of my career, I enjoy playing soccer and am a big sports fan, especially when it comes to football. I follow the Kansas City Chiefs largely because my grandmother is a huge fan, but I have to admit, I really enjoy the chaos of watching RedZone. I also like to unwind by watching reality TV shows with my kitten, Kita.
 
-![](kita.jpg){width=2in}
+![](kita.jpg){width="2.75in"}
 
 My journey is about continually growing in my field while staying connected to the things I enjoy.
 
