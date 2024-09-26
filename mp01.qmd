@@ -9,13 +9,12 @@ options:
 
 ### Hello, this document will walk you through my analysis of the fiscal characteristic of Major US Public Transit Systems.
 
+-   [Tasks by the professor will be in pink.]{style="color: pink;"}
+-   [My comments will be in orange.]{style="color: orange;"}
+-   [Output messages will be in white.]{style="color: white;"}
 
-* <span style="color: pink;">Tasks by the professor will be in pink.</span>
-* <span style="color: orange;">My comments will be in orange.</span>
-* <span style="color: white;">Output messages will be in white.</span>
+<span style="color: orange;"> First I had to download Fares, Expenses, and Monthly Transit Numbers Data. Please note the library packages, as I opted to list them first for aesthetics.
 
-
-<span style="color: orange;"> First I had to download Fares, Expenses, and Monthly Transit Numbers Data. Please note the library packages, as I opted to list them first for aesthetics. 
 ```{r}
 suppressPackageStartupMessages({
 
@@ -91,7 +90,7 @@ USAGE <- inner_join(TRIPS, MILES) |>
 })
 ```
 
-<span style="color: orange;">To make sure I did it right, I elected to view the data in a table format. 
+<span style="color: orange;">To make sure I did it right, I elected to view the data in a table format.
 
 ```{r}
 sample_n(USAGE, 1000) |> 
@@ -100,8 +99,7 @@ sample_n(USAGE, 1000) |>
 
 ```
 
-<span style="color: orange;">Now that we have datatable we can begin with the tasks. 
-
+<span style="color: orange;">Now that we have datatable we can begin with the tasks.
 
 # <span style="color: pink;">Task 1: Creating Syntatic Names.
 
@@ -112,6 +110,7 @@ USAGE <- USAGE |>
 ```
 
 # <span style="color: pink;">Task 2: Recoding the Mode column.
+
 ```{r}
 ##find all distinct values
 USAGE |>
@@ -142,18 +141,20 @@ USAGE <- USAGE |>
 
 ```
 
-<span style="color: orange;">Now that data is clean I created a table for it. 
+<span style="color: orange;">Now that data is clean I created a table for it.
+
 ```{r}
 sample_n(USAGE, 1000) |> 
   mutate(month=as.character(month)) |> 
   DT::datatable()    
 ```
 
-# <span style="color: pink;">Task 3:  Answering Instructor Specified Questions with dplyr
+# <span style="color: pink;">Task 3: Answering Instructor Specified Questions with dplyr
 
 \n
 
 <span style="color: pink;">Task 3-Q1:What transit agency had the most total VRM in our data set?
+
 ```{r}
 topVRM_Ag <- USAGE |>
   group_by(Agency) |>
@@ -164,9 +165,11 @@ topVRM_Ag <- USAGE |>
 print(topVRM_Ag)
 
 ```
+
 <span style="color: orange;">MTA New York City Transit has most total VRM
 
 <span style="color: pink;">Task 3-Q2:What transit mode had the most total VRM in our data set?
+
 ```{r}
 topVRM_Mo <- USAGE |>
   group_by(Mode) |>
@@ -177,9 +180,11 @@ topVRM_Mo <- USAGE |>
 print(topVRM_Mo)
 
 ```
-<span style="color: orange;">bus has most total VRM. 
+
+<span style="color: orange;">bus has most total VRM.
 
 <span style="color: pink;">Task 3-Q3:How many trips were taken on the NYC Subway (Heavy Rail) in May 2024?
+
 ```{r}
 subwayRides <- USAGE |>
   mutate( yr = year(month)) |>
@@ -192,10 +197,11 @@ subwayRides <- USAGE |>
 print(subwayRides)
 
 ```
-<span style="color: orange;">237,383,777 rides taken in May 2024. 
 
+<span style="color: orange;">237,383,777 rides taken in May 2024.
 
 <span style="color: pink;">Task 3-Q5:How much did NYC subway ridership fall between April 2019 and April 2020?
+
 ```{r}
 A2019_subwayRides <- USAGE |>
   mutate( yr = year(month)) |>
@@ -218,9 +224,11 @@ cat(" In April 2019 there were", A2019_subwayRides, "riders.\n", "In April 2019 
 ```
 
 # <span style="color: pink;">Task 4: Explore and Analyze
+
 ### <span style="color: pink;">Find three more interesting transit facts in this data other than those above.
 
-<span style="color: pink;">Fact 1: 
+<span style="color: pink;">Fact 1:
+
 ```{r}
 cableCarsRides <- USAGE |>
   filter(Mode=="Cable Car") |>
@@ -241,7 +249,9 @@ cableCarsCity <- USAGE |>
 cat(cableCarsCity, "has the most number of cables cars rides, \n with a total of  ", cableCarsRides, "within this dataset")
 
 ```
-<span style="color: pink;">Fact 2: 
+
+<span style="color: pink;">Fact 2:
+
 ```{r}
 NYC <- USAGE |>
   filter(metro_area=="New York--Jersey City--Newark, NY--NJ") |>
@@ -254,7 +264,8 @@ cat("The", NYC, "is the busiest transporation agency in NYC.")
 
 ```
 
-<span style="color: pink;">Fact 3: 
+<span style="color: pink;">Fact 3:
+
 ```{r}
 low <- USAGE |>
   filter(year(month)==2023) |>
@@ -269,6 +280,7 @@ cat(low, "had the lowest amount of public transportation in 2023")
 ```
 
 # <span style="color: pink;">Task 5: Table Summarization
+
 ```{r}
 #Task 5 Table Summarization
 USAGE_2022_ANNUAL <- USAGE |> 
@@ -292,12 +304,15 @@ USAGE_AND_FINANCIALS <- FINANCIALS |>
 glimpse(USAGE_AND_FINANCIALS)  
 
 ```
+
 <span style="color: orange;">glimpse is a helpful function to view the new table. This allows you to account for all columns you want to keep.
 
 # <span style="color: pink;">Task 6: Farebox Recovery Among Major Systems
 
 \n
-<span style="color: pink;">Task 6-Q1:Which transit system (agency and mode) had the most UPT in 2022? 
+
+<span style="color: pink;">Task 6-Q1:Which transit system (agency and mode) had the most UPT in 2022?
+
 ```{r}
 ##q1
 
@@ -311,9 +326,11 @@ transit <- USAGE_AND_FINANCIALS |>
 print(transit)
 
 ```
+
 <span style="color: orange;">Most UPT in 2022: MTA New York City Transit Heavy Rail.
 
 <span style="color: pink;">Task 6-Q2:Which transit system (agency and mode) had the highest farebox recovery, defined as the highest ratio of Total Fares to Expenses?
+
 ```{r}
 farebox_recovery <- USAGE_AND_FINANCIALS |>
   group_by(Agency, Mode.y) |>
@@ -328,9 +345,11 @@ farebox_recovery <- USAGE_AND_FINANCIALS |>
 print(farebox_recovery)
 
 ```
+
 <span style="color: orange;">Highest Fairbox Ratio: Hyannis Harbor Tours, Inc. Ferryboat
 
 <span style="color: pink;">Task 6-Q3:Which transit system (agency and mode) has the lowest expenses per UPT?
+
 ```{r}
 exp2UPT <- USAGE_AND_FINANCIALS |>
   group_by(Agency, Mode.y) |>
@@ -346,9 +365,11 @@ exp2UPT <- USAGE_AND_FINANCIALS |>
 print(exp2UPT)
 
 ```
+
 <span style="color: orange;">lowest expenses per UPT: Anaheim Transportation Network Bus
 
 <span style="color: pink;">Task 6-Q4:Which transit system (agency and mode) has the highest total fares per UPT?
+
 ```{r}
 fare2UPT <- USAGE_AND_FINANCIALS |>
   group_by(Agency, Mode.y) |>
@@ -364,9 +385,11 @@ fare2UPT <- USAGE_AND_FINANCIALS |>
 print(fare2UPT)
 
 ```
- <span style="color: orange;">highest total fares per UPT: Athens-Clarke County Unified Govern… Bus
- 
+
+<span style="color: orange;">highest total fares per UPT: Athens-Clarke County Unified Govern… Bus
+
 <span style="color: pink;">Task 6-Q5:Which transit system (agency and mode) has the lowest expenses per VRM?
+
 ```{r}
 exp2VRM <- USAGE_AND_FINANCIALS |>
   group_by(Agency, Mode.y) |>
@@ -381,9 +404,11 @@ exp2VRM <- USAGE_AND_FINANCIALS |>
 print(exp2VRM)
 
 ```
- <span style="color: orange;"> lowest expenses per VRM: The Transportation Management Ass… Vanpo…
- 
+
+<span style="color: orange;"> lowest expenses per VRM: The Transportation Management Ass… Vanpo…
+
 <span style="color: pink;">Task 6-Q6:Which transit system (agency and mode) has the highest total fares per VRM?
+
 ```{r}
 fare2VRM <- USAGE_AND_FINANCIALS |>
   group_by(Agency, Mode.y) |>
@@ -400,6 +425,7 @@ print(fare2VRM)
 ```
 
 <span style="color: pink;">Based on all of this, what do you believe to be the most efficient transit system in the country? (Your answer may differ depending on which form of ‘efficiency’ you care most about)
+
 ```{r}
 efficiency <- transit |>
   pull(Agency)
