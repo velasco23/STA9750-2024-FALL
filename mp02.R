@@ -1,3 +1,15 @@
+#!/usr/bin/env Rscript
+if(!require("quarto")){
+  install.packages("quarto")
+}
+library(quarto)
+if(!quarto::quarto_binary_sitrep()){
+  stop("Something is wrong with your quarto installation.")
+}
+quarto::quarto_render(".")
+system("git add docs/*")
+if(!any(grepl("rstudio", search()))){q("no")}
+
 library(dplyr)
 library(tidyverse)
 ##importing data
@@ -297,7 +309,7 @@ hits_gen <- hits |>
   summarize(ranking = mean(rank, ra.rm = TRUE) , count_movie=n_distinct(tconst)) |>
   filter(count_movie>15) |>
   arrange(desc(ranking)) |>
-  slice(1:10)
+  slice(2:11) #removed the first column bc it was the score for movies with a blank genre "\\N"
   
 
 print(hits_gen)
@@ -316,7 +328,7 @@ ggplot(hits_gen, aes(x = theme, y = ranking, fill = count_movie)) +  # Fill by g
 hits_gen1 <- hits |>
   filter(rank>36) |>
   left_join(gen, by = "tconst") |>
-  filter(theme=="Action" | theme=="Adventure" | theme=="Animation"  |theme=="Fantasy" | theme=="Horror" | theme=="Mystery" |theme=="Sci-Fi" |theme=="Thriller"|theme=="War")
+  filter(theme=="Action" | theme=="Adventure" | theme=="Animation" |theme=="Crime" |theme=="Family" |theme=="Fantasy" | theme=="Horror" | theme=="Mystery" |theme=="Sci-Fi" |theme=="Thriller")
 
 print(hits_gen1)
 #graph 2 
@@ -334,8 +346,7 @@ print("it appears that the Sci-Fi genre has a slight edge in success among the t
 hits_gen1alt <- hits |>
   #filter(rank>36) |>
   left_join(gen, by = "tconst") |>
-  filter(theme=="Action" | theme=="Adventure" | theme=="Animation"  |theme=="Fantasy" | theme=="Horror" | theme=="Mystery" |theme=="Sci-Fi" |theme=="Thriller"|theme=="War")
-
+  filter(theme=="Action" | theme=="Adventure" | theme=="Animation" |theme=="Crime" |theme=="Family" |theme=="Fantasy" | theme=="Horror" | theme=="Mystery" |theme=="Sci-Fi" |theme=="Thriller")
 print(hits_gen1alt)
 #graph 2 alt
 ggplot(hits_gen1alt, aes(x = theme, y = rank)) +  
@@ -354,7 +365,7 @@ hits_gen2010 <- hits |>
   filter(rank>36) |> 
   left_join(gen, by = "tconst") |>
   filter(startYear=="2010") |>
-  filter(theme=="Action" | theme=="Adventure" | theme=="Animation"  |theme=="Fantasy" | theme=="Horror" | theme=="Mystery" |theme=="Sci-Fi" |theme=="Thriller"|theme=="War")
+  filter(theme=="Action" | theme=="Adventure" | theme=="Animation" |theme=="Crime" |theme=="Family" |theme=="Fantasy" | theme=="Horror" | theme=="Mystery" |theme=="Sci-Fi" |theme=="Thriller")
 
 print(hits_gen2010)
 #graph 3
@@ -375,7 +386,7 @@ hits_genRecent <- hits |>
   mutate(year=as.numeric(startYear)) |>
   arrange(desc(year)) |>
   filter(year == "2010" | year=="2011"|year=="2012" | year=="2013" | year=="2014" | year=="2015"|year=="2016"|year=="2017"|year=="2018"|year=="2019"|year=="2020" |year=="2021"|year=="2022"|year=="2023"|year=="2024" ) |>
-  filter(theme=="Action" | theme=="Adventure" | theme=="Animation"  |theme=="Fantasy" | theme=="Horror" | theme=="Mystery" |theme=="Sci-Fi" |theme=="Thriller"|theme=="War")
+  filter(theme=="Action" | theme=="Adventure" | theme=="Animation" |theme=="Crime" |theme=="Family" |theme=="Fantasy" | theme=="Horror" | theme=="Mystery" |theme=="Sci-Fi" |theme=="Thriller")
 
 print(hits_genRecent)
 #graph 4
@@ -394,9 +405,23 @@ print("This graph leads me to think that the next movie should be a Horror or Wa
 ##Task 5 pick a director & 2 actors
 
 #which director has the highest rated horror movie
+dirHorrorT10 <- hits_gen1 |>
+  filter(theme=="Horror") |>
+  arrange(desc(rank)) |>
+  slice(1:10)
+
+ggplot(dirHorrorT10, aes(x = reorder(primaryTitle.x, averageRating), y = averageRating)) +
+  geom_bar(stat = "identity", fill = "steelblue") +
+  coord_flip() + # Flip coordinates to make the titles readable
+  labs(title = "Top 10 Horror Movies by Rating", 
+       x = "Movie Title", 
+       y = "Average Rating") +
+  theme_minimal()
+
 dirHorror <- hits_gen1 |>
   filter(theme=="Horror") |>
-  arrange(desc(rank))
+  arrange(desc(rank)) 
+
 
 print(dirHorror)
 print("Since cultural reference are important to my criteria, I do not want to pick an old movie director. The movie Get out was among the top 5 rated and the most recent. I think I found my director")
@@ -419,7 +444,7 @@ actHorror1 <- hits |>
   filter(theme == "Comedy") |>
   slice(1:10)
 
-print("I value comedy in Horror movies. Personally, I like humor will let your guard go down and makes the viewer more vulnerable for jump scares.")
+print("I value comedy in Horror movies. Personally, I believe humor will let your guard go down and makes the viewer more vulnerable for jump scares.")
 print("Ranking the top 10 comedies, I notice Wolf of Wall Street, I remember enjoying the humor in this movie.")
 #who is the actor tconst = tt0993846
 actN1 <- TITLE_PRINCIPALS |>
