@@ -859,6 +859,9 @@ print(staff)
 
 ## [6. Conclusion]{style="color: orange;"}
 
+<p align="center">![](cover.png)</p>
+<p align="center">*source: www.https://alternativemovieposters.com/</p>
+
 In the last decade, the horror genre has not seen a blockbuster hit. As seen in “Task 4 – Scatter Plot – Top 10 Genres in Recent Years”, no horror movie has gotten a ranking score above 55 in the past decade. Very few films managed to capture the public's eye in the same way as classics like "Silence of the Lambs." 
 
 Imagine a reinterpretation of the iconic thriller directed by the one and only, Jordan Peele. He is known for his ability to blend horror with cultural narratives. Jordan Peele’s movie ‘Get Out’ has an average rating of 7.8 on IMBD, and it is the eighth best horror movies of recent times, as per “Top 10 Horror Movies by Rating – Graph”. Margot Robbie, portraying Clarice Starling, will bring strength and vulnerability to the role, showcasing her journey through a male-dominated FBI landscape. Known for her recent Barbie portrayal, Robbie will shift from her iconic, vibrant character to embody the gritty character. Opposite her, Joaquin Phoenix’s interpretation of Dr. Hannibal Lecter promises a fresh take on a legendary character. Having already nailed iconic roles such as the Joker, Phoenix is primed to bring the same depth and unpredictability to Lecter. Ensuring a performance that is both haunting and captivating.
@@ -866,3 +869,4 @@ Imagine a reinterpretation of the iconic thriller directed by the one and only, 
 Not only will this be a terrifying remake, but it will also carry terrifying production. In graph “Task 4 - Box plot - All Movies”, we observe that Horror movies are the most likely to rail as per our success definition. However, this should be viewed as an opportunity! 
 
 Despite its loyal fanbase, horror fans have been left craving something groundbreaking. This is our chance to create a blockbuster horror movie that pushes boundaries, captivates audiences, and redefines the genre for a new generation!
+
