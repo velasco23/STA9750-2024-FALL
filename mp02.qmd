@@ -1,12 +1,12 @@
 ---
-title: "MP02"
+title: "Mini-Project #02:"
 format: html
 editor: visual
 ---
 
 
 
-# Mini-Project #02: The Business of Show Business
+# The Business of Show Business
 
 #### Table of Contents
 
@@ -860,7 +860,7 @@ print(staff)
 ## [6. Conclusion]{style="color: orange;"}
 
 <p align="center">![](cover.png)</p>
-<p align="center">*source: www.https://alternativemovieposters.com/</p>
+<p align="center">source: www.https://alternativemovieposters.com/</p>
 
 In the last decade, the horror genre has not seen a blockbuster hit. As seen in “Task 4 – Scatter Plot – Top 10 Genres in Recent Years”, no horror movie has gotten a ranking score above 55 in the past decade. Very few films managed to capture the public's eye in the same way as classics like "Silence of the Lambs." 
 
