@@ -5,7 +5,6 @@ editor: visual
 ---
 
 
-
 # The Business of Show Business
 
 #### Table of Contents
