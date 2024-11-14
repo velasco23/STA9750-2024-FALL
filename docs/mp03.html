@@ -227,10 +227,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  <span class="co"># checking if already downloaded</span></span>
 <span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(local_zip_path)) {</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"Downloading"</span>, file_name, <span class="st">"...</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    <span class="co">#cat("Downloading", file_name, "...\n")</span></span>
 <span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">GET</span>(url, <span class="fu">write_disk</span>(local_zip_path, <span class="at">overwrite =</span> <span class="cn">TRUE</span>))</span>
 <span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(file_name, <span class="st">"already exists, skipping download.</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    <span class="co">#cat(file_name, "already exists, skipping download.\n")</span></span>
 <span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Unzip and load the shapefile</span></span>
@@ -251,8 +251,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(shapefile_data)</span>
 <span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>    <span class="fu">message</span>(<span class="st">"No shapefile found in 'districtShapes' for"</span>, file_name)</span>
-<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="cn">NULL</span>)</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>    <span class="co">#message("No shapefile found in 'districtShapes' for", file_name)</span></span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>    <span class="co">#return(NULL)</span></span>
 <span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a></span>
@@ -266,8 +266,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>districts001.zip already exists, skipping download.
-Reading layer `districts001' from data source 
+<pre><code>Reading layer `districts001' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts001\districtShapes\districts001.shp' 
   using driver `ESRI Shapefile'
 Simple feature collection with 51 features and 15 fields
@@ -275,7 +274,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -91.23593 ymin: 30.35564 xmax: -66.94983 ymax: 47.45969
 Geodetic CRS:  NAD83
-districts002.zip already exists, skipping download.
 Reading layer `districts002' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts002\districtShapes\districts002.shp' 
   using driver `ESRI Shapefile'
@@ -284,7 +282,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -91.23593 ymin: 30.35564 xmax: -66.94983 ymax: 47.45969
 Geodetic CRS:  NAD83
-districts003.zip already exists, skipping download.
 Reading layer `districts003' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts003\districtShapes\districts003.shp' 
   using driver `ESRI Shapefile'
@@ -293,7 +290,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -91.23593 ymin: 30.35564 xmax: -66.94983 ymax: 47.45969
 Geodetic CRS:  NAD83
-districts004.zip already exists, skipping download.
 Reading layer `districts004' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts004\districtShapes\districts004.shp' 
   using driver `ESRI Shapefile'
@@ -302,7 +298,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -91.23593 ymin: 30.35564 xmax: -66.94983 ymax: 47.45969
 Geodetic CRS:  NAD83
-districts005.zip already exists, skipping download.
 Reading layer `districts005' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts005\districtShapes\districts005.shp' 
   using driver `ESRI Shapefile'
@@ -311,7 +306,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -91.23593 ymin: 30.35564 xmax: -66.94983 ymax: 47.45969
 Geodetic CRS:  NAD83
-districts006.zip already exists, skipping download.
 Reading layer `districts006' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts006\districtShapes\districts006.shp' 
   using driver `ESRI Shapefile'
@@ -320,7 +314,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -91.23593 ymin: 30.35564 xmax: -66.94983 ymax: 47.45969
 Geodetic CRS:  NAD83
-districts007.zip already exists, skipping download.
 Reading layer `districts007' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts007\districtShapes\districts007.shp' 
   using driver `ESRI Shapefile'
@@ -329,7 +322,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -91.23593 ymin: 30.35564 xmax: -66.94983 ymax: 47.45969
 Geodetic CRS:  NAD83
-districts008.zip already exists, skipping download.
 Reading layer `districts008' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts008\districtShapes\districts008.shp' 
   using driver `ESRI Shapefile'
@@ -338,7 +330,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -90.3103 ymin: 30.35564 xmax: -66.94983 ymax: 47.45969
 Geodetic CRS:  NAD83
-districts009.zip already exists, skipping download.
 Reading layer `districts009' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts009\districtShapes\districts009.shp' 
   using driver `ESRI Shapefile'
@@ -347,7 +338,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -90.3103 ymin: 30.35564 xmax: -66.94983 ymax: 47.45969
 Geodetic CRS:  NAD83
-districts010.zip already exists, skipping download.
 Reading layer `districts010' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts010\districtShapes\districts010.shp' 
   using driver `ESRI Shapefile'
@@ -356,7 +346,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -90.3103 ymin: 30.35564 xmax: -66.94983 ymax: 47.45969
 Geodetic CRS:  NAD83
-districts011.zip already exists, skipping download.
 Reading layer `districts011' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts011\districtShapes\districts011.shp' 
   using driver `ESRI Shapefile'
@@ -365,7 +354,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -90.3103 ymin: 30.35564 xmax: -66.94983 ymax: 47.45969
 Geodetic CRS:  NAD83
-districts012.zip already exists, skipping download.
 Reading layer `districts012' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts012\districtShapes\districts012.shp' 
   using driver `ESRI Shapefile'
@@ -374,7 +362,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -94.04334 ymin: 28.92052 xmax: -66.94983 ymax: 47.45969
 Geodetic CRS:  NAD83
-districts013.zip already exists, skipping download.
 Reading layer `districts013' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts013\districtShapes\districts013.shp' 
   using driver `ESRI Shapefile'
@@ -383,7 +370,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -94.04334 ymin: 28.92052 xmax: -66.94983 ymax: 47.45969
 Geodetic CRS:  NAD83
-districts014.zip already exists, skipping download.
 Reading layer `districts014' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts014\districtShapes\districts014.shp' 
   using driver `ESRI Shapefile'
@@ -392,7 +378,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -94.04334 ymin: 28.92052 xmax: -66.94983 ymax: 47.45969
 Geodetic CRS:  NAD83
-districts015.zip already exists, skipping download.
 Reading layer `districts015' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts015\districtShapes\districts015.shp' 
   using driver `ESRI Shapefile'
@@ -401,7 +386,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -94.04334 ymin: 28.92052 xmax: -66.94983 ymax: 47.45969
 Geodetic CRS:  NAD83
-districts016.zip already exists, skipping download.
 Reading layer `districts016' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts016\districtShapes\districts016.shp' 
   using driver `ESRI Shapefile'
@@ -410,7 +394,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -94.04334 ymin: 28.92052 xmax: -66.94983 ymax: 47.45969
 Geodetic CRS:  NAD83
-districts017.zip already exists, skipping download.
 Reading layer `districts017' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts017\districtShapes\districts017.shp' 
   using driver `ESRI Shapefile'
@@ -419,7 +402,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -94.63237 ymin: 28.92052 xmax: -66.94983 ymax: 47.45969
 Geodetic CRS:  NAD83
-districts018.zip already exists, skipping download.
 Reading layer `districts018' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts018\districtShapes\districts018.shp' 
   using driver `ESRI Shapefile'
@@ -428,7 +410,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -94.63237 ymin: 28.92052 xmax: -66.94983 ymax: 47.45969
 Geodetic CRS:  NAD83
-districts019.zip already exists, skipping download.
 Reading layer `districts019' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts019\districtShapes\districts019.shp' 
   using driver `ESRI Shapefile'
@@ -437,7 +418,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -94.63237 ymin: 28.92052 xmax: -66.94983 ymax: 47.45969
 Geodetic CRS:  NAD83
-districts020.zip already exists, skipping download.
 Reading layer `districts020' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts020\districtShapes\districts020.shp' 
   using driver `ESRI Shapefile'
@@ -446,7 +426,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -94.63237 ymin: 28.92052 xmax: -66.94983 ymax: 47.45969
 Geodetic CRS:  NAD83
-districts021.zip already exists, skipping download.
 Reading layer `districts021' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts021\districtShapes\districts021.shp' 
   using driver `ESRI Shapefile'
@@ -455,7 +434,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -94.63237 ymin: 28.92052 xmax: -66.94983 ymax: 47.45969
 Geodetic CRS:  NAD83
-districts022.zip already exists, skipping download.
 Reading layer `districts022' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts022\districtShapes\districts022.shp' 
   using driver `ESRI Shapefile'
@@ -464,7 +442,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -95.7747 ymin: 28.92052 xmax: -66.94983 ymax: 47.45969
 Geodetic CRS:  NAD83
-districts023.zip already exists, skipping download.
 Reading layer `districts023' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts023\districtShapes\districts023.shp' 
   using driver `ESRI Shapefile'
@@ -473,7 +450,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -95.7747 ymin: 28.92052 xmax: -66.94983 ymax: 47.45969
 Geodetic CRS:  NAD83
-districts024.zip already exists, skipping download.
 Reading layer `districts024' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts024\districtShapes\districts024.shp' 
   using driver `ESRI Shapefile'
@@ -482,7 +458,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -95.7747 ymin: 28.92052 xmax: -66.94983 ymax: 48.26263
 Geodetic CRS:  NAD83
-districts025.zip already exists, skipping download.
 Reading layer `districts025' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts025\districtShapes\districts025.shp' 
   using driver `ESRI Shapefile'
@@ -491,7 +466,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -95.7747 ymin: 28.92052 xmax: -66.94983 ymax: 48.26263
 Geodetic CRS:  NAD83
-districts026.zip already exists, skipping download.
 Reading layer `districts026' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts026\districtShapes\districts026.shp' 
   using driver `ESRI Shapefile'
@@ -500,7 +474,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -95.7747 ymin: 28.92052 xmax: -66.94983 ymax: 48.26263
 Geodetic CRS:  NAD83
-districts027.zip already exists, skipping download.
 Reading layer `districts027' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts027\districtShapes\districts027.shp' 
   using driver `ESRI Shapefile'
@@ -509,7 +482,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -95.7747 ymin: 28.92052 xmax: -66.94983 ymax: 48.26263
 Geodetic CRS:  NAD83
-districts028.zip already exists, skipping download.
 Reading layer `districts028' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts028\districtShapes\districts028.shp' 
   using driver `ESRI Shapefile'
@@ -518,7 +490,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -107.5719 ymin: 28.92052 xmax: -66.94983 ymax: 48.26263
 Geodetic CRS:  NAD83
-districts029.zip already exists, skipping download.
 Reading layer `districts029' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts029\districtShapes\districts029.shp' 
   using driver `ESRI Shapefile'
@@ -527,7 +498,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -107.5719 ymin: 24.52105 xmax: -66.94983 ymax: 48.26263
 Geodetic CRS:  NAD83
-districts030.zip already exists, skipping download.
 Reading layer `districts030' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts030\districtShapes\districts030.shp' 
   using driver `ESRI Shapefile'
@@ -536,7 +506,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -107.5719 ymin: 24.52105 xmax: -66.94983 ymax: 48.26263
 Geodetic CRS:  NAD83
-districts031.zip already exists, skipping download.
 Reading layer `districts031' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts031\districtShapes\districts031.shp' 
   using driver `ESRI Shapefile'
@@ -545,7 +514,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.415 ymin: 24.52105 xmax: -66.94983 ymax: 48.26263
 Geodetic CRS:  NAD83
-districts032.zip already exists, skipping download.
 Reading layer `districts032' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts032\districtShapes\districts032.shp' 
   using driver `ESRI Shapefile'
@@ -554,7 +522,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.415 ymin: 24.52105 xmax: -66.94983 ymax: 48.26263
 Geodetic CRS:  NAD83
-districts033.zip already exists, skipping download.
 Reading layer `districts033' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts033\districtShapes\districts033.shp' 
   using driver `ESRI Shapefile'
@@ -563,7 +530,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.415 ymin: 24.52105 xmax: -66.94983 ymax: 48.26263
 Geodetic CRS:  NAD83
-districts034.zip already exists, skipping download.
 Reading layer `districts034' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts034\districtShapes\districts034.shp' 
   using driver `ESRI Shapefile'
@@ -572,7 +538,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.415 ymin: 24.52105 xmax: -66.94983 ymax: 48.26263
 Geodetic CRS:  NAD83
-districts035.zip already exists, skipping download.
 Reading layer `districts035' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts035\districtShapes\districts035.shp' 
   using driver `ESRI Shapefile'
@@ -581,7 +546,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.6068 ymin: 24.52105 xmax: -66.94983 ymax: 49.38436
 Geodetic CRS:  NAD83
-districts036.zip already exists, skipping download.
 Reading layer `districts036' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts036\districtShapes\districts036.shp' 
   using driver `ESRI Shapefile'
@@ -590,7 +554,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.6068 ymin: 24.52105 xmax: -66.94983 ymax: 49.38436
 Geodetic CRS:  NAD83
-districts037.zip already exists, skipping download.
 Reading layer `districts037' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts037\districtShapes\districts037.shp' 
   using driver `ESRI Shapefile'
@@ -599,7 +562,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.6068 ymin: 28.92052 xmax: -66.94983 ymax: 49.38436
 Geodetic CRS:  NAD83
-districts038.zip already exists, skipping download.
 Reading layer `districts038' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts038\districtShapes\districts038.shp' 
   using driver `ESRI Shapefile'
@@ -608,7 +570,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.6068 ymin: 32.53416 xmax: -66.94983 ymax: 49.38436
 Geodetic CRS:  NAD83
-districts039.zip already exists, skipping download.
 Reading layer `districts039' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts039\districtShapes\districts039.shp' 
   using driver `ESRI Shapefile'
@@ -617,7 +578,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.6068 ymin: 32.53416 xmax: -66.94983 ymax: 49.38436
 Geodetic CRS:  NAD83
-districts040.zip already exists, skipping download.
 Reading layer `districts040' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts040\districtShapes\districts040.shp' 
   using driver `ESRI Shapefile'
@@ -626,7 +586,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.6068 ymin: 24.52105 xmax: -66.94983 ymax: 49.38436
 Geodetic CRS:  NAD83
-districts041.zip already exists, skipping download.
 Reading layer `districts041' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts041\districtShapes\districts041.shp' 
   using driver `ESRI Shapefile'
@@ -635,7 +594,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.6068 ymin: 24.52105 xmax: -66.94983 ymax: 49.38436
 Geodetic CRS:  NAD83
-districts042.zip already exists, skipping download.
 Reading layer `districts042' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts042\districtShapes\districts042.shp' 
   using driver `ESRI Shapefile'
@@ -644,7 +602,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.6068 ymin: 24.52105 xmax: -66.94983 ymax: 49.38436
 Geodetic CRS:  NAD83
-districts043.zip already exists, skipping download.
 Reading layer `districts043' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts043\districtShapes\districts043.shp' 
   using driver `ESRI Shapefile'
@@ -653,7 +610,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.6068 ymin: 24.52105 xmax: -66.94983 ymax: 49.38436
 Geodetic CRS:  NAD83
-districts044.zip already exists, skipping download.
 Reading layer `districts044' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts044\districtShapes\districts044.shp' 
   using driver `ESRI Shapefile'
@@ -662,7 +618,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.6068 ymin: 24.52105 xmax: -66.94983 ymax: 49.38436
 Geodetic CRS:  NAD83
-districts045.zip already exists, skipping download.
 Reading layer `districts045' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts045\districtShapes\districts045.shp' 
   using driver `ESRI Shapefile'
@@ -671,7 +626,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.6068 ymin: 24.52105 xmax: -66.94983 ymax: 49.38436
 Geodetic CRS:  NAD83
-districts046.zip already exists, skipping download.
 Reading layer `districts046' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts046\districtShapes\districts046.shp' 
   using driver `ESRI Shapefile'
@@ -680,7 +634,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.6068 ymin: 24.52105 xmax: -66.94983 ymax: 49.38436
 Geodetic CRS:  NAD83
-districts047.zip already exists, skipping download.
 Reading layer `districts047' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts047\districtShapes\districts047.shp' 
   using driver `ESRI Shapefile'
@@ -689,7 +642,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.6068 ymin: 24.52105 xmax: -66.94983 ymax: 49.38436
 Geodetic CRS:  NAD83
-districts048.zip already exists, skipping download.
 Reading layer `districts048' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts048\districtShapes\districts048.shp' 
   using driver `ESRI Shapefile'
@@ -698,7 +650,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.6068 ymin: 24.52105 xmax: -66.94983 ymax: 49.38436
 Geodetic CRS:  NAD83
-districts049.zip already exists, skipping download.
 Reading layer `districts049' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts049\districtShapes\districts049.shp' 
   using driver `ESRI Shapefile'
@@ -707,7 +658,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.6068 ymin: 24.52105 xmax: -66.94983 ymax: 49.38436
 Geodetic CRS:  NAD83
-districts050.zip already exists, skipping download.
 Reading layer `districts050' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts050\districtShapes\districts050.shp' 
   using driver `ESRI Shapefile'
@@ -716,7 +666,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.6068 ymin: 24.52105 xmax: -66.94983 ymax: 49.38436
 Geodetic CRS:  NAD83
-districts051.zip already exists, skipping download.
 Reading layer `districts051' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts051\districtShapes\districts051.shp' 
   using driver `ESRI Shapefile'
@@ -725,7 +674,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.7626 ymin: 24.52105 xmax: -66.94983 ymax: 49.38436
 Geodetic CRS:  NAD83
-districts052.zip already exists, skipping download.
 Reading layer `districts052' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts052\districtShapes\districts052.shp' 
   using driver `ESRI Shapefile'
@@ -734,7 +682,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.7626 ymin: 24.52105 xmax: -66.94983 ymax: 49.38436
 Geodetic CRS:  NAD83
-districts053.zip already exists, skipping download.
 Reading layer `districts053' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts053\districtShapes\districts053.shp' 
   using driver `ESRI Shapefile'
@@ -743,7 +690,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.7626 ymin: 24.52105 xmax: -66.94983 ymax: 49.38436
 Geodetic CRS:  NAD83
-districts054.zip already exists, skipping download.
 Reading layer `districts054' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts054\districtShapes\districts054.shp' 
   using driver `ESRI Shapefile'
@@ -752,7 +698,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.7626 ymin: 24.52105 xmax: -66.94983 ymax: 49.38436
 Geodetic CRS:  NAD83
-districts055.zip already exists, skipping download.
 Reading layer `districts055' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts055\districtShapes\districts055.shp' 
   using driver `ESRI Shapefile'
@@ -761,7 +706,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.7626 ymin: 24.52105 xmax: -66.94983 ymax: 49.38436
 Geodetic CRS:  NAD83
-districts056.zip already exists, skipping download.
 Reading layer `districts056' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts056\districtShapes\districts056.shp' 
   using driver `ESRI Shapefile'
@@ -770,7 +714,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.7626 ymin: 24.52105 xmax: -66.94983 ymax: 49.38436
 Geodetic CRS:  NAD83
-districts057.zip already exists, skipping download.
 Reading layer `districts057' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts057\districtShapes\districts057.shp' 
   using driver `ESRI Shapefile'
@@ -779,7 +722,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.7626 ymin: 24.52105 xmax: -66.94983 ymax: 49.38436
 Geodetic CRS:  NAD83
-districts058.zip already exists, skipping download.
 Reading layer `districts058' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts058\districtShapes\districts058.shp' 
   using driver `ESRI Shapefile'
@@ -788,7 +730,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.7626 ymin: 24.52105 xmax: -66.94983 ymax: 49.38436
 Geodetic CRS:  NAD83
-districts059.zip already exists, skipping download.
 Reading layer `districts059' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts059\districtShapes\districts059.shp' 
   using driver `ESRI Shapefile'
@@ -797,7 +738,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.7626 ymin: 24.52105 xmax: -66.94983 ymax: 49.38436
 Geodetic CRS:  NAD83
-districts060.zip already exists, skipping download.
 Reading layer `districts060' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts060\districtShapes\districts060.shp' 
   using driver `ESRI Shapefile'
@@ -806,7 +746,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.7626 ymin: 24.52105 xmax: -66.94983 ymax: 49.38436
 Geodetic CRS:  NAD83
-districts061.zip already exists, skipping download.
 Reading layer `districts061' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts061\districtShapes\districts061.shp' 
   using driver `ESRI Shapefile'
@@ -815,7 +754,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.7626 ymin: 24.52105 xmax: -66.94983 ymax: 49.38436
 Geodetic CRS:  NAD83
-districts062.zip already exists, skipping download.
 Reading layer `districts062' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts062\districtShapes\districts062.shp' 
   using driver `ESRI Shapefile'
@@ -824,7 +762,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.7626 ymin: 24.52105 xmax: -66.94983 ymax: 49.38436
 Geodetic CRS:  NAD83
-districts063.zip already exists, skipping download.
 Reading layer `districts063' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts063\districtShapes\districts063.shp' 
   using driver `ESRI Shapefile'
@@ -833,7 +770,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.7626 ymin: 24.52105 xmax: -66.94983 ymax: 49.38436
 Geodetic CRS:  NAD83
-districts064.zip already exists, skipping download.
 Reading layer `districts064' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts064\districtShapes\districts064.shp' 
   using driver `ESRI Shapefile'
@@ -842,7 +778,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.7626 ymin: 24.52105 xmax: -66.94983 ymax: 49.38436
 Geodetic CRS:  NAD83
-districts065.zip already exists, skipping download.
 Reading layer `districts065' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts065\districtShapes\districts065.shp' 
   using driver `ESRI Shapefile'
@@ -851,7 +786,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.7626 ymin: 24.52105 xmax: -66.94983 ymax: 49.38436
 Geodetic CRS:  NAD83
-districts066.zip already exists, skipping download.
 Reading layer `districts066' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts066\districtShapes\districts066.shp' 
   using driver `ESRI Shapefile'
@@ -860,7 +794,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.7626 ymin: 24.52105 xmax: -66.94983 ymax: 49.38436
 Geodetic CRS:  NAD83
-districts067.zip already exists, skipping download.
 Reading layer `districts067' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts067\districtShapes\districts067.shp' 
   using driver `ESRI Shapefile'
@@ -869,7 +802,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.7626 ymin: 24.52105 xmax: -66.94983 ymax: 49.38436
 Geodetic CRS:  NAD83
-districts068.zip already exists, skipping download.
 Reading layer `districts068' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts068\districtShapes\districts068.shp' 
   using driver `ESRI Shapefile'
@@ -878,7 +810,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.7626 ymin: 24.52105 xmax: -66.94983 ymax: 49.38436
 Geodetic CRS:  NAD83
-districts069.zip already exists, skipping download.
 Reading layer `districts069' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts069\districtShapes\districts069.shp' 
   using driver `ESRI Shapefile'
@@ -887,7 +818,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.7626 ymin: 24.52105 xmax: -66.94983 ymax: 49.38436
 Geodetic CRS:  NAD83
-districts070.zip already exists, skipping download.
 Reading layer `districts070' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts070\districtShapes\districts070.shp' 
   using driver `ESRI Shapefile'
@@ -896,7 +826,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.7626 ymin: 24.52105 xmax: -66.94983 ymax: 49.38436
 Geodetic CRS:  NAD83
-districts071.zip already exists, skipping download.
 Reading layer `districts071' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts071\districtShapes\districts071.shp' 
   using driver `ESRI Shapefile'
@@ -905,7 +834,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.7626 ymin: 24.52105 xmax: -66.94983 ymax: 49.38436
 Geodetic CRS:  NAD83
-districts072.zip already exists, skipping download.
 Reading layer `districts072' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts072\districtShapes\districts072.shp' 
   using driver `ESRI Shapefile'
@@ -914,8 +842,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.7626 ymin: 24.52105 xmax: -66.94983 ymax: 49.38436
 Geodetic CRS:  NAD83
-districts073.zip already exists, skipping download.
-districts074.zip already exists, skipping download.
 Reading layer `districts074' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts074\districtShapes\districts074.shp' 
   using driver `ESRI Shapefile'
@@ -924,7 +850,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.7626 ymin: 24.52105 xmax: -66.94983 ymax: 49.38436
 Geodetic CRS:  NAD83
-districts075.zip already exists, skipping download.
 Reading layer `districts075' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts075\districtShapes\districts075.shp' 
   using driver `ESRI Shapefile'
@@ -933,7 +858,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.7626 ymin: 24.52105 xmax: -66.94983 ymax: 49.38436
 Geodetic CRS:  NAD83
-districts076.zip already exists, skipping download.
 Reading layer `districts076' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts076\districtShapes\districts076.shp' 
   using driver `ESRI Shapefile'
@@ -942,7 +866,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.7626 ymin: 24.52105 xmax: -66.94983 ymax: 49.38436
 Geodetic CRS:  NAD83
-districts077.zip already exists, skipping download.
 Reading layer `districts077' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts077\districtShapes\districts077.shp' 
   using driver `ESRI Shapefile'
@@ -951,7 +874,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.7626 ymin: 24.52105 xmax: -66.94983 ymax: 49.38436
 Geodetic CRS:  NAD83
-districts078.zip already exists, skipping download.
 Reading layer `districts078' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts078\districtShapes\districts078.shp' 
   using driver `ESRI Shapefile'
@@ -960,7 +882,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.7626 ymin: 24.52105 xmax: -66.94983 ymax: 49.38436
 Geodetic CRS:  NAD83
-districts079.zip already exists, skipping download.
 Reading layer `districts079' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts079\districtShapes\districts079.shp' 
   using driver `ESRI Shapefile'
@@ -969,7 +890,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.7626 ymin: 24.52105 xmax: -66.94983 ymax: 49.38436
 Geodetic CRS:  NAD83
-districts080.zip already exists, skipping download.
 Reading layer `districts080' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts080\districtShapes\districts080.shp' 
   using driver `ESRI Shapefile'
@@ -978,7 +898,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.7626 ymin: 24.52105 xmax: -66.94983 ymax: 49.38436
 Geodetic CRS:  NAD83
-districts081.zip already exists, skipping download.
 Reading layer `districts081' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts081\districtShapes\districts081.shp' 
   using driver `ESRI Shapefile'
@@ -987,7 +906,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.7626 ymin: 24.52105 xmax: -66.94983 ymax: 49.38436
 Geodetic CRS:  NAD83
-districts082.zip already exists, skipping download.
 Reading layer `districts082' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts082\districtShapes\districts082.shp' 
   using driver `ESRI Shapefile'
@@ -996,7 +914,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.7626 ymin: 24.52105 xmax: -66.94983 ymax: 49.38436
 Geodetic CRS:  NAD83
-districts083.zip already exists, skipping download.
 Reading layer `districts083' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts083\districtShapes\districts083.shp' 
   using driver `ESRI Shapefile'
@@ -1005,7 +922,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.7626 ymin: 24.52105 xmax: -66.94983 ymax: 49.38436
 Geodetic CRS:  NAD83
-districts084.zip already exists, skipping download.
 Reading layer `districts084' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts084\districtShapes\districts084.shp' 
   using driver `ESRI Shapefile'
@@ -1014,7 +930,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.7626 ymin: 24.52105 xmax: -66.94983 ymax: 49.38436
 Geodetic CRS:  NAD83
-districts085.zip already exists, skipping download.
 Reading layer `districts085' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts085\districtShapes\districts085.shp' 
   using driver `ESRI Shapefile'
@@ -1023,7 +938,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.7626 ymin: 24.52105 xmax: -66.94983 ymax: 49.38436
 Geodetic CRS:  NAD83
-districts086.zip already exists, skipping download.
 Reading layer `districts086' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts086\districtShapes\districts086.shp' 
   using driver `ESRI Shapefile'
@@ -1032,7 +946,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -178.3381 ymin: 18.91071 xmax: 177.7388 ymax: 71.3857
 Geodetic CRS:  NAD83
-districts087.zip already exists, skipping download.
 Reading layer `districts087' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts087\districtShapes\districts087.shp' 
   using driver `ESRI Shapefile'
@@ -1041,7 +954,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -178.3381 ymin: 18.91071 xmax: 177.7388 ymax: 71.3857
 Geodetic CRS:  NAD83
-districts088.zip already exists, skipping download.
 Reading layer `districts088' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts088\districtShapes\districts088.shp' 
   using driver `ESRI Shapefile'
@@ -1050,7 +962,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -178.3381 ymin: 18.91071 xmax: 177.7388 ymax: 71.3857
 Geodetic CRS:  NAD83
-districts089.zip already exists, skipping download.
 Reading layer `districts089' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts089\districtShapes\districts089.shp' 
   using driver `ESRI Shapefile'
@@ -1059,7 +970,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -178.3381 ymin: 18.91071 xmax: 177.7388 ymax: 71.3857
 Geodetic CRS:  NAD83
-districts090.zip already exists, skipping download.
 Reading layer `districts090' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts090\districtShapes\districts090.shp' 
   using driver `ESRI Shapefile'
@@ -1068,7 +978,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -178.3381 ymin: 18.91071 xmax: 177.7388 ymax: 71.3857
 Geodetic CRS:  NAD83
-districts091.zip already exists, skipping download.
 Reading layer `districts091' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts091\districtShapes\districts091.shp' 
   using driver `ESRI Shapefile'
@@ -1077,7 +986,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -178.3381 ymin: 18.91071 xmax: 177.7388 ymax: 71.3857
 Geodetic CRS:  NAD83
-districts092.zip already exists, skipping download.
 Reading layer `districts092' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts092\districtShapes\districts092.shp' 
   using driver `ESRI Shapefile'
@@ -1086,7 +994,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -178.3381 ymin: 18.91071 xmax: 177.7388 ymax: 71.3857
 Geodetic CRS:  NAD83
-districts093.zip already exists, skipping download.
 Reading layer `districts093' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts093\districtShapes\districts093.shp' 
   using driver `ESRI Shapefile'
@@ -1095,7 +1002,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -178.3381 ymin: 18.91071 xmax: 177.7388 ymax: 71.3857
 Geodetic CRS:  NAD83
-districts094.zip already exists, skipping download.
 Reading layer `districts094' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts094\districtShapes\districts094.shp' 
   using driver `ESRI Shapefile'
@@ -1104,7 +1010,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -178.3381 ymin: 18.91071 xmax: 177.7388 ymax: 71.3857
 Geodetic CRS:  NAD83
-districts095.zip already exists, skipping download.
 Reading layer `districts095' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts095\districtShapes\districts095.shp' 
   using driver `ESRI Shapefile'
@@ -1113,7 +1018,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -178.3381 ymin: 18.91071 xmax: 177.7388 ymax: 71.3857
 Geodetic CRS:  NAD83
-districts096.zip already exists, skipping download.
 Reading layer `districts096' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts096\districtShapes\districts096.shp' 
   using driver `ESRI Shapefile'
@@ -1122,7 +1026,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -178.3381 ymin: 18.91071 xmax: 177.7388 ymax: 71.3857
 Geodetic CRS:  NAD83
-districts097.zip already exists, skipping download.
 Reading layer `districts097' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts097\districtShapes\districts097.shp' 
   using driver `ESRI Shapefile'
@@ -1131,7 +1034,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -178.3381 ymin: 18.91071 xmax: 177.7388 ymax: 71.3857
 Geodetic CRS:  NAD83
-districts098.zip already exists, skipping download.
 Reading layer `districts098' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts098\districtShapes\districts098.shp' 
   using driver `ESRI Shapefile'
@@ -1140,7 +1042,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -178.3381 ymin: 18.91071 xmax: 177.7388 ymax: 71.3857
 Geodetic CRS:  NAD83
-districts099.zip already exists, skipping download.
 Reading layer `districts099' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts099\districtShapes\districts099.shp' 
   using driver `ESRI Shapefile'
@@ -1149,7 +1050,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -178.3395 ymin: 18.91383 xmax: 177.7388 ymax: 71.3857
 Geodetic CRS:  NAD83
-districts100.zip already exists, skipping download.
 Reading layer `districts100' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts100\districtShapes\districts100.shp' 
   using driver `ESRI Shapefile'
@@ -1158,7 +1058,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -178.3395 ymin: 18.91383 xmax: 177.7388 ymax: 71.3857
 Geodetic CRS:  GRS 1980(IUGG, 1980)
-districts101.zip already exists, skipping download.
 Reading layer `districts101' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts101\districtShapes\districts101.shp' 
   using driver `ESRI Shapefile'
@@ -1167,7 +1066,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -178.3395 ymin: 18.91383 xmax: 177.7388 ymax: 71.3857
 Geodetic CRS:  GRS 1980(IUGG, 1980)
-districts102.zip already exists, skipping download.
 Reading layer `districts102' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts102\districtShapes\districts102.shp' 
   using driver `ESRI Shapefile'
@@ -1176,7 +1074,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -178.3395 ymin: 18.91383 xmax: 177.7388 ymax: 71.3857
 Geodetic CRS:  GRS 1980(IUGG, 1980)
-districts103.zip already exists, skipping download.
 Reading layer `districts103' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts103\districtShapes\districts103.shp' 
   using driver `ESRI Shapefile'
@@ -1185,7 +1082,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -179.1473 ymin: 18.9177 xmax: 179.7785 ymax: 71.35256
 Geodetic CRS:  NAD83
-districts104.zip already exists, skipping download.
 Reading layer `districts104' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts104\districtShapes\districts104.shp' 
   using driver `ESRI Shapefile'
@@ -1194,7 +1090,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -179.1473 ymin: 18.9177 xmax: 179.7785 ymax: 71.35256
 Geodetic CRS:  GRS 1980(IUGG, 1980)
-districts105.zip already exists, skipping download.
 Reading layer `districts105' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts105\districtShapes\districts105.shp' 
   using driver `ESRI Shapefile'
@@ -1203,7 +1098,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -179.1473 ymin: 18.9177 xmax: 179.7785 ymax: 71.35256
 Geodetic CRS:  GRS 1980(IUGG, 1980)
-districts106.zip already exists, skipping download.
 Reading layer `districts106' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts106\districtShapes\districts106.shp' 
   using driver `ESRI Shapefile'
@@ -1212,7 +1106,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -179.1473 ymin: 18.9177 xmax: 179.7785 ymax: 71.35256
 Geodetic CRS:  GRS 1980(IUGG, 1980)
-districts107.zip already exists, skipping download.
 Reading layer `districts107' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts107\districtShapes\districts107.shp' 
   using driver `ESRI Shapefile'
@@ -1221,7 +1114,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -179.1473 ymin: 18.9177 xmax: 179.7785 ymax: 71.35256
 Geodetic CRS:  GRS 1980(IUGG, 1980)
-districts108.zip already exists, skipping download.
 Reading layer `districts108' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts108\districtShapes\districts108.shp' 
   using driver `ESRI Shapefile'
@@ -1230,7 +1122,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -179.1473 ymin: 18.9177 xmax: 179.7785 ymax: 71.35256
 Geodetic CRS:  GRS 1980(IUGG, 1980)
-districts109.zip already exists, skipping download.
 Reading layer `districts109' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts109\districtShapes\districts109.shp' 
   using driver `ESRI Shapefile'
@@ -1239,7 +1130,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -179.1473 ymin: 18.9177 xmax: 179.7785 ymax: 71.35256
 Geodetic CRS:  GRS 1980(IUGG, 1980)
-districts110.zip already exists, skipping download.
 Reading layer `districts110' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts110\districtShapes\districts110.shp' 
   using driver `ESRI Shapefile'
@@ -1248,7 +1138,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -179.1473 ymin: 18.9177 xmax: 179.7785 ymax: 71.35256
 Geodetic CRS:  GRS 1980(IUGG, 1980)
-districts111.zip already exists, skipping download.
 Reading layer `districts111' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts111\districtShapes\districts111.shp' 
   using driver `ESRI Shapefile'
@@ -1257,7 +1146,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -179.1473 ymin: 18.9177 xmax: 179.7785 ymax: 71.35256
 Geodetic CRS:  GRS 1980(IUGG, 1980)
-districts112.zip already exists, skipping download.
 Reading layer `districts112' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts112\districtShapes\districts112.shp' 
   using driver `ESRI Shapefile'
@@ -1266,7 +1154,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -179.1473 ymin: 18.9177 xmax: 179.7785 ymax: 71.35256
 Geodetic CRS:  GRS 1980(IUGG, 1980)
-districts113.zip already exists, skipping download.
 Reading layer `districts113' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts113\districtShapes\districts113.shp' 
   using driver `ESRI Shapefile'
@@ -1275,7 +1162,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -179.1473 ymin: 18.91383 xmax: 179.7785 ymax: 71.35256
 Geodetic CRS:  NAD83
-districts114.zip already exists, skipping download.
 Reading layer `districts114' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\congressional_shapefiles\districts114\districtShapes\districts114.shp' 
   using driver `ESRI Shapefile'
@@ -1305,10 +1191,10 @@ Geodetic CRS:  NAD83</code></pre>
 <span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Check if file already exists to avoid re-downloading</span></span>
 <span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(local_zip_path)) {</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cat</span>(<span class="st">"Downloading"</span>, file_name, <span class="st">"...</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>      <span class="co">#cat("Downloading", file_name, "...\n")</span></span>
 <span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>      <span class="fu">GET</span>(url, <span class="fu">write_disk</span>(local_zip_path, <span class="at">overwrite =</span> <span class="cn">TRUE</span>))</span>
 <span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cat</span>(file_name, <span class="st">"already exists, skipping download.</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>      <span class="co">#cat(file_name, "already exists, skipping download.\n")</span></span>
 <span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    }</span>
 <span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Unzip and load the shapefile</span></span>
@@ -1324,8 +1210,8 @@ Geodetic CRS:  NAD83</code></pre>
 <span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>      census_data <span class="ot">&lt;-</span> <span class="fu">st_read</span>(shp_file)</span>
 <span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>      <span class="fu">return</span>(census_data)</span>
 <span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>      <span class="fu">message</span>(<span class="st">"No shapefile found in unzipped directory for"</span>, file_name)</span>
-<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>      <span class="fu">return</span>(<span class="cn">NULL</span>)</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>      <span class="co">#message("No shapefile found in unzipped directory for", file_name)</span></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>      <span class="co">#return(NULL)</span></span>
 <span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>    }</span>
 <span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>  </span>
@@ -1339,8 +1225,7 @@ Geodetic CRS:  NAD83</code></pre>
 <span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>  }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>tl_2024_01_cd119.zip already exists, skipping download.
-Reading layer `tl_2024_01_cd119' from data source 
+<pre><code>Reading layer `tl_2024_01_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_01_cd119\tl_2024_01_cd119.shp' 
   using driver `ESRI Shapefile'
 Simple feature collection with 7 features and 13 fields
@@ -1348,7 +1233,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -88.47323 ymin: 30.14442 xmax: -84.88825 ymax: 35.00803
 Geodetic CRS:  NAD83
-tl_2024_02_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_02_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_02_cd119\tl_2024_02_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1357,8 +1241,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -179.2311 ymin: 51.17509 xmax: 179.8597 ymax: 71.43979
 Geodetic CRS:  NAD83
-tl_2024_03_cd119.zip already exists, skipping download.
-tl_2024_04_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_04_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_04_cd119\tl_2024_04_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1367,7 +1249,6 @@ Geometry type: POLYGON
 Dimension:     XY
 Bounding box:  xmin: -114.8163 ymin: 31.33234 xmax: -109.0452 ymax: 37.00373
 Geodetic CRS:  NAD83
-tl_2024_05_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_05_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_05_cd119\tl_2024_05_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1376,7 +1257,6 @@ Geometry type: POLYGON
 Dimension:     XY
 Bounding box:  xmin: -94.61786 ymin: 33.00428 xmax: -89.641 ymax: 36.49975
 Geodetic CRS:  NAD83
-tl_2024_06_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_06_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_06_cd119\tl_2024_06_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1385,8 +1265,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.482 ymin: 32.52951 xmax: -114.1312 ymax: 42.0095
 Geodetic CRS:  NAD83
-tl_2024_07_cd119.zip already exists, skipping download.
-tl_2024_08_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_08_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_08_cd119\tl_2024_08_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1395,7 +1273,6 @@ Geometry type: POLYGON
 Dimension:     XY
 Bounding box:  xmin: -109.0602 ymin: 36.99245 xmax: -102.0415 ymax: 41.00344
 Geodetic CRS:  NAD83
-tl_2024_09_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_09_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_09_cd119\tl_2024_09_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1404,7 +1281,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -73.72777 ymin: 40.95094 xmax: -71.78724 ymax: 42.05051
 Geodetic CRS:  NAD83
-tl_2024_10_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_10_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_10_cd119\tl_2024_10_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1413,7 +1289,6 @@ Geometry type: POLYGON
 Dimension:     XY
 Bounding box:  xmin: -75.78902 ymin: 38.45113 xmax: -74.98416 ymax: 39.83952
 Geodetic CRS:  NAD83
-tl_2024_11_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_11_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_11_cd119\tl_2024_11_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1422,7 +1297,6 @@ Geometry type: POLYGON
 Dimension:     XY
 Bounding box:  xmin: -77.11976 ymin: 38.79165 xmax: -76.90939 ymax: 38.99585
 Geodetic CRS:  NAD83
-tl_2024_12_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_12_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_12_cd119\tl_2024_12_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1431,7 +1305,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -87.6349 ymin: 24.39631 xmax: -79.97431 ymax: 31.00097
 Geodetic CRS:  NAD83
-tl_2024_13_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_13_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_13_cd119\tl_2024_13_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1440,8 +1313,6 @@ Geometry type: POLYGON
 Dimension:     XY
 Bounding box:  xmin: -85.60516 ymin: 30.35576 xmax: -80.78296 ymax: 35.0013
 Geodetic CRS:  NAD83
-tl_2024_14_cd119.zip already exists, skipping download.
-tl_2024_15_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_15_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_15_cd119\tl_2024_15_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1450,7 +1321,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -178.4436 ymin: 18.86546 xmax: -154.7558 ymax: 28.51727
 Geodetic CRS:  NAD83
-tl_2024_16_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_16_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_16_cd119\tl_2024_16_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1459,7 +1329,6 @@ Geometry type: POLYGON
 Dimension:     XY
 Bounding box:  xmin: -117.243 ymin: 41.98818 xmax: -111.0435 ymax: 49.00085
 Geodetic CRS:  NAD83
-tl_2024_17_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_17_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_17_cd119\tl_2024_17_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1468,7 +1337,6 @@ Geometry type: POLYGON
 Dimension:     XY
 Bounding box:  xmin: -91.51308 ymin: 36.9703 xmax: -87.01994 ymax: 42.50848
 Geodetic CRS:  NAD83
-tl_2024_18_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_18_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_18_cd119\tl_2024_18_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1477,7 +1345,6 @@ Geometry type: POLYGON
 Dimension:     XY
 Bounding box:  xmin: -88.09789 ymin: 37.77167 xmax: -84.78454 ymax: 41.76137
 Geodetic CRS:  NAD83
-tl_2024_19_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_19_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_19_cd119\tl_2024_19_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1486,7 +1353,6 @@ Geometry type: POLYGON
 Dimension:     XY
 Bounding box:  xmin: -96.63948 ymin: 40.37544 xmax: -90.14006 ymax: 43.5012
 Geodetic CRS:  NAD83
-tl_2024_20_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_20_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_20_cd119\tl_2024_20_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1495,7 +1361,6 @@ Geometry type: POLYGON
 Dimension:     XY
 Bounding box:  xmin: -102.0518 ymin: 36.99302 xmax: -94.58839 ymax: 40.00317
 Geodetic CRS:  NAD83
-tl_2024_21_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_21_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_21_cd119\tl_2024_21_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1504,7 +1369,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -89.5712 ymin: 36.49706 xmax: -81.96479 ymax: 39.14773
 Geodetic CRS:  NAD83
-tl_2024_22_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_22_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_22_cd119\tl_2024_22_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1513,7 +1377,6 @@ Geometry type: POLYGON
 Dimension:     XY
 Bounding box:  xmin: -94.04335 ymin: 28.85513 xmax: -88.75839 ymax: 33.01962
 Geodetic CRS:  NAD83
-tl_2024_23_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_23_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_23_cd119\tl_2024_23_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1522,7 +1385,6 @@ Geometry type: POLYGON
 Dimension:     XY
 Bounding box:  xmin: -71.08393 ymin: 42.91713 xmax: -66.88544 ymax: 47.45983
 Geodetic CRS:  NAD83
-tl_2024_24_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_24_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_24_cd119\tl_2024_24_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1531,7 +1393,6 @@ Geometry type: POLYGON
 Dimension:     XY
 Bounding box:  xmin: -79.48765 ymin: 37.88661 xmax: -74.98628 ymax: 39.72304
 Geodetic CRS:  NAD83
-tl_2024_25_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_25_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_25_cd119\tl_2024_25_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1540,7 +1401,6 @@ Geometry type: POLYGON
 Dimension:     XY
 Bounding box:  xmin: -73.50821 ymin: 41.18705 xmax: -69.85886 ymax: 42.88678
 Geodetic CRS:  NAD83
-tl_2024_26_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_26_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_26_cd119\tl_2024_26_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1549,7 +1409,6 @@ Geometry type: POLYGON
 Dimension:     XY
 Bounding box:  xmin: -90.41839 ymin: 41.69612 xmax: -82.12297 ymax: 48.30606
 Geodetic CRS:  NAD83
-tl_2024_27_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_27_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_27_cd119\tl_2024_27_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1558,7 +1417,6 @@ Geometry type: POLYGON
 Dimension:     XY
 Bounding box:  xmin: -97.23909 ymin: 43.49936 xmax: -89.48338 ymax: 49.38448
 Geodetic CRS:  NAD83
-tl_2024_28_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_28_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_28_cd119\tl_2024_28_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1567,7 +1425,6 @@ Geometry type: POLYGON
 Dimension:     XY
 Bounding box:  xmin: -91.65501 ymin: 30.13984 xmax: -88.09789 ymax: 34.9961
 Geodetic CRS:  NAD83
-tl_2024_29_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_29_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_29_cd119\tl_2024_29_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1576,7 +1433,6 @@ Geometry type: POLYGON
 Dimension:     XY
 Bounding box:  xmin: -95.7747 ymin: 35.99568 xmax: -89.09897 ymax: 40.61364
 Geodetic CRS:  NAD83
-tl_2024_30_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_30_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_30_cd119\tl_2024_30_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1585,7 +1441,6 @@ Geometry type: POLYGON
 Dimension:     XY
 Bounding box:  xmin: -116.0492 ymin: 44.35792 xmax: -104.0397 ymax: 49.00111
 Geodetic CRS:  NAD83
-tl_2024_31_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_31_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_31_cd119\tl_2024_31_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1594,7 +1449,6 @@ Geometry type: POLYGON
 Dimension:     XY
 Bounding box:  xmin: -104.0535 ymin: 39.99993 xmax: -95.30829 ymax: 43.00171
 Geodetic CRS:  NAD83
-tl_2024_32_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_32_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_32_cd119\tl_2024_32_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1603,7 +1457,6 @@ Geometry type: POLYGON
 Dimension:     XY
 Bounding box:  xmin: -120.0065 ymin: 35.00186 xmax: -114.0395 ymax: 42.00184
 Geodetic CRS:  NAD83
-tl_2024_33_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_33_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_33_cd119\tl_2024_33_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1612,7 +1465,6 @@ Geometry type: POLYGON
 Dimension:     XY
 Bounding box:  xmin: -72.55712 ymin: 42.69704 xmax: -70.57509 ymax: 45.30578
 Geodetic CRS:  NAD83
-tl_2024_34_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_34_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_34_cd119\tl_2024_34_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1621,7 +1473,6 @@ Geometry type: POLYGON
 Dimension:     XY
 Bounding box:  xmin: -75.56359 ymin: 38.78866 xmax: -73.88506 ymax: 41.35761
 Geodetic CRS:  NAD83
-tl_2024_35_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_35_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_35_cd119\tl_2024_35_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1630,7 +1481,6 @@ Geometry type: POLYGON
 Dimension:     XY
 Bounding box:  xmin: -109.0504 ymin: 31.33216 xmax: -103.002 ymax: 37.00023
 Geodetic CRS:  NAD83
-tl_2024_36_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_36_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_36_cd119\tl_2024_36_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1639,7 +1489,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -79.76259 ymin: 40.47658 xmax: -71.77749 ymax: 45.01586
 Geodetic CRS:  NAD83
-tl_2024_37_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_37_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_37_cd119\tl_2024_37_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1648,7 +1497,6 @@ Geometry type: POLYGON
 Dimension:     XY
 Bounding box:  xmin: -84.32182 ymin: 33.75288 xmax: -75.40012 ymax: 36.58814
 Geodetic CRS:  NAD83
-tl_2024_38_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_38_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_38_cd119\tl_2024_38_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1657,7 +1505,6 @@ Geometry type: POLYGON
 Dimension:     XY
 Bounding box:  xmin: -104.049 ymin: 45.93507 xmax: -96.55441 ymax: 49.00056
 Geodetic CRS:  NAD83
-tl_2024_39_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_39_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_39_cd119\tl_2024_39_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1666,7 +1513,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -84.8203 ymin: 38.40342 xmax: -80.5187 ymax: 42.32713
 Geodetic CRS:  NAD83
-tl_2024_40_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_40_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_40_cd119\tl_2024_40_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1675,7 +1521,6 @@ Geometry type: POLYGON
 Dimension:     XY
 Bounding box:  xmin: -103.0024 ymin: 33.61579 xmax: -94.43101 ymax: 37.00231
 Geodetic CRS:  NAD83
-tl_2024_41_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_41_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_41_cd119\tl_2024_41_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1684,7 +1529,6 @@ Geometry type: POLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.7035 ymin: 41.99208 xmax: -116.4633 ymax: 46.2991
 Geodetic CRS:  NAD83
-tl_2024_42_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_42_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_42_cd119\tl_2024_42_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1693,8 +1537,6 @@ Geometry type: POLYGON
 Dimension:     XY
 Bounding box:  xmin: -80.51985 ymin: 39.7198 xmax: -74.68956 ymax: 42.51607
 Geodetic CRS:  NAD83
-tl_2024_43_cd119.zip already exists, skipping download.
-tl_2024_44_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_44_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_44_cd119\tl_2024_44_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1703,7 +1545,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -71.90726 ymin: 41.09583 xmax: -71.08857 ymax: 42.0188
 Geodetic CRS:  NAD83
-tl_2024_45_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_45_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_45_cd119\tl_2024_45_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1712,7 +1553,6 @@ Geometry type: POLYGON
 Dimension:     XY
 Bounding box:  xmin: -83.35393 ymin: 31.99595 xmax: -78.4993 ymax: 35.21548
 Geodetic CRS:  NAD83
-tl_2024_46_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_46_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_46_cd119\tl_2024_46_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1721,7 +1561,6 @@ Geometry type: POLYGON
 Dimension:     XY
 Bounding box:  xmin: -104.0579 ymin: 42.47969 xmax: -96.43647 ymax: 45.94538
 Geodetic CRS:  NAD83
-tl_2024_47_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_47_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_47_cd119\tl_2024_47_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1730,7 +1569,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -90.31049 ymin: 34.98292 xmax: -81.6469 ymax: 36.67826
 Geodetic CRS:  NAD83
-tl_2024_48_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_48_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_48_cd119\tl_2024_48_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1739,7 +1577,6 @@ Geometry type: POLYGON
 Dimension:     XY
 Bounding box:  xmin: -106.6456 ymin: 25.83705 xmax: -93.50804 ymax: 36.5007
 Geodetic CRS:  NAD83
-tl_2024_49_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_49_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_49_cd119\tl_2024_49_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1748,7 +1585,6 @@ Geometry type: POLYGON
 Dimension:     XY
 Bounding box:  xmin: -114.0529 ymin: 36.99766 xmax: -109.0416 ymax: 42.0017
 Geodetic CRS:  NAD83
-tl_2024_50_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_50_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_50_cd119\tl_2024_50_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1757,7 +1593,6 @@ Geometry type: POLYGON
 Dimension:     XY
 Bounding box:  xmin: -73.4379 ymin: 42.72693 xmax: -71.46505 ymax: 45.01666
 Geodetic CRS:  NAD83
-tl_2024_51_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_51_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_51_cd119\tl_2024_51_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1766,8 +1601,6 @@ Geometry type: POLYGON
 Dimension:     XY
 Bounding box:  xmin: -83.67539 ymin: 36.54085 xmax: -75.16644 ymax: 39.46601
 Geodetic CRS:  NAD83
-tl_2024_52_cd119.zip already exists, skipping download.
-tl_2024_53_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_53_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_53_cd119\tl_2024_53_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1776,7 +1609,6 @@ Geometry type: POLYGON
 Dimension:     XY
 Bounding box:  xmin: -124.849 ymin: 45.54354 xmax: -116.9161 ymax: 49.00244
 Geodetic CRS:  NAD83
-tl_2024_54_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_54_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_54_cd119\tl_2024_54_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1785,7 +1617,6 @@ Geometry type: POLYGON
 Dimension:     XY
 Bounding box:  xmin: -82.64459 ymin: 37.20154 xmax: -77.71952 ymax: 40.6388
 Geodetic CRS:  NAD83
-tl_2024_55_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_55_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_55_cd119\tl_2024_55_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1794,7 +1625,6 @@ Geometry type: POLYGON
 Dimension:     XY
 Bounding box:  xmin: -92.88943 ymin: 42.49172 xmax: -86.24955 ymax: 47.30982
 Geodetic CRS:  NAD83
-tl_2024_56_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_56_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_56_cd119\tl_2024_56_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1803,10 +1633,6 @@ Geometry type: POLYGON
 Dimension:     XY
 Bounding box:  xmin: -111.0546 ymin: 40.99477 xmax: -104.0522 ymax: 45.00582
 Geodetic CRS:  NAD83
-tl_2024_57_cd119.zip already exists, skipping download.
-tl_2024_58_cd119.zip already exists, skipping download.
-tl_2024_59_cd119.zip already exists, skipping download.
-tl_2024_60_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_60_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_60_cd119\tl_2024_60_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1815,12 +1641,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -171.1419 ymin: -14.60181 xmax: -168.1016 ymax: -10.9972
 Geodetic CRS:  NAD83
-tl_2024_61_cd119.zip already exists, skipping download.
-tl_2024_62_cd119.zip already exists, skipping download.
-tl_2024_63_cd119.zip already exists, skipping download.
-tl_2024_64_cd119.zip already exists, skipping download.
-tl_2024_65_cd119.zip already exists, skipping download.
-tl_2024_66_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_66_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_66_cd119\tl_2024_66_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1829,9 +1649,6 @@ Geometry type: POLYGON
 Dimension:     XY
 Bounding box:  xmin: 144.5634 ymin: 13.18234 xmax: 145.0092 ymax: 13.70618
 Geodetic CRS:  NAD83
-tl_2024_67_cd119.zip already exists, skipping download.
-tl_2024_68_cd119.zip already exists, skipping download.
-tl_2024_69_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_69_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_69_cd119\tl_2024_69_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1840,9 +1657,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: 144.8133 ymin: 14.03656 xmax: 146.1544 ymax: 20.61656
 Geodetic CRS:  NAD83
-tl_2024_70_cd119.zip already exists, skipping download.
-tl_2024_71_cd119.zip already exists, skipping download.
-tl_2024_72_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_72_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_72_cd119\tl_2024_72_cd119.shp' 
   using driver `ESRI Shapefile'
@@ -1851,12 +1665,6 @@ Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -67.99875 ymin: 17.83151 xmax: -65.1685 ymax: 18.568
 Geodetic CRS:  NAD83
-tl_2024_73_cd119.zip already exists, skipping download.
-tl_2024_74_cd119.zip already exists, skipping download.
-tl_2024_75_cd119.zip already exists, skipping download.
-tl_2024_76_cd119.zip already exists, skipping download.
-tl_2024_77_cd119.zip already exists, skipping download.
-tl_2024_78_cd119.zip already exists, skipping download.
 Reading layer `tl_2024_78_cd119' from data source 
   `C:\Users\velas\OneDrive\Documents\STA9750-2024-FALL\census_shapefiles\tl_2024_78_cd119\tl_2024_78_cd119.shp' 
   using driver `ESRI Shapefile'

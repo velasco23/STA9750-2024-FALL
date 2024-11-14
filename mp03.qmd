@@ -80,10 +80,10 @@ download_and_load_shapefile <- function(file_name, sample_fraction = 0.1) {  # A
   
   # checking if already downloaded
   if (!file.exists(local_zip_path)) {
-    cat("Downloading", file_name, "...\n")
+    #cat("Downloading", file_name, "...\n")
     GET(url, write_disk(local_zip_path, overwrite = TRUE))
   } else {
-    cat(file_name, "already exists, skipping download.\n")
+    #cat(file_name, "already exists, skipping download.\n")
   }
   
   # Unzip and load the shapefile
@@ -104,8 +104,8 @@ download_and_load_shapefile <- function(file_name, sample_fraction = 0.1) {  # A
     
     return(shapefile_data)
   } else {
-    message("No shapefile found in 'districtShapes' for", file_name)
-    return(NULL)
+    #message("No shapefile found in 'districtShapes' for", file_name)
+    #return(NULL)
   }
 }
 
@@ -145,10 +145,10 @@ Data 3 - Congressional Shapefiles 2014-Present:
     
     # Check if file already exists to avoid re-downloading
     if (!file.exists(local_zip_path)) {
-      cat("Downloading", file_name, "...\n")
+      #cat("Downloading", file_name, "...\n")
       GET(url, write_disk(local_zip_path, overwrite = TRUE))
     } else {
-      cat(file_name, "already exists, skipping download.\n")
+      #cat(file_name, "already exists, skipping download.\n")
     }
     
     # Unzip and load the shapefile
@@ -164,8 +164,8 @@ Data 3 - Congressional Shapefiles 2014-Present:
       census_data <- st_read(shp_file)
       return(census_data)
     } else {
-      message("No shapefile found in unzipped directory for", file_name)
-      return(NULL)
+      #message("No shapefile found in unzipped directory for", file_name)
+      #return(NULL)
     }
   }
   
