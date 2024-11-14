@@ -646,7 +646,7 @@ ggplot(data = contiguous_us_all) +
   geom_sf(aes(fill = party_simplified), color = "black") +  
   scale_fill_manual(values = c("REPUBLICAN" = "red", "DEMOCRAT" = "blue"), name = "Winner") +
   geom_text(aes(label = elec_college, geometry = geometry), size = 3, stat = "sf_coordinates") +
-  labs(title = "2000 U.S. Presidential Election Results by State") +
+  labs(title = "U.S. Presidential Election Results by State") +
   theme_minimal() +
   theme(legend.position = "bottom") +
   facet_wrap(~ year) 
@@ -672,17 +672,23 @@ Recently, comparing the map below to the map in Task 6, we can see a recent elec
 #| warning: false
 #| code-summary: "Task 6 - USA Electoral College - Mainland USA - Facet by Year Graph"
 #| 
-library(sf)
-library(dplyr)
 library(ggplot2)
+
+# color scale plot based on popular vote
 ggplot(data = contiguous_us_all) +
-  geom_sf(aes(fill = party_simplified), color = "black") +  
-  scale_fill_manual(values = c("REPUBLICAN" = "red", "DEMOCRAT" = "blue"), name = "Winner") +
+  geom_sf(aes(fill = ifelse(party_simplified == "REPUBLICAN", candidatevotes, -candidatevotes)), color = "black") +
+  scale_fill_gradient2(
+    name = "Votes",
+    low = "blue",        
+    mid = "white",       
+    high = "red",        
+    midpoint = 0        
+  ) +
   geom_text(aes(label = elec_college, geometry = geometry), size = 3, stat = "sf_coordinates") +
   labs(title = "2000 U.S. Presidential Election Results by State") +
   theme_minimal() +
   theme(legend.position = "bottom") +
-  facet_wrap(~ year) 
+  facet_wrap(~ year)  
 
 ```
 

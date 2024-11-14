@@ -848,7 +848,31 @@ Task 7: Evaluating Fairness of ECV Allocation Schemes
 <p>As you perform your analysis, you may assume that the District of Columbia has three ECVs, which are allocated to the Democratic candidate under all schemes except possibly national popular vote.[^8]</p>
 </div>
 </div>
-<p><span style="color: orange;">I believe that the “winner-takes-all” approach is the fairest system, as it ensures that each state’s collective voice is heard. This method allows individuals with unique perspectives to have an impact, especially in an environment where media often shapes public opinion. Being an independent thinker can feel rare, and those who stray from mainstream ideas are sometimes marginalized. In a “winner-takes-all” system, if there are enough people in your state who share your viewpoint, your state can allocate all its electoral votes to the candidate you support. If votes were divided by district, I suspect we would see more gerrymandering, with boundaries manipulated to influence outcomes in favor of one party.</span></p>
+<p>[I believe that the “winner-takes-all” approach is the fairest system, as it ensures that each state’s collective voice is heard. This method allows individuals with unique perspectives to have an impact, especially in an environment where media often shapes public opinion. Being an independent thinker can feel rare, and those who stray from mainstream ideas are sometimes marginalized. In a “winner-takes-all” system, if there are enough people in your state who share your viewpoint, your state can allocate all its electoral votes to the candidate you support. If votes were divided by district, I suspect we would see more gerrymandering, with boundaries manipulated to influence outcomes in favor of one party.</p>
+<p>Recently, comparing the map below to the map in Task 6, we can see a recent election (2016) would have gotten a different candidate if the status quo was to elect the popular vote instead of electoral college. ]{style=“color: orange;”}</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Task 6 - USA Electoral College - Mainland USA - Facet by Year Graph</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> contiguous_us_all) <span class="sc">+</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">fill =</span> party_simplified), <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span>  </span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"REPUBLICAN"</span> <span class="ot">=</span> <span class="st">"red"</span>, <span class="st">"DEMOCRAT"</span> <span class="ot">=</span> <span class="st">"blue"</span>), <span class="at">name =</span> <span class="st">"Winner"</span>) <span class="sc">+</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> elec_college, <span class="at">geometry =</span> geometry), <span class="at">size =</span> <span class="dv">3</span>, <span class="at">stat =</span> <span class="st">"sf_coordinates"</span>) <span class="sc">+</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"2000 U.S. Presidential Election Results by State"</span>) <span class="sc">+</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>) <span class="sc">+</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> year) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="mp03_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="conclusion" class="level2">
