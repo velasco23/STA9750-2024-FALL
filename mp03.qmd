@@ -26,6 +26,7 @@ Data 1a - House Election 1976 - 2022:
 
 ```{r}
 #| label: 'House Election 1976 - 2022 code'
+#| code-fold: true
 #| message: false 
 #| warning: false
 #| cache: true
@@ -39,6 +40,7 @@ Data 1b - Presidential Election 1976 - 2022:
 
 ```{r}
 #| label: 'Preisdential Election 1976 - 2022 code'
+#| code-fold: true
 #| message: false 
 #| warning: false
 #| cache: true
@@ -53,6 +55,7 @@ Data 2 - Congressional Shapefiles 1976-2012:
 
 ```{r}
 #| label: 'Congressional Boundaries 1976-2012 code'
+#| code-fold: true
 #| message: false 
 #| warning: false
 #| cache: true
@@ -121,6 +124,7 @@ Data 3 - Congressional Shapefiles 2014-Present:
 
 ```{r}
 #| label: 'Congressional Boundaries 2014-Present code'
+#| code-fold: true
 #| message: false 
 #| warning: false
 #| cache: true
