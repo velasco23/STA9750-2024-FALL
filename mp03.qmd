@@ -12,13 +12,13 @@ editor: visual
 4.  [Data Exploration](#4.-Data-Exploration)
 5.  [Conclusion](#5.-Conclusion)
 
-## [1. Introduction]{style="color: blue;"}
+## [1. Introduction]{style="color: cyan;"}
 
 The objective of this analysis is to identify trends, patterns and other factors that contribute to the fairness of an Election. While there are many factors that contribute to a fair and equal election, being able to investigate different type of election methods allows us to make our own conclusion.
 
 This project will attempt to identify different methods for an election using government data. This data will allow us to use quantifiable past voter's past selection without having to survey a large population. Ideally, the result will be to feel content with the current system or propose a new voting method.
 
-## [2. Data Sources]{style="color: blue;"}
+## [2. Data Sources]{style="color: cyan;"}
 
 We had to download four different sets of data for this analysis.
 
@@ -182,11 +182,11 @@ Data 3 - Congressional Shapefiles 2014-Present:
 
 The data 1 sources allows us to take a peek into historical election data for house of representations and presidential races. Additionally, data 2 & 3 show us voting boundaries via SHP files which allow you to plot a graph easily. This is important to make election results more digestible and allow for the viewer to analyze trends throughout the United States
 
-## [3. Data Cleaning and Pre-processing]{style="color: blue;"}
+## [3. Data Cleaning and Pre-processing]{style="color: cyan;"}
 
 In this analysis we will clean the data and drop all empty columns as we conduct the tasks provided by the professor. Overall, the data that we are dealing with is pretty clean and organized, the columns are the expected data type as well.
 
-## [4. Data Exploration]{style="color: blue;"}
+## [4. Data Exploration]{style="color: cyan;"}
 
 ::: {.callout-tip title="Task 3: Exploration of Vote Count Data"}
 Answer the following using the vote count data files from the MIT Election Data Science Lab. You may answer each with a table or plot as you feel is appropriate.
@@ -402,6 +402,7 @@ ggplot(comparison_long, aes(x = factor(year), y = votes, fill = vote_type)) +
 
 [In Task 4, we will begin to examine some SHP files. As stated before, these files allow for accurate map plotting.]{style="color: orange;"}
 
+[First you can see an outline of all the NYC boroughs. Second you will see the same map but filled in with some color. Keep in mind we can set the fill to be any colums as the fill color. This is just an examplpe.]{style="color: orange;"}
 ### NYC Boundary Plot:
 
 ```{r}
@@ -539,7 +540,7 @@ location_and_election <- all_states_outline %>%
 
 ```
 
-[Below is my attempt at recreating the electoral college votes for 2000. You can clearly see my limited experience with the R language through this graph. This graph is hard to digest because areas like Hawaii and Alaska skew the map and map it extremely hard to see the electoral votes in the main land.]{style="color: orange;"}
+[Below is my attempt at recreating the electoral college votes for 2000. You can clearly see my limited experience with the R language through this graph. This graph is hard to digest because areas like Hawaii and Alaska skew the map and make it extremely hard to see the electoral votes in the main land.]{style="color: orange;"}
 
 ```{r}
 #| code-fold: true
@@ -662,8 +663,29 @@ To do so, you should first determine which allocation scheme you consider "faire
 As you perform your analysis, you may assume that the District of Columbia has three ECVs, which are allocated to the Democratic candidate under all schemes except possibly national popular vote.\[\^8\]
 :::
 
-[I believe that the "winner-takes-all" approach is the fairest system, as it ensures that each state’s collective voice is heard. This method allows individuals with unique perspectives to have an impact, especially in an environment where media often shapes public opinion. Being an independent thinker can feel rare, and those who stray from mainstream ideas are sometimes marginalized. In a "winner-takes-all" system, if there are enough people in your state who share your viewpoint, your state can allocate all its electoral votes to the candidate you support. If votes were divided by district, I suspect we would see more gerrymandering, with boundaries manipulated to influence outcomes in favor of one party.]{style="color: orange;"}
+[I believe that the "winner-takes-all" approach is the fairest system, as it ensures that each state’s collective voice is heard. This method allows individuals with unique perspectives to have an impact, especially in an environment where media often shapes public opinion. Being an independent thinker can feel rare, and those who stray from mainstream ideas are sometimes marginalized. In a "winner-takes-all" system, if there are enough people in your state who share your viewpoint, your state can allocate all its electoral votes to the candidate you support. If votes were divided by district, I suspect we would see more gerrymandering, with boundaries manipulated to influence outcomes in favor of one party.
 
-## [5. Conclusion]{style="color: blue;"}
+Recently, comparing the map below to the map in Task 6, we can see a recent election (2016) would have gotten a different candidate if the status quo was to elect the popular vote instead of electoral college. ]{style="color: orange;"}
+
+```{r}
+#| code-fold: true
+#| warning: false
+#| code-summary: "Task 6 - USA Electoral College - Mainland USA - Facet by Year Graph"
+#| 
+library(sf)
+library(dplyr)
+library(ggplot2)
+ggplot(data = contiguous_us_all) +
+  geom_sf(aes(fill = party_simplified), color = "black") +  
+  scale_fill_manual(values = c("REPUBLICAN" = "red", "DEMOCRAT" = "blue"), name = "Winner") +
+  geom_text(aes(label = elec_college, geometry = geometry), size = 3, stat = "sf_coordinates") +
+  labs(title = "2000 U.S. Presidential Election Results by State") +
+  theme_minimal() +
+  theme(legend.position = "bottom") +
+  facet_wrap(~ year) 
+
+```
+
+## [5. Conclusion]{style="color: cyan;"}
 
 [In conclusion, the Electoral College system provides a balanced approach to electing the President of the United States by ensuring representation for both populous and less populous states. By giving each state the power to choose how its electoral votes are allocated, the process respects the unique preferences and values of individual states, allowing them to play a significant role in the election outcome. This decentralized approach is what makes the system fundamentally democratic, as it empowers states to represent the voices of their constituents in a way that directly influences the selection of national leadership. The Electoral College, therefore, not only balances the interests of diverse regions but also upholds a fair process that reflects the principles of federalism and democracy.]{style="color: orange;"}
