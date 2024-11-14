@@ -12,13 +12,13 @@ editor: visual
 4.  [Data Exploration](#4.-Data-Exploration)
 5.  [Conclusion](#5.-Conclusion)
 
-## [1. Introduction]{style="color: orange;"}
+## [1. Introduction]{style="color: blue;"}
 
 The objective of this analysis is to identify trends, patterns and other factors that contribute to the fairness of an Election. While there are many factors that contribute to a fair and equal election, being able to investigate different type of election methods allows us to make our own conclusion.
 
 This project will attempt to identify different methods for an election using government data. This data will allow us to use quantifiable past voter's past selection without having to survey a large population. Ideally, the result will be to feel content with the current system or propose a new voting method.
 
-## [2. Data Sources]{style="color: orange;"}
+## [2. Data Sources]{style="color: blue;"}
 
 We had to download four different sets of data for this analysis.
 
@@ -97,7 +97,7 @@ download_and_load_shapefile <- function(file_name, sample_fraction = 0.1) {  # A
   shp_file <- list.files(district_shapes_dir, pattern = "\\.shp$", full.names = TRUE)
   
   if (length(shp_file) > 0) {
-    shapefile_data <- st_read(shp_file)
+    shapefile_data <- st_read(shp_file, quiet = TRUE)
     
     # Sub-sample the shapefile data (e.g., take 10% of rows)
     shapefile_data <- shapefile_data %>% sample_frac(sample_fraction)
@@ -161,7 +161,7 @@ Data 3 - Congressional Shapefiles 2014-Present:
     shp_file <- list.files(unzip_dir, pattern = "\\.shp$", full.names = TRUE)
     
     if (length(shp_file) > 0) {
-      census_data <- st_read(shp_file)
+      census_data <- st_read(shp_file, quiet = TRUE)
       return(census_data)
     } else {
       #message("No shapefile found in unzipped directory for", file_name)
@@ -182,11 +182,11 @@ Data 3 - Congressional Shapefiles 2014-Present:
 
 The data 1 sources allows us to take a peek into historical election data for house of representations and presidential races. Additionally, data 2 & 3 show us voting boundaries via SHP files which allow you to plot a graph easily. This is important to make election results more digestible and allow for the viewer to analyze trends throughout the United States
 
-## [3. Data Cleaning and Pre-processing]{style="color: orange;"}
+## [3. Data Cleaning and Pre-processing]{style="color: blue;"}
 
 In this analysis we will clean the data and drop all empty columns as we conduct the tasks provided by the professor. Overall, the data that we are dealing with is pretty clean and organized, the columns are the expected data type as well.
 
-## [4. Data Exploration]{style="color: orange;"}
+## [4. Data Exploration]{style="color: blue;"}
 
 ::: {.callout-tip title="Task 3: Exploration of Vote Count Data"}
 Answer the following using the vote count data files from the MIT Election Data Science Lab. You may answer each with a table or plot as you feel is appropriate.
@@ -248,7 +248,7 @@ ggplot(house_count_by_state, aes(x = reorder(state, difference), y = difference)
 ```{r}
 #| code-fold: true
 #| warning: false
-#| code-summary: "Task 2 Question 2 - Code & Data Cleaning"
+#| code-summary: "Task 3 Question 2 - Code & Data Cleaning"
 
 # Filter for New York State & general elections only
 ny_elections <- house_of_reps |>
@@ -303,17 +303,26 @@ comparison <- fusion_winner |>
 library(knitr)
 library(DT)
 
-kable(comparison, caption = "Comparison of Fusion Voting vs Major Party Voting Results")
+#kable(comparison, caption = "Comparison of Fusion Voting vs Major Party Voting Results")
 
 # Display the comparison table as an interactive datatable
 datatable(
   comparison,
   caption = "Comparison of Fusion Voting vs Major Party Voting Results",
-  options = list(pageLength = 10, autoWidth = TRUE),
-  rownames = FALSE
-)
-
-
+  options = list(
+    pageLength = 10,
+    autoWidth = TRUE,
+    rownames = FALSE,
+    dom = 't<"bottom"ip>',  
+    class = 'display compact'  
+  )
+) %>%
+  formatStyle(
+    columns = names(comparison),  # Apply style to all columns
+    backgroundColor = 'white',    # White background
+    color = 'black',              # Black text
+    borderColor = 'black'         # Black borders
+  )
 ```
 
 ### Task 3 Question 3:
@@ -398,6 +407,7 @@ ggplot(comparison_long, aes(x = factor(year), y = votes, fill = vote_type)) +
 ```{r}
 #| code-fold: true
 #| warning: false
+
 #| code-summary: "Task 4 - NYC Boundary"
 
 library(sf)
@@ -421,9 +431,9 @@ shp_file <- list.files(temp_dir, pattern = "\\.shp$", full.names = TRUE)
 # Check if the .shp file was found, then load it into R
 if (length(shp_file) > 0) {
   nyc_sf <- read_sf(shp_file)
-  print(nyc_sf)
+  #print(nyc_sf)
 } else {
-  stop("The shapefile (.shp) was not found in the extracted contents. Please check the ZIP file.")
+  stop(NULL)
 }
 #outline nyc map
 ggplot(nyc_sf, 
@@ -434,12 +444,6 @@ ggplot(nyc_sf,
 ggplot(nyc_sf, 
        aes(geometry=geometry, 
            fill = shape_area)) + 
-  geom_sf()
-
-
-
-ggplot(census_shapefiles[[5]], 
-       aes(geometry=geometry)) + 
   geom_sf()
 
 ```
@@ -483,7 +487,7 @@ house_of_reps_2000 <- house_of_reps |>
   filter(year == 2000) |>
   group_by(state) |>
   summarize(district_count = n_distinct(district))
-print(house_of_reps_2000)
+
 
 #combine elec college & presidents
 combined_data_2000 <- house_of_reps_2000 %>%
@@ -591,6 +595,8 @@ Modify your previous code to make either an ~~*animated*~~ *faceted* version sho
 You may want to set `facet_wrap` or `facet_grid` to use a single column and [adjust the figure size](https://quarto.org/docs/authoring/figures.html#computations) for the best reading experience.
 :::
 
+[Here we can see how states have changed from red to blue and vise versa. It is intresting to see that the middle of the country remains red and the coasts are typically blue. It is more intresting when those states are flipped at certain years.]{style="color: orange;"}
+
 ```{r}
 #| code-fold: true
 #| message: false
@@ -658,6 +664,6 @@ As you perform your analysis, you may assume that the District of Columbia has t
 
 [I believe that the "winner-takes-all" approach is the fairest system, as it ensures that each state’s collective voice is heard. This method allows individuals with unique perspectives to have an impact, especially in an environment where media often shapes public opinion. Being an independent thinker can feel rare, and those who stray from mainstream ideas are sometimes marginalized. In a "winner-takes-all" system, if there are enough people in your state who share your viewpoint, your state can allocate all its electoral votes to the candidate you support. If votes were divided by district, I suspect we would see more gerrymandering, with boundaries manipulated to influence outcomes in favor of one party.]{style="color: orange;"}
 
-## [5. Conclusion]{style="color: orange;"}
+## [5. Conclusion]{style="color: blue;"}
 
 [In conclusion, the Electoral College system provides a balanced approach to electing the President of the United States by ensuring representation for both populous and less populous states. By giving each state the power to choose how its electoral votes are allocated, the process respects the unique preferences and values of individual states, allowing them to play a significant role in the election outcome. This decentralized approach is what makes the system fundamentally democratic, as it empowers states to represent the voices of their constituents in a way that directly influences the selection of national leadership. The Electoral College, therefore, not only balances the interests of diverse regions but also upholds a fair process that reflects the principles of federalism and democracy.]{style="color: orange;"}
