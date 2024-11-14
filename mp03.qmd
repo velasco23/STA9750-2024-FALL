@@ -670,7 +670,7 @@ Recently, comparing the map below to the map in Task 6, we can see a recent elec
 ```{r}
 #| code-fold: true
 #| warning: false
-#| code-summary: "Task 6 - USA Electoral College - Mainland USA - Facet by Year Graph"
+#| code-summary: "Task 6 - USA Popular Vote - Mainland USA - Facet by Year Graph"
 #| 
 library(ggplot2)
 
@@ -689,7 +689,6 @@ ggplot(data = contiguous_us_all) +
   theme_minimal() +
   theme(legend.position = "bottom") +
   facet_wrap(~ year)  
-
 ```
 
 ## [5. Conclusion]{style="color: cyan;"}
