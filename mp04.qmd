@@ -82,9 +82,13 @@ FRED: Tracked Indexes
 
 -   Short Term Debt
 
+
+
+
+
 Code for API utilization -
 
-US Equity Market: \$VOO :
+
 
 ```{r}
 #| label: 'US Equity Market: $VOO code'
@@ -146,7 +150,7 @@ if (resp_status(resp_voo) == 200) {
 }
 ```
 
-International Equity Market: \$VXUS
+
 
 ```{r}
 #| label: 'International Equity Market: $VXUS code'
@@ -207,7 +211,7 @@ if (resp_status(resp_vxus) == 200) {
 }
 ```
 
-Bond Market: \$BND
+
 
 ```{r}
 #| label: 'Bond Market: $BND code'
@@ -260,8 +264,7 @@ if (resp_status(resp_bnd) == 200) {
       rename(`BND Adjusted` = `Adjusted Close`) |>
       arrange(Date)
     
-    # Print the first few rows of the adjusted data
-    print(head(bnd_data))
+
   } else {
     stop("No 'Monthly Adjusted Time Series' data found in the response.")
   
@@ -272,7 +275,7 @@ if (resp_status(resp_bnd) == 200) {
 
 ```
 
-Wage Growth:
+
 
 ```{r}
 #| label: 'Wage Growth code'
@@ -314,12 +317,10 @@ response <- GET(fred_url, query = params)
       value = as.numeric(value)           # Convert 'value' column to numeric, value = Average Hourly Earnings of Private Sector Employees
     ) |>
     select(date, value)
-  
-  # Print the first few rows
-  print(head(wage_data))
+
 ```
 
-Inflation:
+
 
 ```{r}
 #| label: 'Inflation code'
@@ -363,7 +364,7 @@ response <- GET(fred_url, query = params)
   
 ```
 
-Short Term Debt:
+
 
 ```{r}
 #| label: 'Short Term Debt code'
@@ -411,7 +412,7 @@ In this analysis we obtained data from sources where the data is regularly maint
 
 We did need to change Short Term Debt from daily monthly figure
 
-Short Term Debt:
+
 
 ```{r}
 #| label: 'Short Term Debt monthly code'
@@ -424,6 +425,7 @@ Short Term Debt:
 # Load necessary libraries
 library(dplyr)
 library(lubridate)
+library(knitr)
 
 # Filter the data to include only the first observation of each month
 monthly_treasury_yield <- treasury_yield_data %>%
@@ -437,7 +439,6 @@ monthly_treasury_yield <- treasury_yield_data %>%
 
 In order to join our data we were able to find a common columns within all table and that was the date column or month-year column .
 
-FRED Combined Data:
 
 ```{r}
 #| label: 'FRED Combined Data code'
@@ -447,6 +448,7 @@ FRED Combined Data:
 #| cache: true
 #| code-summary: "FRED Combined Data"
 
+library(knitr)
 #change column names
 wage_data <- wage_data |>
   rename('wage' = value)
@@ -465,12 +467,11 @@ fred_combined_data <- wage_data %>%
 fred_cleaned_data <- na.omit(fred_combined_data)
 
 # Print the first few rows of the cleaned dataset
-print(head(fred_cleaned_data))
+kable(fred_cleaned_data, caption = "FRED Cleaned Data")
 
 
 ```
 
-Alpha Combined Data:
 
 ```{r}
 #| label: 'Alpha Combined Data code'
@@ -487,11 +488,10 @@ alpha_combined_data <- voo_data %>%
   full_join(bnd_data, by = "Date")      # Join bnd_data with the result
 
 # Print the first few rows of the combined dataset
-print(head(alpha_combined_data))
 
+kable(alpha_combined_data, caption = "Alphavantage Combined Data")
 ```
 
-Final Combined Data:
 
 ```{r}
 #| label: 'Final Combined Data code'
@@ -512,8 +512,8 @@ final_combined_data <- alpha_combined_data %>%
   select(-date)
   
 # Print the first few rows of the merged dataset
-print(head(final_combined_data))
 
+kable(final_combined_data, caption = "Combined Data")
 
 ```
 
@@ -645,7 +645,7 @@ Here we can see that inflation and wages have grown at a similar "slope", howeve
 ```{r}
 #| code-fold: true
 #| warning: false
-#| code-summary: "Task 3 Question 1"
+#| code-summary: "Growth Over Time"
 
 library(ggplot2)
 
@@ -689,12 +689,763 @@ ggplot(fred_cleaned_data, aes(x = date, y = `short term debt`)) +
 
 The different retirement plan detail can be found [here](https://www.cuny.edu/wp-content/uploads/sites/4/page-assets/about/administration/offices/hr/benefits/Benefits-Guide-Retirement-Plans-Final-HEO-and-ECP.pdf). 
 
-The 
+The Teacher Retirement System (TRS) is less risky than the Optional Retirement Plan (ORP). However, with risk there is reward. 
+
+We plan to do a historical comparison of TRS vs ORP
+
+Employee starting Age: 25
+Year of Service: 30 
+Starting Salary: $45,000
+
+In the TRS we assume the ending salary will be \$120,000 in order to calculate our Final Average Salary. Although, we do not know which plan is better, it is clear that TRS become exponentially better after 20 years of service. I am sure this correlates with a university's desire to retain their staff for a long period of time. This type of plan incentives the employees to remain loyal to the institution for at least 20 years. In this scenario, if the employee completes 30 years of service, they will get $111,543 dollars annually. Assuming the employee retires at 55 and lives to 100, that is ~5 million. However, nothing will be left to their heirs.    
+
+```{r}
+#| code-fold: true
+#| warning: false
+#| code-summary: "TRS simulation"
+
+###TRS retirement
+
+# Load necessary libraries
+library(dplyr)
+library(ggplot2)
+
+# Define the attributes of the TRS plan
+# Contribution rates by salary range
+contribution_rate <- function(salary) {
+  case_when(
+    salary <= 45000 ~ 0.03,
+    salary > 45000 & salary <= 55000 ~ 0.035,
+    salary > 55000 & salary <= 75000 ~ 0.045,
+    salary > 75000 & salary <= 100000 ~ 0.0575,
+    salary > 100000 ~ 0.06
+  )
+}
+
+# Corrected retirement benefit calculation based on Final Average Salary (FAS) and years of service
+retirement_benefit <- function(FAS, years) {
+  ifelse(
+    years < 20,
+    1.67 / 100 * FAS * years,  # 1.67% per year for up to 20 years
+    ifelse(
+      years == 20,
+      1.75 / 100 * FAS * years,  # 1.75% for exactly 20 years
+      (0.35 + 0.02 * years) * FAS  # 35% + 2% per year over 20
+    )
+  )
+}
+
+# Inflation adjustment calculation
+inflation_adjustment <- function(CPI) {
+  adjustment <- min(max((CPI * 0.5), 1), 3)  # 50% of CPI, capped between 1% and 3%
+  return(adjustment)
+}
+
+
+# Example dataset to represent an employee's career progression
+employee_data <- tibble(
+  Year = 1:30,                     # Years of service
+  Salary = seq(45000, 120000, length.out = 30),  # Example salary progression
+  Contribution = Salary * contribution_rate(Salary)  # Employee contributions
+)
+
+# Correct computation of FAS
+employee_data <- employee_data %>%
+  mutate(FAS = ifelse(
+    Year >= 3,  # For years greater than or equal to 3
+    rowMeans(cbind(
+      lag(Salary, 2),  # Salary from two years ago
+      lag(Salary, 1),  # Salary from one year ago
+      Salary           # Current Salary
+    ), na.rm = TRUE),  # Calculate mean, ignoring NA values
+    NA                # Otherwise, set FAS to NA
+  ))
+
+# Calculate the retirement benefit for each year
+employee_data <- employee_data %>%
+  mutate(Retirement_Benefit = ifelse(
+    Year >= 3,  # Ensure benefits are only calculated for years >= 3
+    retirement_benefit(FAS, Year),
+    NA  # Otherwise, set to NA
+  ))
+
+# Inflation-adjusted benefit
+# Example CPI values (in percent) for demonstration
+CPI_values <- c(3.2, 2.9, 1.8, 2.5, 2.1, 3.0, 1.5, 0.8, 4.2, 2.4)
+
+inflation_adjusted_benefit <- numeric(length = 30)
+for (i in 1:30) {
+  if (i > 3) {
+    CPI <- mean(CPI_values[max(1, i - 11):i])  # Aggregate last 12 months
+    inflation_adjusted_benefit[i] <- employee_data$Retirement_Benefit[i] *
+      (1 + inflation_adjustment(CPI) / 100)
+  }
+}
+employee_data <- employee_data %>%
+  mutate(Inflation_Adjusted_Benefit = inflation_adjusted_benefit)
+
+# View the final dataset
+print(employee_data)
+
+# Plot salary, contributions, and benefits over time
+ggplot(employee_data, aes(x = Year)) +
+  geom_line(aes(y = Salary, color = "Salary"), size = 1) +
+  geom_line(aes(y = Contribution, color = "Contribution"), size = 1) +
+  geom_line(aes(y = Retirement_Benefit, color = "Retirement Benefit"), size = 1) +
+#  geom_line(aes(y = Inflation_Adjusted_Benefit, color = "Inflation-Adjusted Benefit"), size = 1) +
+  labs(
+    title = "TRS Plan Attributes Over Time",
+    x = "Years of Service",
+    y = "Amount (USD)",
+    color = "Attributes"
+  ) +
+  theme_minimal()
+
+
+
+
+```
+
+Looking at the OPR plan, we are assuming a salary growth rate of 3% annually, with a 7% market growth rate and a 4% withdrawal rate upon retirement.  The graph below shows the account balance of a retirement account for an OPR plan. In a similar scenario, the employee would contribute to their retirement fund and take advantage of employer contributions. At the end of their 30 year service. If we assume the same retirement age (55) and life span (100), then this person will get a total \$2,983,296 in retirement. The table below will show the annual withdrawal amount, as you can see it increase as years go by. A key factor that the other plan doesn't offer is transfer of funds. The employee will never run out of money in this scenario and will have $3,041,856 to leave to their heir. If they do not have any heirs, the employee may withdraw at a higher percentage as well. 
+
+```{r}
+#| code-fold: true
+#| warning: false
+#| code-summary: "OPR simulation"
+
+##OPR
+# Load necessary libraries
+library(dplyr)
+library(ggplot2)
+
+# Define employee contribution rates
+employee_contribution_rate <- function(salary) {
+  case_when(
+    salary <= 45000 ~ 0.03,
+    salary > 45000 & salary <= 55000 ~ 0.035,
+    salary > 55000 & salary <= 75000 ~ 0.045,
+    salary > 75000 & salary <= 100000 ~ 0.0575,
+    salary > 100000 ~ 0.06
+  )
+}
+
+# Define employer contribution rates
+employer_contribution_rate <- function(years) {
+  ifelse(years <= 7, 0.08, 0.10)  # 8% for first 7 years, 10% afterward
+}
+
+# Simulate ORP Plan with planned growth and 4% withdrawal rate
+simulate_orp_75_years <- function(start_age = 25, retirement_age = 55, salary_growth_rate = 0.03, 
+                                  annual_return = 0.07, withdrawal_rate = 0.04, years_of_service = 30, 
+                                  total_years = 75) {
+  # Initialize variables
+  data <- tibble(
+    Year = 1:total_years,
+    Age = start_age + (1:total_years) - 1,
+    Salary = ifelse(1:total_years <= years_of_service, 
+                    45000 * (1 + salary_growth_rate)^(0:(years_of_service - 1)), NA),
+    Employee_Contribution = NA,
+    Employer_Contribution = NA,
+    Total_Contribution = NA,
+    Account_Balance = NA,
+    Withdrawal = NA
+  )
+  
+  # Calculate contributions, account balance, and withdrawals
+  for (i in 1:total_years) {
+    # During working years
+    if (i <= years_of_service) {
+      # Employee and employer contributions
+      data$Employee_Contribution[i] <- data$Salary[i] * employee_contribution_rate(data$Salary[i])
+      data$Employer_Contribution[i] <- data$Salary[i] * employer_contribution_rate(i)
+      data$Total_Contribution[i] <- data$Employee_Contribution[i] + data$Employer_Contribution[i]
+      
+      # Account balance (investment growth + contributions)
+      if (i == 1) {
+        data$Account_Balance[i] <- data$Total_Contribution[i]  # Initial balance
+      } else {
+        data$Account_Balance[i] <- data$Account_Balance[i - 1] * (1 + annual_return) + data$Total_Contribution[i]
+      }
+    }
+    
+    # During retirement years
+    if (i > years_of_service) {
+      # Withdrawals at 4% of account balance
+      data$Withdrawal[i] <- data$Account_Balance[i - 1] * withdrawal_rate
+      data$Account_Balance[i] <- data$Account_Balance[i - 1] * (1 + annual_return) - data$Withdrawal[i]
+    }
+  }
+  
+  return(data)
+}
+
+# Simulate ORP Plan for 75 years
+orp_75_years <- simulate_orp_75_years()
+
+# View the first few rows of the dataset
+print(head(orp_75_years, 15))
+
+# Plot account balance and withdrawals over 75 years
+ggplot(orp_75_years, aes(x = Year)) +
+  geom_line(aes(y = Account_Balance, color = "Account Balance"), size = 1) +
+  geom_line(aes(y = Withdrawal, color = "Withdrawals"), size = 1, na.rm = TRUE) +
+  labs(
+    title = "Optional Retirement Plan (ORP) Simulation Over 75 Years",
+    x = "Years",
+    y = "Amount (USD)",
+    color = "Attributes"
+  ) +
+  theme_minimal()
+
+#withdraw table
+# Simulate ORP Plan for 75 years
+orp_75_years <- simulate_orp_75_years()
+
+# Create a table of annual withdrawals during retirement
+withdrawal_table <- orp_75_years %>%
+  filter(!is.na(Withdrawal)) %>%  # Include only retirement years with withdrawals
+  select(Year, Age, Withdrawal)  # Select relevant columns
+
+# Optionally, display the table in a more user-friendly format if using RStudio
+library(knitr)
+kable(withdrawal_table, col.names = c("Year", "Age", "Annual Withdrawal (USD)"))
+
+
+```
+
+
+#### [Long-Term Average Analysis]{style="color: orange;"}
+In this section we will review the long-term average. The comparison below will take the CUNY 50% CPI match for TRS and incorporate modest market returns of 7% for ORP and 4% withdrawal rate. We can see the differences in take home evidently favor the TRS plan. To receive these TRS plan benefits you would have to work 30 years in the CUNY system. We see the average monthly income is double in the TRS compared to ORP. However, the ORP will still have ~3 mil to leave to their heirs. Depending on your annual expenses ORP might be better for you if your goal is to leave your kids a huge nest egg. 
+
+```{r}
+#| code-fold: true
+#| warning: false
+#| code-summary: "Task 6 - Fixed Rate Analysis"
+
+###task 6
+
+# Define assumptions
+retirement_age <- 55
+death_age <- 100
+withdraw_rate <- 0.04  # ORP annual withdrawal rate
+inflation_rate <- 0.02 # Average inflation adjustment for TRS
+years_in_retirement <- death_age - retirement_age
+expected_market_return <- 0.07 # Assumed expected annual market return of 7%
+
+# Assuming you have employee salary data, calculate Final Average Salary (FAS)
+# Here, we assume the employee served for 30 years and calculate the average of the last 3 years
+employee_data <- data.frame(
+  Year = 1:30,
+  Salary = seq(45000, 120000, length.out = 30)  # Example salary progression from 50,000 to 80,000 over 30 years
+)
+
+# Calculate FAS for the last 3 years
+FAS <- mean(tail(employee_data$Salary, 3))
+
+# Calculate initial TRS income based on FAS and years of service (assuming 30 years of service)
+years_of_service <- 30
+
+if (years_of_service <= 20) {
+  initial_trs_income <- 1.67 / 100 * FAS * years_of_service
+} else if (years_of_service == 20) {
+  initial_trs_income <- 1.75 / 100 * FAS * years_of_service
+} else {
+  initial_trs_income <- (0.35 + 0.02 * (years_of_service)) * FAS
+}
+
+# Initialize variables for ORP
+orp_balance <- orp_75_years$Account_Balance[30]  # Use the 30th row as starting balance
+
+# Create an empty data frame to store the results
+comparison_table <- data.frame(
+  Year = numeric(),
+  Age = numeric(),
+  TRS_Income = numeric(),
+  ORP_Withdrawal = numeric(),
+  ORP_Balance = numeric(),
+  Income_Gap = numeric()
+)
+
+# Loop through each year of retirement
+for (year in 1:years_in_retirement) {
+  age <- retirement_age + year - 1
+  
+  # Calculate TRS income with inflation adjustments
+  if (year == 1) {
+    trs_income <- initial_trs_income  # Set this as the first year's benefit
+  } else {
+    # Adjust based on inflation rate (capped between 1% and 3%)
+    inflation_adjustment <- min(max(inflation_rate*.5, 0.01), 0.03)
+    trs_income <- trs_income * (1 + (inflation_adjustment))
+  }
+  
+  # Calculate ORP withdrawal and remaining balance
+  orp_withdrawal <- orp_balance * withdraw_rate
+  orp_balance <- orp_balance - orp_withdrawal + (orp_balance * expected_market_return)  # Account for market growth
+  
+  # Ensure ORP balance doesn't go negative
+  if (orp_balance < 0) {
+    orp_balance <- 0
+    orp_withdrawal <- 0  # No withdrawal possible if balance is zero
+  }
+  
+  # Calculate income gap
+  income_gap <- trs_income - orp_withdrawal
+  
+  # Store results in the table
+  comparison_table <- rbind(comparison_table, data.frame(
+    Year = year,
+    Age = age,
+    TRS_Income = trs_income,
+    ORP_Withdrawal = orp_withdrawal,
+    ORP_Balance = orp_balance,
+    Income_Gap = income_gap
+  ))
+}
+
+# Print the comparison table
+kable(comparison_table)
+
+# Summary calculations
+avg_trs_income <- mean(comparison_table$TRS_Income)
+avg_orp_withdrawal <- mean(comparison_table$ORP_Withdrawal)
+max_gap <- max(comparison_table$Income_Gap)
+min_gap <- min(comparison_table$Income_Gap)
+
+cat("Average Monthly Income (TRS):", avg_trs_income / 12, "\n")
+cat("Average Monthly Income (ORP):", avg_orp_withdrawal / 12, "\n")
+cat("Maximum Income Gap:", max_gap / 12, "\n")
+cat("Minimum Income Gap:", min_gap / 12, "\n")
+
+
+```
+
+The conditions above are modest to say the least. Using our voo_data from earlier we can calculate the average annual return for this ETF. We see that VOO ETF returned an average of 14.98% 
+
+```{r}
+#| code-fold: true
+#| warning: false
+#| code-summary: "Task 6 - Historical $VOO Annual Returns"
+
+library(dplyr)
+
+# Calculate yearly growth rate
+voo_data <- voo_data %>%
+  arrange(Date) %>%  # Ensure data is sorted by date
+  mutate(
+    Yearly_Growth = (`VOO Adjusted` / lag(`VOO Adjusted`, 12) - 1) * 100  # Calculate the yearly percentage change
+  )
+
+# Remove any NA values in Yearly_Growth (since the first year will be NA)
+voo_data <- voo_data %>% 
+  filter(!is.na(Yearly_Growth))
+
+# Calculate the average yearly growth rate
+average_yearly_growth <- mean(voo_data$Yearly_Growth, na.rm = TRUE)
+
+# Print the average yearly growth rate
+print(paste("Average Yearly Growth Rate of VOO:", round(average_yearly_growth, 2), "%"))
+```
+
+With risk there is reward! The ORP market performed a lot better in this scenario, the employee may decide to take out a modest 4% and have a lower quality and leave ~ 87 mill to their heirs. However, this is unlikely that the market will keep the 14.98% performance. 
+
+```{r}
+#| code-fold: true
+#| warning: false
+#| code-summary: "Task 6 - Fixed Rate Analysis - 14.98% returns @ 4% withdraw"
+
+# Define assumptions
+retirement_age <- 55
+death_age <- 100
+withdraw_rate <- 0.04  # ORP annual withdrawal rate
+inflation_rate <- 0.02 # Average inflation adjustment for TRS
+years_in_retirement <- death_age - retirement_age
+expected_market_return <- 0.1498 # Assumed expected annual market return of 7%
+
+# Assuming you have employee salary data, calculate Final Average Salary (FAS)
+# Here, we assume the employee served for 30 years and calculate the average of the last 3 years
+employee_data <- data.frame(
+  Year = 1:30,
+  Salary = seq(45000, 120000, length.out = 30)  # Example salary progression from 50,000 to 80,000 over 30 years
+)
+
+# Calculate FAS for the last 3 years
+FAS <- mean(tail(employee_data$Salary, 3))
+
+# Calculate initial TRS income based on FAS and years of service (assuming 30 years of service)
+years_of_service <- 30
+
+if (years_of_service <= 20) {
+  initial_trs_income <- 1.67 / 100 * FAS * years_of_service
+} else if (years_of_service == 20) {
+  initial_trs_income <- 1.75 / 100 * FAS * years_of_service
+} else {
+  initial_trs_income <- (0.35 + 0.02 * (years_of_service)) * FAS
+}
+
+# Initialize variables for ORP
+orp_balance <- orp_75_years$Account_Balance[30]  # Use the 30th row as starting balance
+
+# Create an empty data frame to store the results
+comparison_table <- data.frame(
+  Year = numeric(),
+  Age = numeric(),
+  TRS_Income = numeric(),
+  ORP_Withdrawal = numeric(),
+  ORP_Balance = numeric(),
+  Income_Gap = numeric()
+)
+
+# Loop through each year of retirement
+for (year in 1:years_in_retirement) {
+  age <- retirement_age + year - 1
+  
+  # Calculate TRS income with inflation adjustments
+  if (year == 1) {
+    trs_income <- initial_trs_income  # Set this as the first year's benefit
+  } else {
+    # Adjust based on inflation rate (capped between 1% and 3%)
+    inflation_adjustment <- min(max(inflation_rate*.5, 0.01), 0.03)
+    trs_income <- trs_income * (1 + (inflation_adjustment))
+  }
+  
+  # Calculate ORP withdrawal and remaining balance
+  orp_withdrawal <- orp_balance * withdraw_rate
+  orp_balance <- orp_balance - orp_withdrawal + (orp_balance * expected_market_return)  # Account for market growth
+  
+  # Ensure ORP balance doesn't go negative
+  if (orp_balance < 0) {
+    orp_balance <- 0
+    orp_withdrawal <- 0  # No withdrawal possible if balance is zero
+  }
+  
+  # Calculate income gap
+  income_gap <- trs_income - orp_withdrawal
+  
+  # Store results in the table
+  comparison_table <- rbind(comparison_table, data.frame(
+    Year = year,
+    Age = age,
+    TRS_Income = trs_income,
+    ORP_Withdrawal = orp_withdrawal,
+    ORP_Balance = orp_balance,
+    Income_Gap = income_gap
+  ))
+}
+
+# Print the comparison table
+kable(comparison_table)
+
+
+```
+
+Instead the ORP employee would be recommended to withdraw 10% and live a more lavish life and leave ~4 mill to their heirs. By doing this the ORP will start off earning less than the TRS employee but the breaking point will come at age 63 which is 2 years before the recommended retirement age. The idea is that it is considered very lucky to have an average of 14.98% annual return upon retirement, so if you get that luck you should take it and run! That essentially means withdraw 10% instead of 4%.
+
+```{r}
+#| code-fold: true
+#| warning: false
+#| code-summary: "Task 6 - Fixed Rate Analysis - 14.98% returns @ 10% withdraw"
+
+# Define assumptions
+retirement_age <- 55
+death_age <- 100
+withdraw_rate <- 0.10  # ORP annual withdrawal rate
+inflation_rate <- 0.02 # Average inflation adjustment for TRS
+years_in_retirement <- death_age - retirement_age
+expected_market_return <- 0.1498 # Assumed expected annual market return of 7%
+
+# Assuming you have employee salary data, calculate Final Average Salary (FAS)
+# Here, we assume the employee served for 30 years and calculate the average of the last 3 years
+employee_data <- data.frame(
+  Year = 1:30,
+  Salary = seq(45000, 120000, length.out = 30)  # Example salary progression from 50,000 to 80,000 over 30 years
+)
+
+# Calculate FAS for the last 3 years
+FAS <- mean(tail(employee_data$Salary, 3))
+
+# Calculate initial TRS income based on FAS and years of service (assuming 30 years of service)
+years_of_service <- 30
+
+if (years_of_service <= 20) {
+  initial_trs_income <- 1.67 / 100 * FAS * years_of_service
+} else if (years_of_service == 20) {
+  initial_trs_income <- 1.75 / 100 * FAS * years_of_service
+} else {
+  initial_trs_income <- (0.35 + 0.02 * (years_of_service)) * FAS
+}
+
+# Initialize variables for ORP
+orp_balance <- orp_75_years$Account_Balance[30]  # Use the 30th row as starting balance
+
+# Create an empty data frame to store the results
+comparison_table <- data.frame(
+  Year = numeric(),
+  Age = numeric(),
+  TRS_Income = numeric(),
+  ORP_Withdrawal = numeric(),
+  ORP_Balance = numeric(),
+  Income_Gap = numeric()
+)
+
+# Loop through each year of retirement
+for (year in 1:years_in_retirement) {
+  age <- retirement_age + year - 1
+  
+  # Calculate TRS income with inflation adjustments
+  if (year == 1) {
+    trs_income <- initial_trs_income  # Set this as the first year's benefit
+  } else {
+    # Adjust based on inflation rate (capped between 1% and 3%)
+    inflation_adjustment <- min(max(inflation_rate*.5, 0.01), 0.03)
+    trs_income <- trs_income * (1 + (inflation_adjustment))
+  }
+  
+  # Calculate ORP withdrawal and remaining balance
+  orp_withdrawal <- orp_balance * withdraw_rate
+  orp_balance <- orp_balance - orp_withdrawal + (orp_balance * expected_market_return)  # Account for market growth
+  
+  # Ensure ORP balance doesn't go negative
+  if (orp_balance < 0) {
+    orp_balance <- 0
+    orp_withdrawal <- 0  # No withdrawal possible if balance is zero
+  }
+  
+  # Calculate income gap
+  income_gap <- trs_income - orp_withdrawal
+  
+  # Store results in the table
+  comparison_table <- rbind(comparison_table, data.frame(
+    Year = year,
+    Age = age,
+    TRS_Income = trs_income,
+    ORP_Withdrawal = orp_withdrawal,
+    ORP_Balance = orp_balance,
+    Income_Gap = income_gap
+  ))
+}
+
+##graphs for break even point and remaining balance
+library(ggplot2)
+
+# Create the line plot for TRS Income and ORP Withdrawal over the years (x-axis as Age)
+ggplot(comparison_table, aes(x = Age)) +
+  geom_line(aes(y = TRS_Income, color = "TRS Income"), size = 1) +
+  geom_line(aes(y = ORP_Withdrawal, color = "ORP Withdrawal"), size = 1) +
+  labs(
+    title = "TRS Income vs ORP Withdrawal Over Time",
+    x = "Age",
+    y = "Income (USD)",
+    color = "Legend"
+  ) +
+  theme_minimal()
+
+
+# Print the comparison table
+kable(comparison_table)
+
+# Summary calculations
+avg_trs_income <- mean(comparison_table$TRS_Income)
+avg_orp_withdrawal <- mean(comparison_table$ORP_Withdrawal)
+max_gap <- max(comparison_table$Income_Gap)
+min_gap <- min(comparison_table$Income_Gap)
+
+cat("Average Monthly Income (TRS):", avg_trs_income / 12, "\n")
+cat("Average Monthly Income (ORP):", avg_orp_withdrawal / 12, "\n")
+cat("Maximum Income Gap:", max_gap / 12, "\n")
+cat("Minimum Income Gap:", min_gap / 12, "\n")
+
+
+
+```
+
+
 
 ## [5. Monte Carlo Analysis]{style="color: cyan;"}
+For our Monte Carlo Analysis we will use VOO historical returns as our variable. Below we see the distribution mean of our annual returns. This indicates to us in 200 possible scenarios the most common annual return average is ~ 15%. However, it also indicates that on a low end our expected return ar 12% which is 5% than our original 7% estimate in our first historical analysis. Visually, we can see the distribution of the average annual returns. We can see that for the most part the returns will be positive with very low probability that the returns will be negative. However that is still a possibility. 
+
+
+```{r}
+
+#| code-fold: true
+#| warning: false
+#| code-summary: "Task 6 - Fixed Rate Analysis - 14.98% returns @ 10% withdraw"
+
+# Load necessary library
+library(ggplot2)
+library(knitr)
+library(dplyr)
+
+# Define assumptions
+retirement_age <- 55
+death_age <- 100
+withdraw_rate <- 0.04  # ORP annual withdrawal rate
+inflation_rate <- 0.02 # Average inflation adjustment for TRS
+years_in_retirement <- death_age - retirement_age
+iterations <- 200  # Number of Monte Carlo iterations
+
+# Assuming you have employee salary data, calculate Final Average Salary (FAS)
+# Here, we assume the employee served for 30 years and calculate the average of the last 3 years
+employee_data <- data.frame(
+  Year = 1:30,
+  Salary = seq(45000, 120000, length.out = 30)  # Example salary progression from 50,000 to 80,000 over 30 years
+)
+
+# Calculate FAS for the last 3 years
+FAS <- mean(tail(employee_data$Salary, 3))
+
+# Calculate initial TRS income based on FAS and years of service (assuming 30 years of service)
+years_of_service <- 30
+
+if (years_of_service <= 20) {
+  initial_trs_income <- 1.67 / 100 * FAS * years_of_service
+} else if (years_of_service == 20) {
+  initial_trs_income <- 1.75 / 100 * FAS * years_of_service
+} else {
+  initial_trs_income <- (0.35 + 0.02 * (years_of_service)) * FAS
+}
+
+# Create an empty data frame to store the results for each iteration
+all_iterations <- data.frame()
+
+# Monte Carlo Simulation Loop
+set.seed(123)  # Set seed for reproducibility
+for (i in 1:iterations) {
+  # Randomly sample expected market return from "Yearly_Growth" column of voo_data
+  expected_market_return <- sample(voo_data$Yearly_Growth, size = 1, replace = TRUE)
+  
+  # Initialize ORP balance with the 30th row value of orp_75_years dataset (assuming it exists)
+  orp_balance <- orp_75_years$Account_Balance[30]  # Use the 30th row as starting balance
+  
+  # Create a data frame to store the comparison for this iteration
+  comparison_table <- data.frame(
+    Iteration = numeric(),
+    Year = numeric(),
+    Age = numeric(),
+    TRS_Income = numeric(),
+    ORP_Withdrawal = numeric(),
+    ORP_Balance = numeric(),
+    Income_Gap = numeric()
+  )
+  
+  # Loop through each year of retirement
+  for (year in 1:years_in_retirement) {
+    age <- retirement_age + year - 1
+    
+    # Calculate TRS income with inflation adjustments
+    if (year == 1) {
+      trs_income <- initial_trs_income  # Set this as the first year's benefit
+    } else {
+      # Adjust based on inflation rate (capped between 1% and 3%)
+      inflation_adjustment <- min(max(inflation_rate * 0.5, 0.01), 0.03)
+      trs_income <- trs_income * (1 + inflation_adjustment)
+    }
+    
+    # Calculate ORP withdrawal and remaining balance
+    orp_withdrawal <- orp_balance * withdraw_rate
+    orp_balance <- orp_balance - orp_withdrawal + (orp_balance * expected_market_return)  # Account for market growth
+    
+    # Ensure ORP balance doesn't go negative
+    if (orp_balance < 0) {
+      orp_balance <- 0
+      orp_withdrawal <- 0  # No withdrawal possible if balance is zero
+    }
+    
+    # Calculate income gap
+    income_gap <- trs_income - orp_withdrawal
+    
+    # Store results in the table
+    comparison_table <- rbind(comparison_table, data.frame(
+      Iteration = i,
+      Year = year,
+      Age = age,
+      TRS_Income = trs_income,
+      ORP_Withdrawal = orp_withdrawal,
+      ORP_Balance = orp_balance,
+      Income_Gap = income_gap
+    ))
+  }
+  
+  # Append the results for this iteration to the all_iterations dataframe
+  all_iterations <- rbind(all_iterations, comparison_table)
+}
+
+# Assuming the `voo_data` data frame contains a column named "Yearly_Growth" with the historical growth rates
+# Load necessary library
+library(ggplot2)
+library(dplyr)
+
+# Define assumptions
+iterations <- 200  # Number of Monte Carlo iterations
+
+# Create a data frame for returns used in each iteration by sampling from the "Yearly_Growth" column
+expected_returns_df <- data.frame(
+  Iteration = 1:iterations,
+  Expected_Market_Return = sample(voo_data$Yearly_Growth, iterations, replace = TRUE)
+)
+
+# Visualization 1: Histogram of Expected Market Returns
+ggplot(expected_returns_df, aes(x = Expected_Market_Return)) +
+  geom_histogram(bins = 20, fill = "steelblue", color = "white", alpha = 0.7) +
+  labs(
+    title = "Histogram of Expected Market Returns Used in Monte Carlo Simulation",
+    x = "Expected Market Return (%)",
+    y = "Frequency"
+  ) +
+  theme_minimal()
+
+
+
+# Print the results of one iteration (e.g., the first iteration)
+kable(head(all_iterations[all_iterations$Iteration == 1, ]))
+
+# Visualization - Average TRS Income vs ORP Withdrawal
+# Calculate average income and withdrawal across all iterations for each year
+average_results <- all_iterations %>%
+  group_by(Year) %>%
+  summarise(
+    Avg_TRS_Income = mean(TRS_Income),
+    Avg_ORP_Withdrawal = mean(ORP_Withdrawal)
+  )
+
+
+# Probability that ORP employee exhausts their savings before death
+orp_exhausted <- all_iterations %>%
+  group_by(Iteration) %>%
+  filter(Year == years_in_retirement) %>%
+  summarise(Exhausted = ifelse(ORP_Balance == 0, 1, 0)) %>%
+  summarise(Probability_Exhausted = mean(Exhausted))
+
+cat("Probability that ORP employee exhausts their savings before death:", orp_exhausted$Probability_Exhausted, "\n")
+
+# Probability that ORP provides higher monthly income than TRS
+orp_higher_income <- all_iterations %>%
+  group_by(Iteration) %>%
+  summarise(Higher_Income = mean(ORP_Withdrawal > TRS_Income)) %>%
+  summarise(Probability_Higher_Income = mean(Higher_Income > 0.5))
+
+cat("Probability that ORP has a higher monthly income than TRS:", orp_higher_income$Probability_Higher_Income, "\n")
+
+# Evaluate the 4% withdrawal rate - average withdrawal rate across iterations
+average_withdrawal_rate <- mean(all_iterations$ORP_Withdrawal / all_iterations$ORP_Balance, na.rm = TRUE)
+cat("Average withdrawal rate across all iterations:", average_withdrawal_rate, "\n")
+
+
+```
 
 
 
 ## [6. Conclusion]{style="color: cyan;"}
 
-[In conclusion, the Electoral College system provides a balanced approach to electing the President of the United States by ensuring representation for both populous and less populous states. By giving each state the power to choose how its electoral votes are allocated, the process respects the unique preferences and values of individual states, allowing them to play a significant role in the election outcome. This decentralized approach is what makes the system fundamentally democratic, as it empowers states to represent the voices of their constituents in a way that directly influences the selection of national leadership. The Electoral College, therefore, not only balances the interests of diverse regions but also upholds a fair process that reflects the principles of federalism and democracy.]{style="color: orange;"}
+[In conclusion, there is no set retirement plan that is perfect for everyone. The retirement plan must meet your type of lifestyle. Your must ask yourself a series of questions like: how long do you plan to stay at this job? Do you plan on leaving any money to your children? is 83% success rate a safe enough risk for you? 
+
+In general, everyone has a pain tolerance factor which relates how would it affect you know you left money on the table taking the safe route? Or how would is affect you know that you lost money taking the "risky" route? 
+
+Additionally, there is a minimal chance that the participant will run out of money, this percentage is ~13%. Ideally, 4% withdrawal rate is recommended, however, if your portfolio performs better that 12% year over year you may want to increase your withdrawal rate up to 10%. 
+
+I put "risky" in quotes because the data proves that 83% of the time ORP will out perform TRS.
+These odds are significant enough for me to confidently advise most CUNY employees to choose the ORP.
+
+If your overall portfolio consists of VOO and your returns are negative at the time of retirement then that means there are bigger issues in the United States than your personal finance. The US has a rich history of growth and a consistent decline would signify troublesome. To think positively, this would never happen and the United States will continue to grow as long as the education system has bright employees! 
+
+You should choose the ORP plan, you will thank yourself in the future when you're living better than your TRS counterparts.]{style="color: orange;"}
