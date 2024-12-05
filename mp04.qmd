@@ -467,8 +467,7 @@ fred_combined_data <- wage_data %>%
 fred_cleaned_data <- na.omit(fred_combined_data)
 
 # Print the first few rows of the cleaned dataset
-kable(fred_cleaned_data, caption = "FRED Cleaned Data")
-
+kable(fred_cleaned_data, caption = "FRED Cleaned Data") 
 
 ```
 
@@ -489,7 +488,7 @@ alpha_combined_data <- voo_data %>%
 
 # Print the first few rows of the combined dataset
 
-kable(alpha_combined_data, caption = "Alphavantage Combined Data")
+kable(alpha_combined_data, caption = "Alphavantage Combined Data") 
 ```
 
 
@@ -513,7 +512,7 @@ final_combined_data <- alpha_combined_data %>%
   
 # Print the first few rows of the merged dataset
 
-kable(final_combined_data, caption = "Combined Data")
+kable(final_combined_data, caption = "Combined Data") 
 
 ```
 
@@ -709,7 +708,7 @@ In the TRS we assume the ending salary will be \$120,000 in order to calculate o
 # Load necessary libraries
 library(dplyr)
 library(ggplot2)
-
+library(knitr)
 # Define the attributes of the TRS plan
 # Contribution rates by salary range
 contribution_rate <- function(salary) {
@@ -883,7 +882,7 @@ simulate_orp_75_years <- function(start_age = 25, retirement_age = 55, salary_gr
 orp_75_years <- simulate_orp_75_years()
 
 # View the first few rows of the dataset
-print(head(orp_75_years, 15))
+kable(head(orp_75_years, 15))
 
 # Plot account balance and withdrawals over 75 years
 ggplot(orp_75_years, aes(x = Year)) +
@@ -1004,7 +1003,7 @@ for (year in 1:years_in_retirement) {
 }
 
 # Print the comparison table
-kable(comparison_table)
+kable(comparison_table) 
 
 # Summary calculations
 avg_trs_income <- mean(comparison_table$TRS_Income)
@@ -1134,7 +1133,7 @@ for (year in 1:years_in_retirement) {
 }
 
 # Print the comparison table
-kable(comparison_table)
+kable(comparison_table) 
 
 
 ```
@@ -1266,10 +1265,9 @@ For our Monte Carlo Analysis we will use VOO historical returns as our variable.
 
 
 ```{r}
-
 #| code-fold: true
 #| warning: false
-#| code-summary: "Task 6 - Fixed Rate Analysis - 14.98% returns @ 10% withdraw"
+#| code-summary: "Monte Carlo Analysis"
 
 # Load necessary library
 library(ggplot2)
@@ -1397,7 +1395,7 @@ ggplot(expected_returns_df, aes(x = Expected_Market_Return)) +
 
 
 # Print the results of one iteration (e.g., the first iteration)
-kable(head(all_iterations[all_iterations$Iteration == 1, ]))
+#kable(head(all_iterations[all_iterations$Iteration == 1, ])) 
 
 # Visualization - Average TRS Income vs ORP Withdrawal
 # Calculate average income and withdrawal across all iterations for each year
@@ -1428,7 +1426,7 @@ cat("Probability that ORP has a higher monthly income than TRS:", orp_higher_inc
 
 # Evaluate the 4% withdrawal rate - average withdrawal rate across iterations
 average_withdrawal_rate <- mean(all_iterations$ORP_Withdrawal / all_iterations$ORP_Balance, na.rm = TRUE)
-cat("Average withdrawal rate across all iterations:", average_withdrawal_rate, "\n")
+cat("Average withdrawal rate across all iterations:", average_withdrawal_rate, "\n") 
 
 
 ```
@@ -1437,7 +1435,7 @@ cat("Average withdrawal rate across all iterations:", average_withdrawal_rate, "
 
 ## [6. Conclusion]{style="color: cyan;"}
 
-[In conclusion, there is no set retirement plan that is perfect for everyone. The retirement plan must meet your type of lifestyle. Your must ask yourself a series of questions like: how long do you plan to stay at this job? Do you plan on leaving any money to your children? is 83% success rate a safe enough risk for you? 
+In conclusion, there is no set retirement plan that is perfect for everyone. The retirement plan must meet your type of lifestyle. Your must ask yourself a series of questions like: how long do you plan to stay at this job? Do you plan on leaving any money to your children? is 83% success rate a safe enough risk for you? 
 
 In general, everyone has a pain tolerance factor which relates how would it affect you know you left money on the table taking the safe route? Or how would is affect you know that you lost money taking the "risky" route? 
 
@@ -1448,4 +1446,4 @@ These odds are significant enough for me to confidently advise most CUNY employe
 
 If your overall portfolio consists of VOO and your returns are negative at the time of retirement then that means there are bigger issues in the United States than your personal finance. The US has a rich history of growth and a consistent decline would signify troublesome. To think positively, this would never happen and the United States will continue to grow as long as the education system has bright employees! 
 
-You should choose the ORP plan, you will thank yourself in the future when you're living better than your TRS counterparts.]{style="color: orange;"}
+You should choose the ORP plan, you will thank yourself in the future when you're living better than your TRS counterparts.

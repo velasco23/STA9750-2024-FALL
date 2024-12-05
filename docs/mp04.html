@@ -528,7 +528,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>fred_cleaned_data <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(fred_combined_data)</span>
 <span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the first few rows of the cleaned dataset</span></span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(fred_cleaned_data, <span class="at">caption =</span> <span class="st">"FRED Cleaned Data"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(fred_cleaned_data, <span class="at">caption =</span> <span class="st">"FRED Cleaned Data"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
@@ -1883,7 +1883,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the first few rows of the combined dataset</span></span>
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(alpha_combined_data, <span class="at">caption =</span> <span class="st">"Alphavantage Combined Data"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(alpha_combined_data, <span class="at">caption =</span> <span class="st">"Alphavantage Combined Data"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
@@ -3194,7 +3194,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the first few rows of the merged dataset</span></span>
 <span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(final_combined_data, <span class="at">caption =</span> <span class="st">"Combined Data"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(final_combined_data, <span class="at">caption =</span> <span class="st">"Combined Data"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
@@ -5881,7 +5881,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load necessary libraries</span></span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
 <span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the attributes of the TRS plan</span></span>
 <span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Contribution rates by salary range</span></span>
 <span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>contribution_rate <span class="ot">&lt;-</span> <span class="cf">function</span>(salary) {</span>
@@ -6074,43 +6074,199 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb21-68"><a href="#cb21-68" aria-hidden="true" tabindex="-1"></a>orp_75_years <span class="ot">&lt;-</span> <span class="fu">simulate_orp_75_years</span>()</span>
 <span id="cb21-69"><a href="#cb21-69" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-70"><a href="#cb21-70" aria-hidden="true" tabindex="-1"></a><span class="co"># View the first few rows of the dataset</span></span>
-<span id="cb21-71"><a href="#cb21-71" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">head</span>(orp_75_years, <span class="dv">15</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb21-71"><a href="#cb21-71" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(orp_75_years, <span class="dv">15</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 15 × 8
-    Year   Age Salary Employee_Contribution Employer_Contribution
-   &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt;                 &lt;dbl&gt;                 &lt;dbl&gt;
- 1     1    25 45000                  1350                  3600 
- 2     2    26 46350                  1622.                 3708 
- 3     3    27 47740.                 1671.                 3819.
- 4     4    28 49173.                 1721.                 3934.
- 5     5    29 50648.                 1773.                 4052.
- 6     6    30 52167.                 1826.                 4173.
- 7     7    31 53732.                 1881.                 4299.
- 8     8    32 55344.                 2490.                 5534.
- 9     9    33 57005.                 2565.                 5700.
-10    10    34 58715.                 2642.                 5871.
-11    11    35 60476.                 2721.                 6048.
-12    12    36 62291.                 2803.                 6229.
-13    13    37 64159.                 2887.                 6416.
-14    14    38 66084.                 2974.                 6608.
-15    15    39 68067.                 3063.                 6807.
-# ℹ 3 more variables: Total_Contribution &lt;dbl&gt;, Account_Balance &lt;dbl&gt;,
-#   Withdrawal &lt;dbl&gt;</code></pre>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 4%">
+<col style="width: 3%">
+<col style="width: 8%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 17%">
+<col style="width: 14%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Year</th>
+<th style="text-align: right;">Age</th>
+<th style="text-align: right;">Salary</th>
+<th style="text-align: right;">Employee_Contribution</th>
+<th style="text-align: right;">Employer_Contribution</th>
+<th style="text-align: right;">Total_Contribution</th>
+<th style="text-align: right;">Account_Balance</th>
+<th style="text-align: right;">Withdrawal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">45000.00</td>
+<td style="text-align: right;">1350.000</td>
+<td style="text-align: right;">3600.000</td>
+<td style="text-align: right;">4950.000</td>
+<td style="text-align: right;">4950.00</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">46350.00</td>
+<td style="text-align: right;">1622.250</td>
+<td style="text-align: right;">3708.000</td>
+<td style="text-align: right;">5330.250</td>
+<td style="text-align: right;">10626.75</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">27</td>
+<td style="text-align: right;">47740.50</td>
+<td style="text-align: right;">1670.918</td>
+<td style="text-align: right;">3819.240</td>
+<td style="text-align: right;">5490.158</td>
+<td style="text-align: right;">16860.78</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">49172.71</td>
+<td style="text-align: right;">1721.045</td>
+<td style="text-align: right;">3933.817</td>
+<td style="text-align: right;">5654.862</td>
+<td style="text-align: right;">23695.90</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">29</td>
+<td style="text-align: right;">50647.90</td>
+<td style="text-align: right;">1772.676</td>
+<td style="text-align: right;">4051.832</td>
+<td style="text-align: right;">5824.508</td>
+<td style="text-align: right;">31179.12</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">52167.33</td>
+<td style="text-align: right;">1825.857</td>
+<td style="text-align: right;">4173.387</td>
+<td style="text-align: right;">5999.243</td>
+<td style="text-align: right;">39360.90</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">31</td>
+<td style="text-align: right;">53732.35</td>
+<td style="text-align: right;">1880.632</td>
+<td style="text-align: right;">4298.588</td>
+<td style="text-align: right;">6179.221</td>
+<td style="text-align: right;">48295.38</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">32</td>
+<td style="text-align: right;">55344.32</td>
+<td style="text-align: right;">2490.495</td>
+<td style="text-align: right;">5534.432</td>
+<td style="text-align: right;">8024.927</td>
+<td style="text-align: right;">59700.99</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">33</td>
+<td style="text-align: right;">57004.65</td>
+<td style="text-align: right;">2565.209</td>
+<td style="text-align: right;">5700.465</td>
+<td style="text-align: right;">8265.675</td>
+<td style="text-align: right;">72145.73</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">58714.79</td>
+<td style="text-align: right;">2642.166</td>
+<td style="text-align: right;">5871.479</td>
+<td style="text-align: right;">8513.645</td>
+<td style="text-align: right;">85709.58</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: right;">60476.24</td>
+<td style="text-align: right;">2721.431</td>
+<td style="text-align: right;">6047.624</td>
+<td style="text-align: right;">8769.054</td>
+<td style="text-align: right;">100478.30</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">36</td>
+<td style="text-align: right;">62290.52</td>
+<td style="text-align: right;">2803.074</td>
+<td style="text-align: right;">6229.052</td>
+<td style="text-align: right;">9032.126</td>
+<td style="text-align: right;">116543.91</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">37</td>
+<td style="text-align: right;">64159.24</td>
+<td style="text-align: right;">2887.166</td>
+<td style="text-align: right;">6415.924</td>
+<td style="text-align: right;">9303.090</td>
+<td style="text-align: right;">134005.07</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">38</td>
+<td style="text-align: right;">66084.02</td>
+<td style="text-align: right;">2973.781</td>
+<td style="text-align: right;">6608.402</td>
+<td style="text-align: right;">9582.182</td>
+<td style="text-align: right;">152967.61</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">39</td>
+<td style="text-align: right;">68066.54</td>
+<td style="text-align: right;">3062.994</td>
+<td style="text-align: right;">6806.654</td>
+<td style="text-align: right;">9869.648</td>
+<td style="text-align: right;">173544.99</td>
+<td style="text-align: right;">NA</td>
+</tr>
+</tbody>
+</table>
 </div>
 <details class="code-fold">
 <summary>OPR simulation</summary>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot account balance and withdrawals over 75 years</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(orp_75_years, <span class="fu">aes</span>(<span class="at">x =</span> Year)) <span class="sc">+</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> Account_Balance, <span class="at">color =</span> <span class="st">"Account Balance"</span>), <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> Withdrawal, <span class="at">color =</span> <span class="st">"Withdrawals"</span>), <span class="at">size =</span> <span class="dv">1</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Optional Retirement Plan (ORP) Simulation Over 75 Years"</span>,</span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Years"</span>,</span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Amount (USD)"</span>,</span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Attributes"</span></span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot account balance and withdrawals over 75 years</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(orp_75_years, <span class="fu">aes</span>(<span class="at">x =</span> Year)) <span class="sc">+</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> Account_Balance, <span class="at">color =</span> <span class="st">"Account Balance"</span>), <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> Withdrawal, <span class="at">color =</span> <span class="st">"Withdrawals"</span>), <span class="at">size =</span> <span class="dv">1</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Optional Retirement Plan (ORP) Simulation Over 75 Years"</span>,</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Years"</span>,</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Amount (USD)"</span>,</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Attributes"</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -6121,18 +6277,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <details class="code-fold">
 <summary>OPR simulation</summary>
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">#withdraw table</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate ORP Plan for 75 years</span></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>orp_75_years <span class="ot">&lt;-</span> <span class="fu">simulate_orp_75_years</span>()</span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a table of annual withdrawals during retirement</span></span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>withdrawal_table <span class="ot">&lt;-</span> orp_75_years <span class="sc">%&gt;%</span></span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Withdrawal)) <span class="sc">%&gt;%</span>  <span class="co"># Include only retirement years with withdrawals</span></span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Year, Age, Withdrawal)  <span class="co"># Select relevant columns</span></span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Optionally, display the table in a more user-friendly format if using RStudio</span></span>
-<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(withdrawal_table, <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Year"</span>, <span class="st">"Age"</span>, <span class="st">"Annual Withdrawal (USD)"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">#withdraw table</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate ORP Plan for 75 years</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>orp_75_years <span class="ot">&lt;-</span> <span class="fu">simulate_orp_75_years</span>()</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a table of annual withdrawals during retirement</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>withdrawal_table <span class="ot">&lt;-</span> orp_75_years <span class="sc">%&gt;%</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Withdrawal)) <span class="sc">%&gt;%</span>  <span class="co"># Include only retirement years with withdrawals</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Year, Age, Withdrawal)  <span class="co"># Select relevant columns</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Optionally, display the table in a more user-friendly format if using RStudio</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(withdrawal_table, <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Year"</span>, <span class="st">"Age"</span>, <span class="st">"Annual Withdrawal (USD)"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
@@ -6379,89 +6535,89 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details class="code-fold">
 <summary>Task 6 - Fixed Rate Analysis</summary>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="do">###task 6</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Define assumptions</span></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>retirement_age <span class="ot">&lt;-</span> <span class="dv">55</span></span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>death_age <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>withdraw_rate <span class="ot">&lt;-</span> <span class="fl">0.04</span>  <span class="co"># ORP annual withdrawal rate</span></span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>inflation_rate <span class="ot">&lt;-</span> <span class="fl">0.02</span> <span class="co"># Average inflation adjustment for TRS</span></span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>years_in_retirement <span class="ot">&lt;-</span> death_age <span class="sc">-</span> retirement_age</span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>expected_market_return <span class="ot">&lt;-</span> <span class="fl">0.07</span> <span class="co"># Assumed expected annual market return of 7%</span></span>
-<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming you have employee salary data, calculate Final Average Salary (FAS)</span></span>
-<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Here, we assume the employee served for 30 years and calculate the average of the last 3 years</span></span>
-<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>employee_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">Year =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">30</span>,</span>
-<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">Salary =</span> <span class="fu">seq</span>(<span class="dv">45000</span>, <span class="dv">120000</span>, <span class="at">length.out =</span> <span class="dv">30</span>)  <span class="co"># Example salary progression from 50,000 to 80,000 over 30 years</span></span>
-<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate FAS for the last 3 years</span></span>
-<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a>FAS <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">tail</span>(employee_data<span class="sc">$</span>Salary, <span class="dv">3</span>))</span>
-<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate initial TRS income based on FAS and years of service (assuming 30 years of service)</span></span>
-<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a>years_of_service <span class="ot">&lt;-</span> <span class="dv">30</span></span>
-<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (years_of_service <span class="sc">&lt;=</span> <span class="dv">20</span>) {</span>
-<span id="cb25-25"><a href="#cb25-25" aria-hidden="true" tabindex="-1"></a>  initial_trs_income <span class="ot">&lt;-</span> <span class="fl">1.67</span> <span class="sc">/</span> <span class="dv">100</span> <span class="sc">*</span> FAS <span class="sc">*</span> years_of_service</span>
-<span id="cb25-26"><a href="#cb25-26" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (years_of_service <span class="sc">==</span> <span class="dv">20</span>) {</span>
-<span id="cb25-27"><a href="#cb25-27" aria-hidden="true" tabindex="-1"></a>  initial_trs_income <span class="ot">&lt;-</span> <span class="fl">1.75</span> <span class="sc">/</span> <span class="dv">100</span> <span class="sc">*</span> FAS <span class="sc">*</span> years_of_service</span>
-<span id="cb25-28"><a href="#cb25-28" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb25-29"><a href="#cb25-29" aria-hidden="true" tabindex="-1"></a>  initial_trs_income <span class="ot">&lt;-</span> (<span class="fl">0.35</span> <span class="sc">+</span> <span class="fl">0.02</span> <span class="sc">*</span> (years_of_service)) <span class="sc">*</span> FAS</span>
-<span id="cb25-30"><a href="#cb25-30" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb25-31"><a href="#cb25-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-32"><a href="#cb25-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize variables for ORP</span></span>
-<span id="cb25-33"><a href="#cb25-33" aria-hidden="true" tabindex="-1"></a>orp_balance <span class="ot">&lt;-</span> orp_75_years<span class="sc">$</span>Account_Balance[<span class="dv">30</span>]  <span class="co"># Use the 30th row as starting balance</span></span>
-<span id="cb25-34"><a href="#cb25-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-35"><a href="#cb25-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an empty data frame to store the results</span></span>
-<span id="cb25-36"><a href="#cb25-36" aria-hidden="true" tabindex="-1"></a>comparison_table <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb25-37"><a href="#cb25-37" aria-hidden="true" tabindex="-1"></a>  <span class="at">Year =</span> <span class="fu">numeric</span>(),</span>
-<span id="cb25-38"><a href="#cb25-38" aria-hidden="true" tabindex="-1"></a>  <span class="at">Age =</span> <span class="fu">numeric</span>(),</span>
-<span id="cb25-39"><a href="#cb25-39" aria-hidden="true" tabindex="-1"></a>  <span class="at">TRS_Income =</span> <span class="fu">numeric</span>(),</span>
-<span id="cb25-40"><a href="#cb25-40" aria-hidden="true" tabindex="-1"></a>  <span class="at">ORP_Withdrawal =</span> <span class="fu">numeric</span>(),</span>
-<span id="cb25-41"><a href="#cb25-41" aria-hidden="true" tabindex="-1"></a>  <span class="at">ORP_Balance =</span> <span class="fu">numeric</span>(),</span>
-<span id="cb25-42"><a href="#cb25-42" aria-hidden="true" tabindex="-1"></a>  <span class="at">Income_Gap =</span> <span class="fu">numeric</span>()</span>
-<span id="cb25-43"><a href="#cb25-43" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb25-44"><a href="#cb25-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-45"><a href="#cb25-45" aria-hidden="true" tabindex="-1"></a><span class="co"># Loop through each year of retirement</span></span>
-<span id="cb25-46"><a href="#cb25-46" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (year <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>years_in_retirement) {</span>
-<span id="cb25-47"><a href="#cb25-47" aria-hidden="true" tabindex="-1"></a>  age <span class="ot">&lt;-</span> retirement_age <span class="sc">+</span> year <span class="sc">-</span> <span class="dv">1</span></span>
-<span id="cb25-48"><a href="#cb25-48" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb25-49"><a href="#cb25-49" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate TRS income with inflation adjustments</span></span>
-<span id="cb25-50"><a href="#cb25-50" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (year <span class="sc">==</span> <span class="dv">1</span>) {</span>
-<span id="cb25-51"><a href="#cb25-51" aria-hidden="true" tabindex="-1"></a>    trs_income <span class="ot">&lt;-</span> initial_trs_income  <span class="co"># Set this as the first year's benefit</span></span>
-<span id="cb25-52"><a href="#cb25-52" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb25-53"><a href="#cb25-53" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Adjust based on inflation rate (capped between 1% and 3%)</span></span>
-<span id="cb25-54"><a href="#cb25-54" aria-hidden="true" tabindex="-1"></a>    inflation_adjustment <span class="ot">&lt;-</span> <span class="fu">min</span>(<span class="fu">max</span>(inflation_rate<span class="sc">*</span>.<span class="dv">5</span>, <span class="fl">0.01</span>), <span class="fl">0.03</span>)</span>
-<span id="cb25-55"><a href="#cb25-55" aria-hidden="true" tabindex="-1"></a>    trs_income <span class="ot">&lt;-</span> trs_income <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">+</span> (inflation_adjustment))</span>
-<span id="cb25-56"><a href="#cb25-56" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb25-57"><a href="#cb25-57" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb25-58"><a href="#cb25-58" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate ORP withdrawal and remaining balance</span></span>
-<span id="cb25-59"><a href="#cb25-59" aria-hidden="true" tabindex="-1"></a>  orp_withdrawal <span class="ot">&lt;-</span> orp_balance <span class="sc">*</span> withdraw_rate</span>
-<span id="cb25-60"><a href="#cb25-60" aria-hidden="true" tabindex="-1"></a>  orp_balance <span class="ot">&lt;-</span> orp_balance <span class="sc">-</span> orp_withdrawal <span class="sc">+</span> (orp_balance <span class="sc">*</span> expected_market_return)  <span class="co"># Account for market growth</span></span>
-<span id="cb25-61"><a href="#cb25-61" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb25-62"><a href="#cb25-62" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Ensure ORP balance doesn't go negative</span></span>
-<span id="cb25-63"><a href="#cb25-63" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (orp_balance <span class="sc">&lt;</span> <span class="dv">0</span>) {</span>
-<span id="cb25-64"><a href="#cb25-64" aria-hidden="true" tabindex="-1"></a>    orp_balance <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb25-65"><a href="#cb25-65" aria-hidden="true" tabindex="-1"></a>    orp_withdrawal <span class="ot">&lt;-</span> <span class="dv">0</span>  <span class="co"># No withdrawal possible if balance is zero</span></span>
-<span id="cb25-66"><a href="#cb25-66" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb25-67"><a href="#cb25-67" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb25-68"><a href="#cb25-68" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate income gap</span></span>
-<span id="cb25-69"><a href="#cb25-69" aria-hidden="true" tabindex="-1"></a>  income_gap <span class="ot">&lt;-</span> trs_income <span class="sc">-</span> orp_withdrawal</span>
-<span id="cb25-70"><a href="#cb25-70" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb25-71"><a href="#cb25-71" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Store results in the table</span></span>
-<span id="cb25-72"><a href="#cb25-72" aria-hidden="true" tabindex="-1"></a>  comparison_table <span class="ot">&lt;-</span> <span class="fu">rbind</span>(comparison_table, <span class="fu">data.frame</span>(</span>
-<span id="cb25-73"><a href="#cb25-73" aria-hidden="true" tabindex="-1"></a>    <span class="at">Year =</span> year,</span>
-<span id="cb25-74"><a href="#cb25-74" aria-hidden="true" tabindex="-1"></a>    <span class="at">Age =</span> age,</span>
-<span id="cb25-75"><a href="#cb25-75" aria-hidden="true" tabindex="-1"></a>    <span class="at">TRS_Income =</span> trs_income,</span>
-<span id="cb25-76"><a href="#cb25-76" aria-hidden="true" tabindex="-1"></a>    <span class="at">ORP_Withdrawal =</span> orp_withdrawal,</span>
-<span id="cb25-77"><a href="#cb25-77" aria-hidden="true" tabindex="-1"></a>    <span class="at">ORP_Balance =</span> orp_balance,</span>
-<span id="cb25-78"><a href="#cb25-78" aria-hidden="true" tabindex="-1"></a>    <span class="at">Income_Gap =</span> income_gap</span>
-<span id="cb25-79"><a href="#cb25-79" aria-hidden="true" tabindex="-1"></a>  ))</span>
-<span id="cb25-80"><a href="#cb25-80" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb25-81"><a href="#cb25-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-82"><a href="#cb25-82" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the comparison table</span></span>
-<span id="cb25-83"><a href="#cb25-83" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(comparison_table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="do">###task 6</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Define assumptions</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>retirement_age <span class="ot">&lt;-</span> <span class="dv">55</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>death_age <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>withdraw_rate <span class="ot">&lt;-</span> <span class="fl">0.04</span>  <span class="co"># ORP annual withdrawal rate</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>inflation_rate <span class="ot">&lt;-</span> <span class="fl">0.02</span> <span class="co"># Average inflation adjustment for TRS</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>years_in_retirement <span class="ot">&lt;-</span> death_age <span class="sc">-</span> retirement_age</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>expected_market_return <span class="ot">&lt;-</span> <span class="fl">0.07</span> <span class="co"># Assumed expected annual market return of 7%</span></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming you have employee salary data, calculate Final Average Salary (FAS)</span></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Here, we assume the employee served for 30 years and calculate the average of the last 3 years</span></span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>employee_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">Year =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">30</span>,</span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">Salary =</span> <span class="fu">seq</span>(<span class="dv">45000</span>, <span class="dv">120000</span>, <span class="at">length.out =</span> <span class="dv">30</span>)  <span class="co"># Example salary progression from 50,000 to 80,000 over 30 years</span></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate FAS for the last 3 years</span></span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>FAS <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">tail</span>(employee_data<span class="sc">$</span>Salary, <span class="dv">3</span>))</span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate initial TRS income based on FAS and years of service (assuming 30 years of service)</span></span>
+<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a>years_of_service <span class="ot">&lt;-</span> <span class="dv">30</span></span>
+<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (years_of_service <span class="sc">&lt;=</span> <span class="dv">20</span>) {</span>
+<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a>  initial_trs_income <span class="ot">&lt;-</span> <span class="fl">1.67</span> <span class="sc">/</span> <span class="dv">100</span> <span class="sc">*</span> FAS <span class="sc">*</span> years_of_service</span>
+<span id="cb24-26"><a href="#cb24-26" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (years_of_service <span class="sc">==</span> <span class="dv">20</span>) {</span>
+<span id="cb24-27"><a href="#cb24-27" aria-hidden="true" tabindex="-1"></a>  initial_trs_income <span class="ot">&lt;-</span> <span class="fl">1.75</span> <span class="sc">/</span> <span class="dv">100</span> <span class="sc">*</span> FAS <span class="sc">*</span> years_of_service</span>
+<span id="cb24-28"><a href="#cb24-28" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb24-29"><a href="#cb24-29" aria-hidden="true" tabindex="-1"></a>  initial_trs_income <span class="ot">&lt;-</span> (<span class="fl">0.35</span> <span class="sc">+</span> <span class="fl">0.02</span> <span class="sc">*</span> (years_of_service)) <span class="sc">*</span> FAS</span>
+<span id="cb24-30"><a href="#cb24-30" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb24-31"><a href="#cb24-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-32"><a href="#cb24-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize variables for ORP</span></span>
+<span id="cb24-33"><a href="#cb24-33" aria-hidden="true" tabindex="-1"></a>orp_balance <span class="ot">&lt;-</span> orp_75_years<span class="sc">$</span>Account_Balance[<span class="dv">30</span>]  <span class="co"># Use the 30th row as starting balance</span></span>
+<span id="cb24-34"><a href="#cb24-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-35"><a href="#cb24-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an empty data frame to store the results</span></span>
+<span id="cb24-36"><a href="#cb24-36" aria-hidden="true" tabindex="-1"></a>comparison_table <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb24-37"><a href="#cb24-37" aria-hidden="true" tabindex="-1"></a>  <span class="at">Year =</span> <span class="fu">numeric</span>(),</span>
+<span id="cb24-38"><a href="#cb24-38" aria-hidden="true" tabindex="-1"></a>  <span class="at">Age =</span> <span class="fu">numeric</span>(),</span>
+<span id="cb24-39"><a href="#cb24-39" aria-hidden="true" tabindex="-1"></a>  <span class="at">TRS_Income =</span> <span class="fu">numeric</span>(),</span>
+<span id="cb24-40"><a href="#cb24-40" aria-hidden="true" tabindex="-1"></a>  <span class="at">ORP_Withdrawal =</span> <span class="fu">numeric</span>(),</span>
+<span id="cb24-41"><a href="#cb24-41" aria-hidden="true" tabindex="-1"></a>  <span class="at">ORP_Balance =</span> <span class="fu">numeric</span>(),</span>
+<span id="cb24-42"><a href="#cb24-42" aria-hidden="true" tabindex="-1"></a>  <span class="at">Income_Gap =</span> <span class="fu">numeric</span>()</span>
+<span id="cb24-43"><a href="#cb24-43" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb24-44"><a href="#cb24-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-45"><a href="#cb24-45" aria-hidden="true" tabindex="-1"></a><span class="co"># Loop through each year of retirement</span></span>
+<span id="cb24-46"><a href="#cb24-46" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (year <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>years_in_retirement) {</span>
+<span id="cb24-47"><a href="#cb24-47" aria-hidden="true" tabindex="-1"></a>  age <span class="ot">&lt;-</span> retirement_age <span class="sc">+</span> year <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb24-48"><a href="#cb24-48" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb24-49"><a href="#cb24-49" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate TRS income with inflation adjustments</span></span>
+<span id="cb24-50"><a href="#cb24-50" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (year <span class="sc">==</span> <span class="dv">1</span>) {</span>
+<span id="cb24-51"><a href="#cb24-51" aria-hidden="true" tabindex="-1"></a>    trs_income <span class="ot">&lt;-</span> initial_trs_income  <span class="co"># Set this as the first year's benefit</span></span>
+<span id="cb24-52"><a href="#cb24-52" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb24-53"><a href="#cb24-53" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Adjust based on inflation rate (capped between 1% and 3%)</span></span>
+<span id="cb24-54"><a href="#cb24-54" aria-hidden="true" tabindex="-1"></a>    inflation_adjustment <span class="ot">&lt;-</span> <span class="fu">min</span>(<span class="fu">max</span>(inflation_rate<span class="sc">*</span>.<span class="dv">5</span>, <span class="fl">0.01</span>), <span class="fl">0.03</span>)</span>
+<span id="cb24-55"><a href="#cb24-55" aria-hidden="true" tabindex="-1"></a>    trs_income <span class="ot">&lt;-</span> trs_income <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">+</span> (inflation_adjustment))</span>
+<span id="cb24-56"><a href="#cb24-56" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb24-57"><a href="#cb24-57" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb24-58"><a href="#cb24-58" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate ORP withdrawal and remaining balance</span></span>
+<span id="cb24-59"><a href="#cb24-59" aria-hidden="true" tabindex="-1"></a>  orp_withdrawal <span class="ot">&lt;-</span> orp_balance <span class="sc">*</span> withdraw_rate</span>
+<span id="cb24-60"><a href="#cb24-60" aria-hidden="true" tabindex="-1"></a>  orp_balance <span class="ot">&lt;-</span> orp_balance <span class="sc">-</span> orp_withdrawal <span class="sc">+</span> (orp_balance <span class="sc">*</span> expected_market_return)  <span class="co"># Account for market growth</span></span>
+<span id="cb24-61"><a href="#cb24-61" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb24-62"><a href="#cb24-62" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Ensure ORP balance doesn't go negative</span></span>
+<span id="cb24-63"><a href="#cb24-63" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (orp_balance <span class="sc">&lt;</span> <span class="dv">0</span>) {</span>
+<span id="cb24-64"><a href="#cb24-64" aria-hidden="true" tabindex="-1"></a>    orp_balance <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb24-65"><a href="#cb24-65" aria-hidden="true" tabindex="-1"></a>    orp_withdrawal <span class="ot">&lt;-</span> <span class="dv">0</span>  <span class="co"># No withdrawal possible if balance is zero</span></span>
+<span id="cb24-66"><a href="#cb24-66" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb24-67"><a href="#cb24-67" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb24-68"><a href="#cb24-68" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate income gap</span></span>
+<span id="cb24-69"><a href="#cb24-69" aria-hidden="true" tabindex="-1"></a>  income_gap <span class="ot">&lt;-</span> trs_income <span class="sc">-</span> orp_withdrawal</span>
+<span id="cb24-70"><a href="#cb24-70" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb24-71"><a href="#cb24-71" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Store results in the table</span></span>
+<span id="cb24-72"><a href="#cb24-72" aria-hidden="true" tabindex="-1"></a>  comparison_table <span class="ot">&lt;-</span> <span class="fu">rbind</span>(comparison_table, <span class="fu">data.frame</span>(</span>
+<span id="cb24-73"><a href="#cb24-73" aria-hidden="true" tabindex="-1"></a>    <span class="at">Year =</span> year,</span>
+<span id="cb24-74"><a href="#cb24-74" aria-hidden="true" tabindex="-1"></a>    <span class="at">Age =</span> age,</span>
+<span id="cb24-75"><a href="#cb24-75" aria-hidden="true" tabindex="-1"></a>    <span class="at">TRS_Income =</span> trs_income,</span>
+<span id="cb24-76"><a href="#cb24-76" aria-hidden="true" tabindex="-1"></a>    <span class="at">ORP_Withdrawal =</span> orp_withdrawal,</span>
+<span id="cb24-77"><a href="#cb24-77" aria-hidden="true" tabindex="-1"></a>    <span class="at">ORP_Balance =</span> orp_balance,</span>
+<span id="cb24-78"><a href="#cb24-78" aria-hidden="true" tabindex="-1"></a>    <span class="at">Income_Gap =</span> income_gap</span>
+<span id="cb24-79"><a href="#cb24-79" aria-hidden="true" tabindex="-1"></a>  ))</span>
+<span id="cb24-80"><a href="#cb24-80" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb24-81"><a href="#cb24-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-82"><a href="#cb24-82" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the comparison table</span></span>
+<span id="cb24-83"><a href="#cb24-83" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(comparison_table) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
@@ -6841,34 +6997,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <details class="code-fold">
 <summary>Task 6 - Fixed Rate Analysis</summary>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Summary calculations</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>avg_trs_income <span class="ot">&lt;-</span> <span class="fu">mean</span>(comparison_table<span class="sc">$</span>TRS_Income)</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>avg_orp_withdrawal <span class="ot">&lt;-</span> <span class="fu">mean</span>(comparison_table<span class="sc">$</span>ORP_Withdrawal)</span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>max_gap <span class="ot">&lt;-</span> <span class="fu">max</span>(comparison_table<span class="sc">$</span>Income_Gap)</span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>min_gap <span class="ot">&lt;-</span> <span class="fu">min</span>(comparison_table<span class="sc">$</span>Income_Gap)</span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Average Monthly Income (TRS):"</span>, avg_trs_income <span class="sc">/</span> <span class="dv">12</span>, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Summary calculations</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>avg_trs_income <span class="ot">&lt;-</span> <span class="fu">mean</span>(comparison_table<span class="sc">$</span>TRS_Income)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>avg_orp_withdrawal <span class="ot">&lt;-</span> <span class="fu">mean</span>(comparison_table<span class="sc">$</span>ORP_Withdrawal)</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>max_gap <span class="ot">&lt;-</span> <span class="fu">max</span>(comparison_table<span class="sc">$</span>Income_Gap)</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>min_gap <span class="ot">&lt;-</span> <span class="fu">min</span>(comparison_table<span class="sc">$</span>Income_Gap)</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Average Monthly Income (TRS):"</span>, avg_trs_income <span class="sc">/</span> <span class="dv">12</span>, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Average Monthly Income (TRS): 11666.8 </code></pre>
 </div>
 <details class="code-fold">
 <summary>Task 6 - Fixed Rate Analysis</summary>
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Average Monthly Income (ORP):"</span>, avg_orp_withdrawal <span class="sc">/</span> <span class="dv">12</span>, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Average Monthly Income (ORP):"</span>, avg_orp_withdrawal <span class="sc">/</span> <span class="dv">12</span>, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Average Monthly Income (ORP): 5524.622 </code></pre>
 </div>
 <details class="code-fold">
 <summary>Task 6 - Fixed Rate Analysis</summary>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Maximum Income Gap:"</span>, max_gap <span class="sc">/</span> <span class="dv">12</span>, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Maximum Income Gap:"</span>, max_gap <span class="sc">/</span> <span class="dv">12</span>, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Maximum Income Gap: 6668.866 </code></pre>
 </div>
 <details class="code-fold">
 <summary>Task 6 - Fixed Rate Analysis</summary>
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Minimum Income Gap:"</span>, min_gap <span class="sc">/</span> <span class="dv">12</span>, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Minimum Income Gap:"</span>, min_gap <span class="sc">/</span> <span class="dv">12</span>, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Minimum Income Gap: 4557.112 </code></pre>
@@ -6878,24 +7034,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details class="code-fold">
 <summary>Task 6 - Historical $VOO Annual Returns</summary>
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate yearly growth rate</span></span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>voo_data <span class="ot">&lt;-</span> voo_data <span class="sc">%&gt;%</span></span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Date) <span class="sc">%&gt;%</span>  <span class="co"># Ensure data is sorted by date</span></span>
-<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">Yearly_Growth =</span> (<span class="st">`</span><span class="at">VOO Adjusted</span><span class="st">`</span> <span class="sc">/</span> <span class="fu">lag</span>(<span class="st">`</span><span class="at">VOO Adjusted</span><span class="st">`</span>, <span class="dv">12</span>) <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> <span class="dv">100</span>  <span class="co"># Calculate the yearly percentage change</span></span>
-<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove any NA values in Yearly_Growth (since the first year will be NA)</span></span>
-<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>voo_data <span class="ot">&lt;-</span> voo_data <span class="sc">%&gt;%</span> </span>
-<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Yearly_Growth))</span>
-<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the average yearly growth rate</span></span>
-<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a>average_yearly_growth <span class="ot">&lt;-</span> <span class="fu">mean</span>(voo_data<span class="sc">$</span>Yearly_Growth, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-17"><a href="#cb34-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the average yearly growth rate</span></span>
-<span id="cb34-18"><a href="#cb34-18" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Average Yearly Growth Rate of VOO:"</span>, <span class="fu">round</span>(average_yearly_growth, <span class="dv">2</span>), <span class="st">"%"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate yearly growth rate</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>voo_data <span class="ot">&lt;-</span> voo_data <span class="sc">%&gt;%</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Date) <span class="sc">%&gt;%</span>  <span class="co"># Ensure data is sorted by date</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">Yearly_Growth =</span> (<span class="st">`</span><span class="at">VOO Adjusted</span><span class="st">`</span> <span class="sc">/</span> <span class="fu">lag</span>(<span class="st">`</span><span class="at">VOO Adjusted</span><span class="st">`</span>, <span class="dv">12</span>) <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> <span class="dv">100</span>  <span class="co"># Calculate the yearly percentage change</span></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove any NA values in Yearly_Growth (since the first year will be NA)</span></span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>voo_data <span class="ot">&lt;-</span> voo_data <span class="sc">%&gt;%</span> </span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Yearly_Growth))</span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the average yearly growth rate</span></span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>average_yearly_growth <span class="ot">&lt;-</span> <span class="fu">mean</span>(voo_data<span class="sc">$</span>Yearly_Growth, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the average yearly growth rate</span></span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Average Yearly Growth Rate of VOO:"</span>, <span class="fu">round</span>(average_yearly_growth, <span class="dv">2</span>), <span class="st">"%"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Average Yearly Growth Rate of VOO: 14.49 %"</code></pre>
@@ -6905,87 +7061,87 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details class="code-fold">
 <summary>Task 6 - Fixed Rate Analysis - 14.98% returns @ 4% withdraw</summary>
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define assumptions</span></span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>retirement_age <span class="ot">&lt;-</span> <span class="dv">55</span></span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>death_age <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>withdraw_rate <span class="ot">&lt;-</span> <span class="fl">0.04</span>  <span class="co"># ORP annual withdrawal rate</span></span>
-<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>inflation_rate <span class="ot">&lt;-</span> <span class="fl">0.02</span> <span class="co"># Average inflation adjustment for TRS</span></span>
-<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>years_in_retirement <span class="ot">&lt;-</span> death_age <span class="sc">-</span> retirement_age</span>
-<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>expected_market_return <span class="ot">&lt;-</span> <span class="fl">0.1498</span> <span class="co"># Assumed expected annual market return of 7%</span></span>
-<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming you have employee salary data, calculate Final Average Salary (FAS)</span></span>
-<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Here, we assume the employee served for 30 years and calculate the average of the last 3 years</span></span>
-<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>employee_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">Year =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">30</span>,</span>
-<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">Salary =</span> <span class="fu">seq</span>(<span class="dv">45000</span>, <span class="dv">120000</span>, <span class="at">length.out =</span> <span class="dv">30</span>)  <span class="co"># Example salary progression from 50,000 to 80,000 over 30 years</span></span>
-<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-16"><a href="#cb36-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate FAS for the last 3 years</span></span>
-<span id="cb36-17"><a href="#cb36-17" aria-hidden="true" tabindex="-1"></a>FAS <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">tail</span>(employee_data<span class="sc">$</span>Salary, <span class="dv">3</span>))</span>
-<span id="cb36-18"><a href="#cb36-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-19"><a href="#cb36-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate initial TRS income based on FAS and years of service (assuming 30 years of service)</span></span>
-<span id="cb36-20"><a href="#cb36-20" aria-hidden="true" tabindex="-1"></a>years_of_service <span class="ot">&lt;-</span> <span class="dv">30</span></span>
-<span id="cb36-21"><a href="#cb36-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-22"><a href="#cb36-22" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (years_of_service <span class="sc">&lt;=</span> <span class="dv">20</span>) {</span>
-<span id="cb36-23"><a href="#cb36-23" aria-hidden="true" tabindex="-1"></a>  initial_trs_income <span class="ot">&lt;-</span> <span class="fl">1.67</span> <span class="sc">/</span> <span class="dv">100</span> <span class="sc">*</span> FAS <span class="sc">*</span> years_of_service</span>
-<span id="cb36-24"><a href="#cb36-24" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (years_of_service <span class="sc">==</span> <span class="dv">20</span>) {</span>
-<span id="cb36-25"><a href="#cb36-25" aria-hidden="true" tabindex="-1"></a>  initial_trs_income <span class="ot">&lt;-</span> <span class="fl">1.75</span> <span class="sc">/</span> <span class="dv">100</span> <span class="sc">*</span> FAS <span class="sc">*</span> years_of_service</span>
-<span id="cb36-26"><a href="#cb36-26" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb36-27"><a href="#cb36-27" aria-hidden="true" tabindex="-1"></a>  initial_trs_income <span class="ot">&lt;-</span> (<span class="fl">0.35</span> <span class="sc">+</span> <span class="fl">0.02</span> <span class="sc">*</span> (years_of_service)) <span class="sc">*</span> FAS</span>
-<span id="cb36-28"><a href="#cb36-28" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb36-29"><a href="#cb36-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-30"><a href="#cb36-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize variables for ORP</span></span>
-<span id="cb36-31"><a href="#cb36-31" aria-hidden="true" tabindex="-1"></a>orp_balance <span class="ot">&lt;-</span> orp_75_years<span class="sc">$</span>Account_Balance[<span class="dv">30</span>]  <span class="co"># Use the 30th row as starting balance</span></span>
-<span id="cb36-32"><a href="#cb36-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-33"><a href="#cb36-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an empty data frame to store the results</span></span>
-<span id="cb36-34"><a href="#cb36-34" aria-hidden="true" tabindex="-1"></a>comparison_table <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb36-35"><a href="#cb36-35" aria-hidden="true" tabindex="-1"></a>  <span class="at">Year =</span> <span class="fu">numeric</span>(),</span>
-<span id="cb36-36"><a href="#cb36-36" aria-hidden="true" tabindex="-1"></a>  <span class="at">Age =</span> <span class="fu">numeric</span>(),</span>
-<span id="cb36-37"><a href="#cb36-37" aria-hidden="true" tabindex="-1"></a>  <span class="at">TRS_Income =</span> <span class="fu">numeric</span>(),</span>
-<span id="cb36-38"><a href="#cb36-38" aria-hidden="true" tabindex="-1"></a>  <span class="at">ORP_Withdrawal =</span> <span class="fu">numeric</span>(),</span>
-<span id="cb36-39"><a href="#cb36-39" aria-hidden="true" tabindex="-1"></a>  <span class="at">ORP_Balance =</span> <span class="fu">numeric</span>(),</span>
-<span id="cb36-40"><a href="#cb36-40" aria-hidden="true" tabindex="-1"></a>  <span class="at">Income_Gap =</span> <span class="fu">numeric</span>()</span>
-<span id="cb36-41"><a href="#cb36-41" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb36-42"><a href="#cb36-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-43"><a href="#cb36-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Loop through each year of retirement</span></span>
-<span id="cb36-44"><a href="#cb36-44" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (year <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>years_in_retirement) {</span>
-<span id="cb36-45"><a href="#cb36-45" aria-hidden="true" tabindex="-1"></a>  age <span class="ot">&lt;-</span> retirement_age <span class="sc">+</span> year <span class="sc">-</span> <span class="dv">1</span></span>
-<span id="cb36-46"><a href="#cb36-46" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb36-47"><a href="#cb36-47" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate TRS income with inflation adjustments</span></span>
-<span id="cb36-48"><a href="#cb36-48" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (year <span class="sc">==</span> <span class="dv">1</span>) {</span>
-<span id="cb36-49"><a href="#cb36-49" aria-hidden="true" tabindex="-1"></a>    trs_income <span class="ot">&lt;-</span> initial_trs_income  <span class="co"># Set this as the first year's benefit</span></span>
-<span id="cb36-50"><a href="#cb36-50" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb36-51"><a href="#cb36-51" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Adjust based on inflation rate (capped between 1% and 3%)</span></span>
-<span id="cb36-52"><a href="#cb36-52" aria-hidden="true" tabindex="-1"></a>    inflation_adjustment <span class="ot">&lt;-</span> <span class="fu">min</span>(<span class="fu">max</span>(inflation_rate<span class="sc">*</span>.<span class="dv">5</span>, <span class="fl">0.01</span>), <span class="fl">0.03</span>)</span>
-<span id="cb36-53"><a href="#cb36-53" aria-hidden="true" tabindex="-1"></a>    trs_income <span class="ot">&lt;-</span> trs_income <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">+</span> (inflation_adjustment))</span>
-<span id="cb36-54"><a href="#cb36-54" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb36-55"><a href="#cb36-55" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb36-56"><a href="#cb36-56" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate ORP withdrawal and remaining balance</span></span>
-<span id="cb36-57"><a href="#cb36-57" aria-hidden="true" tabindex="-1"></a>  orp_withdrawal <span class="ot">&lt;-</span> orp_balance <span class="sc">*</span> withdraw_rate</span>
-<span id="cb36-58"><a href="#cb36-58" aria-hidden="true" tabindex="-1"></a>  orp_balance <span class="ot">&lt;-</span> orp_balance <span class="sc">-</span> orp_withdrawal <span class="sc">+</span> (orp_balance <span class="sc">*</span> expected_market_return)  <span class="co"># Account for market growth</span></span>
-<span id="cb36-59"><a href="#cb36-59" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb36-60"><a href="#cb36-60" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Ensure ORP balance doesn't go negative</span></span>
-<span id="cb36-61"><a href="#cb36-61" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (orp_balance <span class="sc">&lt;</span> <span class="dv">0</span>) {</span>
-<span id="cb36-62"><a href="#cb36-62" aria-hidden="true" tabindex="-1"></a>    orp_balance <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb36-63"><a href="#cb36-63" aria-hidden="true" tabindex="-1"></a>    orp_withdrawal <span class="ot">&lt;-</span> <span class="dv">0</span>  <span class="co"># No withdrawal possible if balance is zero</span></span>
-<span id="cb36-64"><a href="#cb36-64" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb36-65"><a href="#cb36-65" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb36-66"><a href="#cb36-66" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate income gap</span></span>
-<span id="cb36-67"><a href="#cb36-67" aria-hidden="true" tabindex="-1"></a>  income_gap <span class="ot">&lt;-</span> trs_income <span class="sc">-</span> orp_withdrawal</span>
-<span id="cb36-68"><a href="#cb36-68" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb36-69"><a href="#cb36-69" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Store results in the table</span></span>
-<span id="cb36-70"><a href="#cb36-70" aria-hidden="true" tabindex="-1"></a>  comparison_table <span class="ot">&lt;-</span> <span class="fu">rbind</span>(comparison_table, <span class="fu">data.frame</span>(</span>
-<span id="cb36-71"><a href="#cb36-71" aria-hidden="true" tabindex="-1"></a>    <span class="at">Year =</span> year,</span>
-<span id="cb36-72"><a href="#cb36-72" aria-hidden="true" tabindex="-1"></a>    <span class="at">Age =</span> age,</span>
-<span id="cb36-73"><a href="#cb36-73" aria-hidden="true" tabindex="-1"></a>    <span class="at">TRS_Income =</span> trs_income,</span>
-<span id="cb36-74"><a href="#cb36-74" aria-hidden="true" tabindex="-1"></a>    <span class="at">ORP_Withdrawal =</span> orp_withdrawal,</span>
-<span id="cb36-75"><a href="#cb36-75" aria-hidden="true" tabindex="-1"></a>    <span class="at">ORP_Balance =</span> orp_balance,</span>
-<span id="cb36-76"><a href="#cb36-76" aria-hidden="true" tabindex="-1"></a>    <span class="at">Income_Gap =</span> income_gap</span>
-<span id="cb36-77"><a href="#cb36-77" aria-hidden="true" tabindex="-1"></a>  ))</span>
-<span id="cb36-78"><a href="#cb36-78" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb36-79"><a href="#cb36-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-80"><a href="#cb36-80" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the comparison table</span></span>
-<span id="cb36-81"><a href="#cb36-81" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(comparison_table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define assumptions</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>retirement_age <span class="ot">&lt;-</span> <span class="dv">55</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>death_age <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>withdraw_rate <span class="ot">&lt;-</span> <span class="fl">0.04</span>  <span class="co"># ORP annual withdrawal rate</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>inflation_rate <span class="ot">&lt;-</span> <span class="fl">0.02</span> <span class="co"># Average inflation adjustment for TRS</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>years_in_retirement <span class="ot">&lt;-</span> death_age <span class="sc">-</span> retirement_age</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>expected_market_return <span class="ot">&lt;-</span> <span class="fl">0.1498</span> <span class="co"># Assumed expected annual market return of 7%</span></span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming you have employee salary data, calculate Final Average Salary (FAS)</span></span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Here, we assume the employee served for 30 years and calculate the average of the last 3 years</span></span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>employee_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">Year =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">30</span>,</span>
+<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">Salary =</span> <span class="fu">seq</span>(<span class="dv">45000</span>, <span class="dv">120000</span>, <span class="at">length.out =</span> <span class="dv">30</span>)  <span class="co"># Example salary progression from 50,000 to 80,000 over 30 years</span></span>
+<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-16"><a href="#cb35-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate FAS for the last 3 years</span></span>
+<span id="cb35-17"><a href="#cb35-17" aria-hidden="true" tabindex="-1"></a>FAS <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">tail</span>(employee_data<span class="sc">$</span>Salary, <span class="dv">3</span>))</span>
+<span id="cb35-18"><a href="#cb35-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-19"><a href="#cb35-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate initial TRS income based on FAS and years of service (assuming 30 years of service)</span></span>
+<span id="cb35-20"><a href="#cb35-20" aria-hidden="true" tabindex="-1"></a>years_of_service <span class="ot">&lt;-</span> <span class="dv">30</span></span>
+<span id="cb35-21"><a href="#cb35-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-22"><a href="#cb35-22" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (years_of_service <span class="sc">&lt;=</span> <span class="dv">20</span>) {</span>
+<span id="cb35-23"><a href="#cb35-23" aria-hidden="true" tabindex="-1"></a>  initial_trs_income <span class="ot">&lt;-</span> <span class="fl">1.67</span> <span class="sc">/</span> <span class="dv">100</span> <span class="sc">*</span> FAS <span class="sc">*</span> years_of_service</span>
+<span id="cb35-24"><a href="#cb35-24" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (years_of_service <span class="sc">==</span> <span class="dv">20</span>) {</span>
+<span id="cb35-25"><a href="#cb35-25" aria-hidden="true" tabindex="-1"></a>  initial_trs_income <span class="ot">&lt;-</span> <span class="fl">1.75</span> <span class="sc">/</span> <span class="dv">100</span> <span class="sc">*</span> FAS <span class="sc">*</span> years_of_service</span>
+<span id="cb35-26"><a href="#cb35-26" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb35-27"><a href="#cb35-27" aria-hidden="true" tabindex="-1"></a>  initial_trs_income <span class="ot">&lt;-</span> (<span class="fl">0.35</span> <span class="sc">+</span> <span class="fl">0.02</span> <span class="sc">*</span> (years_of_service)) <span class="sc">*</span> FAS</span>
+<span id="cb35-28"><a href="#cb35-28" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb35-29"><a href="#cb35-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-30"><a href="#cb35-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize variables for ORP</span></span>
+<span id="cb35-31"><a href="#cb35-31" aria-hidden="true" tabindex="-1"></a>orp_balance <span class="ot">&lt;-</span> orp_75_years<span class="sc">$</span>Account_Balance[<span class="dv">30</span>]  <span class="co"># Use the 30th row as starting balance</span></span>
+<span id="cb35-32"><a href="#cb35-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-33"><a href="#cb35-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an empty data frame to store the results</span></span>
+<span id="cb35-34"><a href="#cb35-34" aria-hidden="true" tabindex="-1"></a>comparison_table <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb35-35"><a href="#cb35-35" aria-hidden="true" tabindex="-1"></a>  <span class="at">Year =</span> <span class="fu">numeric</span>(),</span>
+<span id="cb35-36"><a href="#cb35-36" aria-hidden="true" tabindex="-1"></a>  <span class="at">Age =</span> <span class="fu">numeric</span>(),</span>
+<span id="cb35-37"><a href="#cb35-37" aria-hidden="true" tabindex="-1"></a>  <span class="at">TRS_Income =</span> <span class="fu">numeric</span>(),</span>
+<span id="cb35-38"><a href="#cb35-38" aria-hidden="true" tabindex="-1"></a>  <span class="at">ORP_Withdrawal =</span> <span class="fu">numeric</span>(),</span>
+<span id="cb35-39"><a href="#cb35-39" aria-hidden="true" tabindex="-1"></a>  <span class="at">ORP_Balance =</span> <span class="fu">numeric</span>(),</span>
+<span id="cb35-40"><a href="#cb35-40" aria-hidden="true" tabindex="-1"></a>  <span class="at">Income_Gap =</span> <span class="fu">numeric</span>()</span>
+<span id="cb35-41"><a href="#cb35-41" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb35-42"><a href="#cb35-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-43"><a href="#cb35-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Loop through each year of retirement</span></span>
+<span id="cb35-44"><a href="#cb35-44" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (year <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>years_in_retirement) {</span>
+<span id="cb35-45"><a href="#cb35-45" aria-hidden="true" tabindex="-1"></a>  age <span class="ot">&lt;-</span> retirement_age <span class="sc">+</span> year <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb35-46"><a href="#cb35-46" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb35-47"><a href="#cb35-47" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate TRS income with inflation adjustments</span></span>
+<span id="cb35-48"><a href="#cb35-48" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (year <span class="sc">==</span> <span class="dv">1</span>) {</span>
+<span id="cb35-49"><a href="#cb35-49" aria-hidden="true" tabindex="-1"></a>    trs_income <span class="ot">&lt;-</span> initial_trs_income  <span class="co"># Set this as the first year's benefit</span></span>
+<span id="cb35-50"><a href="#cb35-50" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb35-51"><a href="#cb35-51" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Adjust based on inflation rate (capped between 1% and 3%)</span></span>
+<span id="cb35-52"><a href="#cb35-52" aria-hidden="true" tabindex="-1"></a>    inflation_adjustment <span class="ot">&lt;-</span> <span class="fu">min</span>(<span class="fu">max</span>(inflation_rate<span class="sc">*</span>.<span class="dv">5</span>, <span class="fl">0.01</span>), <span class="fl">0.03</span>)</span>
+<span id="cb35-53"><a href="#cb35-53" aria-hidden="true" tabindex="-1"></a>    trs_income <span class="ot">&lt;-</span> trs_income <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">+</span> (inflation_adjustment))</span>
+<span id="cb35-54"><a href="#cb35-54" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb35-55"><a href="#cb35-55" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb35-56"><a href="#cb35-56" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate ORP withdrawal and remaining balance</span></span>
+<span id="cb35-57"><a href="#cb35-57" aria-hidden="true" tabindex="-1"></a>  orp_withdrawal <span class="ot">&lt;-</span> orp_balance <span class="sc">*</span> withdraw_rate</span>
+<span id="cb35-58"><a href="#cb35-58" aria-hidden="true" tabindex="-1"></a>  orp_balance <span class="ot">&lt;-</span> orp_balance <span class="sc">-</span> orp_withdrawal <span class="sc">+</span> (orp_balance <span class="sc">*</span> expected_market_return)  <span class="co"># Account for market growth</span></span>
+<span id="cb35-59"><a href="#cb35-59" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb35-60"><a href="#cb35-60" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Ensure ORP balance doesn't go negative</span></span>
+<span id="cb35-61"><a href="#cb35-61" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (orp_balance <span class="sc">&lt;</span> <span class="dv">0</span>) {</span>
+<span id="cb35-62"><a href="#cb35-62" aria-hidden="true" tabindex="-1"></a>    orp_balance <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb35-63"><a href="#cb35-63" aria-hidden="true" tabindex="-1"></a>    orp_withdrawal <span class="ot">&lt;-</span> <span class="dv">0</span>  <span class="co"># No withdrawal possible if balance is zero</span></span>
+<span id="cb35-64"><a href="#cb35-64" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb35-65"><a href="#cb35-65" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb35-66"><a href="#cb35-66" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate income gap</span></span>
+<span id="cb35-67"><a href="#cb35-67" aria-hidden="true" tabindex="-1"></a>  income_gap <span class="ot">&lt;-</span> trs_income <span class="sc">-</span> orp_withdrawal</span>
+<span id="cb35-68"><a href="#cb35-68" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb35-69"><a href="#cb35-69" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Store results in the table</span></span>
+<span id="cb35-70"><a href="#cb35-70" aria-hidden="true" tabindex="-1"></a>  comparison_table <span class="ot">&lt;-</span> <span class="fu">rbind</span>(comparison_table, <span class="fu">data.frame</span>(</span>
+<span id="cb35-71"><a href="#cb35-71" aria-hidden="true" tabindex="-1"></a>    <span class="at">Year =</span> year,</span>
+<span id="cb35-72"><a href="#cb35-72" aria-hidden="true" tabindex="-1"></a>    <span class="at">Age =</span> age,</span>
+<span id="cb35-73"><a href="#cb35-73" aria-hidden="true" tabindex="-1"></a>    <span class="at">TRS_Income =</span> trs_income,</span>
+<span id="cb35-74"><a href="#cb35-74" aria-hidden="true" tabindex="-1"></a>    <span class="at">ORP_Withdrawal =</span> orp_withdrawal,</span>
+<span id="cb35-75"><a href="#cb35-75" aria-hidden="true" tabindex="-1"></a>    <span class="at">ORP_Balance =</span> orp_balance,</span>
+<span id="cb35-76"><a href="#cb35-76" aria-hidden="true" tabindex="-1"></a>    <span class="at">Income_Gap =</span> income_gap</span>
+<span id="cb35-77"><a href="#cb35-77" aria-hidden="true" tabindex="-1"></a>  ))</span>
+<span id="cb35-78"><a href="#cb35-78" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb35-79"><a href="#cb35-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-80"><a href="#cb35-80" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the comparison table</span></span>
+<span id="cb35-81"><a href="#cb35-81" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(comparison_table) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
@@ -7368,99 +7524,99 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details class="code-fold">
 <summary>Task 6 - Fixed Rate Analysis - 14.98% returns @ 10% withdraw</summary>
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define assumptions</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>retirement_age <span class="ot">&lt;-</span> <span class="dv">55</span></span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>death_age <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>withdraw_rate <span class="ot">&lt;-</span> <span class="fl">0.10</span>  <span class="co"># ORP annual withdrawal rate</span></span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>inflation_rate <span class="ot">&lt;-</span> <span class="fl">0.02</span> <span class="co"># Average inflation adjustment for TRS</span></span>
-<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>years_in_retirement <span class="ot">&lt;-</span> death_age <span class="sc">-</span> retirement_age</span>
-<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>expected_market_return <span class="ot">&lt;-</span> <span class="fl">0.1498</span> <span class="co"># Assumed expected annual market return of 7%</span></span>
-<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming you have employee salary data, calculate Final Average Salary (FAS)</span></span>
-<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Here, we assume the employee served for 30 years and calculate the average of the last 3 years</span></span>
-<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>employee_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">Year =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">30</span>,</span>
-<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">Salary =</span> <span class="fu">seq</span>(<span class="dv">45000</span>, <span class="dv">120000</span>, <span class="at">length.out =</span> <span class="dv">30</span>)  <span class="co"># Example salary progression from 50,000 to 80,000 over 30 years</span></span>
-<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-16"><a href="#cb37-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate FAS for the last 3 years</span></span>
-<span id="cb37-17"><a href="#cb37-17" aria-hidden="true" tabindex="-1"></a>FAS <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">tail</span>(employee_data<span class="sc">$</span>Salary, <span class="dv">3</span>))</span>
-<span id="cb37-18"><a href="#cb37-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-19"><a href="#cb37-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate initial TRS income based on FAS and years of service (assuming 30 years of service)</span></span>
-<span id="cb37-20"><a href="#cb37-20" aria-hidden="true" tabindex="-1"></a>years_of_service <span class="ot">&lt;-</span> <span class="dv">30</span></span>
-<span id="cb37-21"><a href="#cb37-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-22"><a href="#cb37-22" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (years_of_service <span class="sc">&lt;=</span> <span class="dv">20</span>) {</span>
-<span id="cb37-23"><a href="#cb37-23" aria-hidden="true" tabindex="-1"></a>  initial_trs_income <span class="ot">&lt;-</span> <span class="fl">1.67</span> <span class="sc">/</span> <span class="dv">100</span> <span class="sc">*</span> FAS <span class="sc">*</span> years_of_service</span>
-<span id="cb37-24"><a href="#cb37-24" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (years_of_service <span class="sc">==</span> <span class="dv">20</span>) {</span>
-<span id="cb37-25"><a href="#cb37-25" aria-hidden="true" tabindex="-1"></a>  initial_trs_income <span class="ot">&lt;-</span> <span class="fl">1.75</span> <span class="sc">/</span> <span class="dv">100</span> <span class="sc">*</span> FAS <span class="sc">*</span> years_of_service</span>
-<span id="cb37-26"><a href="#cb37-26" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb37-27"><a href="#cb37-27" aria-hidden="true" tabindex="-1"></a>  initial_trs_income <span class="ot">&lt;-</span> (<span class="fl">0.35</span> <span class="sc">+</span> <span class="fl">0.02</span> <span class="sc">*</span> (years_of_service)) <span class="sc">*</span> FAS</span>
-<span id="cb37-28"><a href="#cb37-28" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb37-29"><a href="#cb37-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-30"><a href="#cb37-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize variables for ORP</span></span>
-<span id="cb37-31"><a href="#cb37-31" aria-hidden="true" tabindex="-1"></a>orp_balance <span class="ot">&lt;-</span> orp_75_years<span class="sc">$</span>Account_Balance[<span class="dv">30</span>]  <span class="co"># Use the 30th row as starting balance</span></span>
-<span id="cb37-32"><a href="#cb37-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-33"><a href="#cb37-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an empty data frame to store the results</span></span>
-<span id="cb37-34"><a href="#cb37-34" aria-hidden="true" tabindex="-1"></a>comparison_table <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb37-35"><a href="#cb37-35" aria-hidden="true" tabindex="-1"></a>  <span class="at">Year =</span> <span class="fu">numeric</span>(),</span>
-<span id="cb37-36"><a href="#cb37-36" aria-hidden="true" tabindex="-1"></a>  <span class="at">Age =</span> <span class="fu">numeric</span>(),</span>
-<span id="cb37-37"><a href="#cb37-37" aria-hidden="true" tabindex="-1"></a>  <span class="at">TRS_Income =</span> <span class="fu">numeric</span>(),</span>
-<span id="cb37-38"><a href="#cb37-38" aria-hidden="true" tabindex="-1"></a>  <span class="at">ORP_Withdrawal =</span> <span class="fu">numeric</span>(),</span>
-<span id="cb37-39"><a href="#cb37-39" aria-hidden="true" tabindex="-1"></a>  <span class="at">ORP_Balance =</span> <span class="fu">numeric</span>(),</span>
-<span id="cb37-40"><a href="#cb37-40" aria-hidden="true" tabindex="-1"></a>  <span class="at">Income_Gap =</span> <span class="fu">numeric</span>()</span>
-<span id="cb37-41"><a href="#cb37-41" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb37-42"><a href="#cb37-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-43"><a href="#cb37-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Loop through each year of retirement</span></span>
-<span id="cb37-44"><a href="#cb37-44" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (year <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>years_in_retirement) {</span>
-<span id="cb37-45"><a href="#cb37-45" aria-hidden="true" tabindex="-1"></a>  age <span class="ot">&lt;-</span> retirement_age <span class="sc">+</span> year <span class="sc">-</span> <span class="dv">1</span></span>
-<span id="cb37-46"><a href="#cb37-46" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb37-47"><a href="#cb37-47" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate TRS income with inflation adjustments</span></span>
-<span id="cb37-48"><a href="#cb37-48" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (year <span class="sc">==</span> <span class="dv">1</span>) {</span>
-<span id="cb37-49"><a href="#cb37-49" aria-hidden="true" tabindex="-1"></a>    trs_income <span class="ot">&lt;-</span> initial_trs_income  <span class="co"># Set this as the first year's benefit</span></span>
-<span id="cb37-50"><a href="#cb37-50" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb37-51"><a href="#cb37-51" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Adjust based on inflation rate (capped between 1% and 3%)</span></span>
-<span id="cb37-52"><a href="#cb37-52" aria-hidden="true" tabindex="-1"></a>    inflation_adjustment <span class="ot">&lt;-</span> <span class="fu">min</span>(<span class="fu">max</span>(inflation_rate<span class="sc">*</span>.<span class="dv">5</span>, <span class="fl">0.01</span>), <span class="fl">0.03</span>)</span>
-<span id="cb37-53"><a href="#cb37-53" aria-hidden="true" tabindex="-1"></a>    trs_income <span class="ot">&lt;-</span> trs_income <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">+</span> (inflation_adjustment))</span>
-<span id="cb37-54"><a href="#cb37-54" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb37-55"><a href="#cb37-55" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb37-56"><a href="#cb37-56" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate ORP withdrawal and remaining balance</span></span>
-<span id="cb37-57"><a href="#cb37-57" aria-hidden="true" tabindex="-1"></a>  orp_withdrawal <span class="ot">&lt;-</span> orp_balance <span class="sc">*</span> withdraw_rate</span>
-<span id="cb37-58"><a href="#cb37-58" aria-hidden="true" tabindex="-1"></a>  orp_balance <span class="ot">&lt;-</span> orp_balance <span class="sc">-</span> orp_withdrawal <span class="sc">+</span> (orp_balance <span class="sc">*</span> expected_market_return)  <span class="co"># Account for market growth</span></span>
-<span id="cb37-59"><a href="#cb37-59" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb37-60"><a href="#cb37-60" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Ensure ORP balance doesn't go negative</span></span>
-<span id="cb37-61"><a href="#cb37-61" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (orp_balance <span class="sc">&lt;</span> <span class="dv">0</span>) {</span>
-<span id="cb37-62"><a href="#cb37-62" aria-hidden="true" tabindex="-1"></a>    orp_balance <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb37-63"><a href="#cb37-63" aria-hidden="true" tabindex="-1"></a>    orp_withdrawal <span class="ot">&lt;-</span> <span class="dv">0</span>  <span class="co"># No withdrawal possible if balance is zero</span></span>
-<span id="cb37-64"><a href="#cb37-64" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb37-65"><a href="#cb37-65" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb37-66"><a href="#cb37-66" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate income gap</span></span>
-<span id="cb37-67"><a href="#cb37-67" aria-hidden="true" tabindex="-1"></a>  income_gap <span class="ot">&lt;-</span> trs_income <span class="sc">-</span> orp_withdrawal</span>
-<span id="cb37-68"><a href="#cb37-68" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb37-69"><a href="#cb37-69" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Store results in the table</span></span>
-<span id="cb37-70"><a href="#cb37-70" aria-hidden="true" tabindex="-1"></a>  comparison_table <span class="ot">&lt;-</span> <span class="fu">rbind</span>(comparison_table, <span class="fu">data.frame</span>(</span>
-<span id="cb37-71"><a href="#cb37-71" aria-hidden="true" tabindex="-1"></a>    <span class="at">Year =</span> year,</span>
-<span id="cb37-72"><a href="#cb37-72" aria-hidden="true" tabindex="-1"></a>    <span class="at">Age =</span> age,</span>
-<span id="cb37-73"><a href="#cb37-73" aria-hidden="true" tabindex="-1"></a>    <span class="at">TRS_Income =</span> trs_income,</span>
-<span id="cb37-74"><a href="#cb37-74" aria-hidden="true" tabindex="-1"></a>    <span class="at">ORP_Withdrawal =</span> orp_withdrawal,</span>
-<span id="cb37-75"><a href="#cb37-75" aria-hidden="true" tabindex="-1"></a>    <span class="at">ORP_Balance =</span> orp_balance,</span>
-<span id="cb37-76"><a href="#cb37-76" aria-hidden="true" tabindex="-1"></a>    <span class="at">Income_Gap =</span> income_gap</span>
-<span id="cb37-77"><a href="#cb37-77" aria-hidden="true" tabindex="-1"></a>  ))</span>
-<span id="cb37-78"><a href="#cb37-78" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb37-79"><a href="#cb37-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-80"><a href="#cb37-80" aria-hidden="true" tabindex="-1"></a><span class="do">##graphs for break even point and remaining balance</span></span>
-<span id="cb37-81"><a href="#cb37-81" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb37-82"><a href="#cb37-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-83"><a href="#cb37-83" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the line plot for TRS Income and ORP Withdrawal over the years (x-axis as Age)</span></span>
-<span id="cb37-84"><a href="#cb37-84" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(comparison_table, <span class="fu">aes</span>(<span class="at">x =</span> Age)) <span class="sc">+</span></span>
-<span id="cb37-85"><a href="#cb37-85" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> TRS_Income, <span class="at">color =</span> <span class="st">"TRS Income"</span>), <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb37-86"><a href="#cb37-86" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> ORP_Withdrawal, <span class="at">color =</span> <span class="st">"ORP Withdrawal"</span>), <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb37-87"><a href="#cb37-87" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb37-88"><a href="#cb37-88" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"TRS Income vs ORP Withdrawal Over Time"</span>,</span>
-<span id="cb37-89"><a href="#cb37-89" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Age"</span>,</span>
-<span id="cb37-90"><a href="#cb37-90" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Income (USD)"</span>,</span>
-<span id="cb37-91"><a href="#cb37-91" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Legend"</span></span>
-<span id="cb37-92"><a href="#cb37-92" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb37-93"><a href="#cb37-93" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define assumptions</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>retirement_age <span class="ot">&lt;-</span> <span class="dv">55</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>death_age <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>withdraw_rate <span class="ot">&lt;-</span> <span class="fl">0.10</span>  <span class="co"># ORP annual withdrawal rate</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>inflation_rate <span class="ot">&lt;-</span> <span class="fl">0.02</span> <span class="co"># Average inflation adjustment for TRS</span></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>years_in_retirement <span class="ot">&lt;-</span> death_age <span class="sc">-</span> retirement_age</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>expected_market_return <span class="ot">&lt;-</span> <span class="fl">0.1498</span> <span class="co"># Assumed expected annual market return of 7%</span></span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming you have employee salary data, calculate Final Average Salary (FAS)</span></span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Here, we assume the employee served for 30 years and calculate the average of the last 3 years</span></span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>employee_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">Year =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">30</span>,</span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">Salary =</span> <span class="fu">seq</span>(<span class="dv">45000</span>, <span class="dv">120000</span>, <span class="at">length.out =</span> <span class="dv">30</span>)  <span class="co"># Example salary progression from 50,000 to 80,000 over 30 years</span></span>
+<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-16"><a href="#cb36-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate FAS for the last 3 years</span></span>
+<span id="cb36-17"><a href="#cb36-17" aria-hidden="true" tabindex="-1"></a>FAS <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">tail</span>(employee_data<span class="sc">$</span>Salary, <span class="dv">3</span>))</span>
+<span id="cb36-18"><a href="#cb36-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-19"><a href="#cb36-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate initial TRS income based on FAS and years of service (assuming 30 years of service)</span></span>
+<span id="cb36-20"><a href="#cb36-20" aria-hidden="true" tabindex="-1"></a>years_of_service <span class="ot">&lt;-</span> <span class="dv">30</span></span>
+<span id="cb36-21"><a href="#cb36-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-22"><a href="#cb36-22" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (years_of_service <span class="sc">&lt;=</span> <span class="dv">20</span>) {</span>
+<span id="cb36-23"><a href="#cb36-23" aria-hidden="true" tabindex="-1"></a>  initial_trs_income <span class="ot">&lt;-</span> <span class="fl">1.67</span> <span class="sc">/</span> <span class="dv">100</span> <span class="sc">*</span> FAS <span class="sc">*</span> years_of_service</span>
+<span id="cb36-24"><a href="#cb36-24" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (years_of_service <span class="sc">==</span> <span class="dv">20</span>) {</span>
+<span id="cb36-25"><a href="#cb36-25" aria-hidden="true" tabindex="-1"></a>  initial_trs_income <span class="ot">&lt;-</span> <span class="fl">1.75</span> <span class="sc">/</span> <span class="dv">100</span> <span class="sc">*</span> FAS <span class="sc">*</span> years_of_service</span>
+<span id="cb36-26"><a href="#cb36-26" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb36-27"><a href="#cb36-27" aria-hidden="true" tabindex="-1"></a>  initial_trs_income <span class="ot">&lt;-</span> (<span class="fl">0.35</span> <span class="sc">+</span> <span class="fl">0.02</span> <span class="sc">*</span> (years_of_service)) <span class="sc">*</span> FAS</span>
+<span id="cb36-28"><a href="#cb36-28" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb36-29"><a href="#cb36-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-30"><a href="#cb36-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize variables for ORP</span></span>
+<span id="cb36-31"><a href="#cb36-31" aria-hidden="true" tabindex="-1"></a>orp_balance <span class="ot">&lt;-</span> orp_75_years<span class="sc">$</span>Account_Balance[<span class="dv">30</span>]  <span class="co"># Use the 30th row as starting balance</span></span>
+<span id="cb36-32"><a href="#cb36-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-33"><a href="#cb36-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an empty data frame to store the results</span></span>
+<span id="cb36-34"><a href="#cb36-34" aria-hidden="true" tabindex="-1"></a>comparison_table <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb36-35"><a href="#cb36-35" aria-hidden="true" tabindex="-1"></a>  <span class="at">Year =</span> <span class="fu">numeric</span>(),</span>
+<span id="cb36-36"><a href="#cb36-36" aria-hidden="true" tabindex="-1"></a>  <span class="at">Age =</span> <span class="fu">numeric</span>(),</span>
+<span id="cb36-37"><a href="#cb36-37" aria-hidden="true" tabindex="-1"></a>  <span class="at">TRS_Income =</span> <span class="fu">numeric</span>(),</span>
+<span id="cb36-38"><a href="#cb36-38" aria-hidden="true" tabindex="-1"></a>  <span class="at">ORP_Withdrawal =</span> <span class="fu">numeric</span>(),</span>
+<span id="cb36-39"><a href="#cb36-39" aria-hidden="true" tabindex="-1"></a>  <span class="at">ORP_Balance =</span> <span class="fu">numeric</span>(),</span>
+<span id="cb36-40"><a href="#cb36-40" aria-hidden="true" tabindex="-1"></a>  <span class="at">Income_Gap =</span> <span class="fu">numeric</span>()</span>
+<span id="cb36-41"><a href="#cb36-41" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb36-42"><a href="#cb36-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-43"><a href="#cb36-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Loop through each year of retirement</span></span>
+<span id="cb36-44"><a href="#cb36-44" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (year <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>years_in_retirement) {</span>
+<span id="cb36-45"><a href="#cb36-45" aria-hidden="true" tabindex="-1"></a>  age <span class="ot">&lt;-</span> retirement_age <span class="sc">+</span> year <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb36-46"><a href="#cb36-46" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb36-47"><a href="#cb36-47" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate TRS income with inflation adjustments</span></span>
+<span id="cb36-48"><a href="#cb36-48" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (year <span class="sc">==</span> <span class="dv">1</span>) {</span>
+<span id="cb36-49"><a href="#cb36-49" aria-hidden="true" tabindex="-1"></a>    trs_income <span class="ot">&lt;-</span> initial_trs_income  <span class="co"># Set this as the first year's benefit</span></span>
+<span id="cb36-50"><a href="#cb36-50" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb36-51"><a href="#cb36-51" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Adjust based on inflation rate (capped between 1% and 3%)</span></span>
+<span id="cb36-52"><a href="#cb36-52" aria-hidden="true" tabindex="-1"></a>    inflation_adjustment <span class="ot">&lt;-</span> <span class="fu">min</span>(<span class="fu">max</span>(inflation_rate<span class="sc">*</span>.<span class="dv">5</span>, <span class="fl">0.01</span>), <span class="fl">0.03</span>)</span>
+<span id="cb36-53"><a href="#cb36-53" aria-hidden="true" tabindex="-1"></a>    trs_income <span class="ot">&lt;-</span> trs_income <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">+</span> (inflation_adjustment))</span>
+<span id="cb36-54"><a href="#cb36-54" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb36-55"><a href="#cb36-55" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb36-56"><a href="#cb36-56" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate ORP withdrawal and remaining balance</span></span>
+<span id="cb36-57"><a href="#cb36-57" aria-hidden="true" tabindex="-1"></a>  orp_withdrawal <span class="ot">&lt;-</span> orp_balance <span class="sc">*</span> withdraw_rate</span>
+<span id="cb36-58"><a href="#cb36-58" aria-hidden="true" tabindex="-1"></a>  orp_balance <span class="ot">&lt;-</span> orp_balance <span class="sc">-</span> orp_withdrawal <span class="sc">+</span> (orp_balance <span class="sc">*</span> expected_market_return)  <span class="co"># Account for market growth</span></span>
+<span id="cb36-59"><a href="#cb36-59" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb36-60"><a href="#cb36-60" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Ensure ORP balance doesn't go negative</span></span>
+<span id="cb36-61"><a href="#cb36-61" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (orp_balance <span class="sc">&lt;</span> <span class="dv">0</span>) {</span>
+<span id="cb36-62"><a href="#cb36-62" aria-hidden="true" tabindex="-1"></a>    orp_balance <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb36-63"><a href="#cb36-63" aria-hidden="true" tabindex="-1"></a>    orp_withdrawal <span class="ot">&lt;-</span> <span class="dv">0</span>  <span class="co"># No withdrawal possible if balance is zero</span></span>
+<span id="cb36-64"><a href="#cb36-64" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb36-65"><a href="#cb36-65" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb36-66"><a href="#cb36-66" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate income gap</span></span>
+<span id="cb36-67"><a href="#cb36-67" aria-hidden="true" tabindex="-1"></a>  income_gap <span class="ot">&lt;-</span> trs_income <span class="sc">-</span> orp_withdrawal</span>
+<span id="cb36-68"><a href="#cb36-68" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb36-69"><a href="#cb36-69" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Store results in the table</span></span>
+<span id="cb36-70"><a href="#cb36-70" aria-hidden="true" tabindex="-1"></a>  comparison_table <span class="ot">&lt;-</span> <span class="fu">rbind</span>(comparison_table, <span class="fu">data.frame</span>(</span>
+<span id="cb36-71"><a href="#cb36-71" aria-hidden="true" tabindex="-1"></a>    <span class="at">Year =</span> year,</span>
+<span id="cb36-72"><a href="#cb36-72" aria-hidden="true" tabindex="-1"></a>    <span class="at">Age =</span> age,</span>
+<span id="cb36-73"><a href="#cb36-73" aria-hidden="true" tabindex="-1"></a>    <span class="at">TRS_Income =</span> trs_income,</span>
+<span id="cb36-74"><a href="#cb36-74" aria-hidden="true" tabindex="-1"></a>    <span class="at">ORP_Withdrawal =</span> orp_withdrawal,</span>
+<span id="cb36-75"><a href="#cb36-75" aria-hidden="true" tabindex="-1"></a>    <span class="at">ORP_Balance =</span> orp_balance,</span>
+<span id="cb36-76"><a href="#cb36-76" aria-hidden="true" tabindex="-1"></a>    <span class="at">Income_Gap =</span> income_gap</span>
+<span id="cb36-77"><a href="#cb36-77" aria-hidden="true" tabindex="-1"></a>  ))</span>
+<span id="cb36-78"><a href="#cb36-78" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb36-79"><a href="#cb36-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-80"><a href="#cb36-80" aria-hidden="true" tabindex="-1"></a><span class="do">##graphs for break even point and remaining balance</span></span>
+<span id="cb36-81"><a href="#cb36-81" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb36-82"><a href="#cb36-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-83"><a href="#cb36-83" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the line plot for TRS Income and ORP Withdrawal over the years (x-axis as Age)</span></span>
+<span id="cb36-84"><a href="#cb36-84" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(comparison_table, <span class="fu">aes</span>(<span class="at">x =</span> Age)) <span class="sc">+</span></span>
+<span id="cb36-85"><a href="#cb36-85" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> TRS_Income, <span class="at">color =</span> <span class="st">"TRS Income"</span>), <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb36-86"><a href="#cb36-86" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> ORP_Withdrawal, <span class="at">color =</span> <span class="st">"ORP Withdrawal"</span>), <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb36-87"><a href="#cb36-87" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb36-88"><a href="#cb36-88" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"TRS Income vs ORP Withdrawal Over Time"</span>,</span>
+<span id="cb36-89"><a href="#cb36-89" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Age"</span>,</span>
+<span id="cb36-90"><a href="#cb36-90" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Income (USD)"</span>,</span>
+<span id="cb36-91"><a href="#cb36-91" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Legend"</span></span>
+<span id="cb36-92"><a href="#cb36-92" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb36-93"><a href="#cb36-93" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -7471,8 +7627,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <details class="code-fold">
 <summary>Task 6 - Fixed Rate Analysis - 14.98% returns @ 10% withdraw</summary>
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the comparison table</span></span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(comparison_table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the comparison table</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(comparison_table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
@@ -7852,34 +8008,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <details class="code-fold">
 <summary>Task 6 - Fixed Rate Analysis - 14.98% returns @ 10% withdraw</summary>
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Summary calculations</span></span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>avg_trs_income <span class="ot">&lt;-</span> <span class="fu">mean</span>(comparison_table<span class="sc">$</span>TRS_Income)</span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>avg_orp_withdrawal <span class="ot">&lt;-</span> <span class="fu">mean</span>(comparison_table<span class="sc">$</span>ORP_Withdrawal)</span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>max_gap <span class="ot">&lt;-</span> <span class="fu">max</span>(comparison_table<span class="sc">$</span>Income_Gap)</span>
-<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>min_gap <span class="ot">&lt;-</span> <span class="fu">min</span>(comparison_table<span class="sc">$</span>Income_Gap)</span>
-<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Average Monthly Income (TRS):"</span>, avg_trs_income <span class="sc">/</span> <span class="dv">12</span>, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Summary calculations</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>avg_trs_income <span class="ot">&lt;-</span> <span class="fu">mean</span>(comparison_table<span class="sc">$</span>TRS_Income)</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>avg_orp_withdrawal <span class="ot">&lt;-</span> <span class="fu">mean</span>(comparison_table<span class="sc">$</span>ORP_Withdrawal)</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>max_gap <span class="ot">&lt;-</span> <span class="fu">max</span>(comparison_table<span class="sc">$</span>Income_Gap)</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>min_gap <span class="ot">&lt;-</span> <span class="fu">min</span>(comparison_table<span class="sc">$</span>Income_Gap)</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Average Monthly Income (TRS):"</span>, avg_trs_income <span class="sc">/</span> <span class="dv">12</span>, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Average Monthly Income (TRS): 11666.8 </code></pre>
 </div>
 <details class="code-fold">
 <summary>Task 6 - Fixed Rate Analysis - 14.98% returns @ 10% withdraw</summary>
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Average Monthly Income (ORP):"</span>, avg_orp_withdrawal <span class="sc">/</span> <span class="dv">12</span>, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Average Monthly Income (ORP):"</span>, avg_orp_withdrawal <span class="sc">/</span> <span class="dv">12</span>, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Average Monthly Income (ORP): 23655.08 </code></pre>
 </div>
 <details class="code-fold">
 <summary>Task 6 - Fixed Rate Analysis - 14.98% returns @ 10% withdraw</summary>
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Maximum Income Gap:"</span>, max_gap <span class="sc">/</span> <span class="dv">12</span>, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Maximum Income Gap:"</span>, max_gap <span class="sc">/</span> <span class="dv">12</span>, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Maximum Income Gap: 2592.056 </code></pre>
 </div>
 <details class="code-fold">
 <summary>Task 6 - Fixed Rate Analysis - 14.98% returns @ 10% withdraw</summary>
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Minimum Income Gap:"</span>, min_gap <span class="sc">/</span> <span class="dv">12</span>, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Minimum Income Gap:"</span>, min_gap <span class="sc">/</span> <span class="dv">12</span>, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Minimum Income Gap: -42480.23 </code></pre>
@@ -7891,132 +8047,131 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="monte-carlo-analysis"><span style="color: cyan;">5. Monte Carlo Analysis</span></h2>
 <p>For our Monte Carlo Analysis we will use VOO historical returns as our variable. Below we see the distribution mean of our annual returns. This indicates to us in 200 possible scenarios the most common annual return average is ~ 15%. However, it also indicates that on a low end our expected return ar 12% which is 5% than our original 7% estimate in our first historical analysis. Visually, we can see the distribution of the average annual returns. We can see that for the most part the returns will be positive with very low probability that the returns will be negative. However that is still a possibility.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-summary: "Monte Carlo Analysis"</span></span>
-<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Load necessary library</span></span>
-<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-10"><a href="#cb47-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Define assumptions</span></span>
-<span id="cb47-11"><a href="#cb47-11" aria-hidden="true" tabindex="-1"></a>retirement_age <span class="ot">&lt;-</span> <span class="dv">55</span></span>
-<span id="cb47-12"><a href="#cb47-12" aria-hidden="true" tabindex="-1"></a>death_age <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb47-13"><a href="#cb47-13" aria-hidden="true" tabindex="-1"></a>withdraw_rate <span class="ot">&lt;-</span> <span class="fl">0.04</span>  <span class="co"># ORP annual withdrawal rate</span></span>
-<span id="cb47-14"><a href="#cb47-14" aria-hidden="true" tabindex="-1"></a>inflation_rate <span class="ot">&lt;-</span> <span class="fl">0.02</span> <span class="co"># Average inflation adjustment for TRS</span></span>
-<span id="cb47-15"><a href="#cb47-15" aria-hidden="true" tabindex="-1"></a>years_in_retirement <span class="ot">&lt;-</span> death_age <span class="sc">-</span> retirement_age</span>
-<span id="cb47-16"><a href="#cb47-16" aria-hidden="true" tabindex="-1"></a>iterations <span class="ot">&lt;-</span> <span class="dv">200</span>  <span class="co"># Number of Monte Carlo iterations</span></span>
-<span id="cb47-17"><a href="#cb47-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-18"><a href="#cb47-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming you have employee salary data, calculate Final Average Salary (FAS)</span></span>
-<span id="cb47-19"><a href="#cb47-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Here, we assume the employee served for 30 years and calculate the average of the last 3 years</span></span>
-<span id="cb47-20"><a href="#cb47-20" aria-hidden="true" tabindex="-1"></a>employee_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb47-21"><a href="#cb47-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">Year =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">30</span>,</span>
-<span id="cb47-22"><a href="#cb47-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">Salary =</span> <span class="fu">seq</span>(<span class="dv">45000</span>, <span class="dv">120000</span>, <span class="at">length.out =</span> <span class="dv">30</span>)  <span class="co"># Example salary progression from 50,000 to 80,000 over 30 years</span></span>
-<span id="cb47-23"><a href="#cb47-23" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb47-24"><a href="#cb47-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-25"><a href="#cb47-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate FAS for the last 3 years</span></span>
-<span id="cb47-26"><a href="#cb47-26" aria-hidden="true" tabindex="-1"></a>FAS <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">tail</span>(employee_data<span class="sc">$</span>Salary, <span class="dv">3</span>))</span>
-<span id="cb47-27"><a href="#cb47-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-28"><a href="#cb47-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate initial TRS income based on FAS and years of service (assuming 30 years of service)</span></span>
-<span id="cb47-29"><a href="#cb47-29" aria-hidden="true" tabindex="-1"></a>years_of_service <span class="ot">&lt;-</span> <span class="dv">30</span></span>
-<span id="cb47-30"><a href="#cb47-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-31"><a href="#cb47-31" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (years_of_service <span class="sc">&lt;=</span> <span class="dv">20</span>) {</span>
-<span id="cb47-32"><a href="#cb47-32" aria-hidden="true" tabindex="-1"></a>  initial_trs_income <span class="ot">&lt;-</span> <span class="fl">1.67</span> <span class="sc">/</span> <span class="dv">100</span> <span class="sc">*</span> FAS <span class="sc">*</span> years_of_service</span>
-<span id="cb47-33"><a href="#cb47-33" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (years_of_service <span class="sc">==</span> <span class="dv">20</span>) {</span>
-<span id="cb47-34"><a href="#cb47-34" aria-hidden="true" tabindex="-1"></a>  initial_trs_income <span class="ot">&lt;-</span> <span class="fl">1.75</span> <span class="sc">/</span> <span class="dv">100</span> <span class="sc">*</span> FAS <span class="sc">*</span> years_of_service</span>
-<span id="cb47-35"><a href="#cb47-35" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb47-36"><a href="#cb47-36" aria-hidden="true" tabindex="-1"></a>  initial_trs_income <span class="ot">&lt;-</span> (<span class="fl">0.35</span> <span class="sc">+</span> <span class="fl">0.02</span> <span class="sc">*</span> (years_of_service)) <span class="sc">*</span> FAS</span>
-<span id="cb47-37"><a href="#cb47-37" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb47-38"><a href="#cb47-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-39"><a href="#cb47-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an empty data frame to store the results for each iteration</span></span>
-<span id="cb47-40"><a href="#cb47-40" aria-hidden="true" tabindex="-1"></a>all_iterations <span class="ot">&lt;-</span> <span class="fu">data.frame</span>()</span>
-<span id="cb47-41"><a href="#cb47-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-42"><a href="#cb47-42" aria-hidden="true" tabindex="-1"></a><span class="co"># Monte Carlo Simulation Loop</span></span>
-<span id="cb47-43"><a href="#cb47-43" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)  <span class="co"># Set seed for reproducibility</span></span>
-<span id="cb47-44"><a href="#cb47-44" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>iterations) {</span>
-<span id="cb47-45"><a href="#cb47-45" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Randomly sample expected market return from "Yearly_Growth" column of voo_data</span></span>
-<span id="cb47-46"><a href="#cb47-46" aria-hidden="true" tabindex="-1"></a>  expected_market_return <span class="ot">&lt;-</span> <span class="fu">sample</span>(voo_data<span class="sc">$</span>Yearly_Growth, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb47-47"><a href="#cb47-47" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb47-48"><a href="#cb47-48" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Initialize ORP balance with the 30th row value of orp_75_years dataset (assuming it exists)</span></span>
-<span id="cb47-49"><a href="#cb47-49" aria-hidden="true" tabindex="-1"></a>  orp_balance <span class="ot">&lt;-</span> orp_75_years<span class="sc">$</span>Account_Balance[<span class="dv">30</span>]  <span class="co"># Use the 30th row as starting balance</span></span>
-<span id="cb47-50"><a href="#cb47-50" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb47-51"><a href="#cb47-51" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create a data frame to store the comparison for this iteration</span></span>
-<span id="cb47-52"><a href="#cb47-52" aria-hidden="true" tabindex="-1"></a>  comparison_table <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb47-53"><a href="#cb47-53" aria-hidden="true" tabindex="-1"></a>    <span class="at">Iteration =</span> <span class="fu">numeric</span>(),</span>
-<span id="cb47-54"><a href="#cb47-54" aria-hidden="true" tabindex="-1"></a>    <span class="at">Year =</span> <span class="fu">numeric</span>(),</span>
-<span id="cb47-55"><a href="#cb47-55" aria-hidden="true" tabindex="-1"></a>    <span class="at">Age =</span> <span class="fu">numeric</span>(),</span>
-<span id="cb47-56"><a href="#cb47-56" aria-hidden="true" tabindex="-1"></a>    <span class="at">TRS_Income =</span> <span class="fu">numeric</span>(),</span>
-<span id="cb47-57"><a href="#cb47-57" aria-hidden="true" tabindex="-1"></a>    <span class="at">ORP_Withdrawal =</span> <span class="fu">numeric</span>(),</span>
-<span id="cb47-58"><a href="#cb47-58" aria-hidden="true" tabindex="-1"></a>    <span class="at">ORP_Balance =</span> <span class="fu">numeric</span>(),</span>
-<span id="cb47-59"><a href="#cb47-59" aria-hidden="true" tabindex="-1"></a>    <span class="at">Income_Gap =</span> <span class="fu">numeric</span>()</span>
-<span id="cb47-60"><a href="#cb47-60" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb47-61"><a href="#cb47-61" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb47-62"><a href="#cb47-62" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Loop through each year of retirement</span></span>
-<span id="cb47-63"><a href="#cb47-63" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (year <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>years_in_retirement) {</span>
-<span id="cb47-64"><a href="#cb47-64" aria-hidden="true" tabindex="-1"></a>    age <span class="ot">&lt;-</span> retirement_age <span class="sc">+</span> year <span class="sc">-</span> <span class="dv">1</span></span>
-<span id="cb47-65"><a href="#cb47-65" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb47-66"><a href="#cb47-66" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculate TRS income with inflation adjustments</span></span>
-<span id="cb47-67"><a href="#cb47-67" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (year <span class="sc">==</span> <span class="dv">1</span>) {</span>
-<span id="cb47-68"><a href="#cb47-68" aria-hidden="true" tabindex="-1"></a>      trs_income <span class="ot">&lt;-</span> initial_trs_income  <span class="co"># Set this as the first year's benefit</span></span>
-<span id="cb47-69"><a href="#cb47-69" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
-<span id="cb47-70"><a href="#cb47-70" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Adjust based on inflation rate (capped between 1% and 3%)</span></span>
-<span id="cb47-71"><a href="#cb47-71" aria-hidden="true" tabindex="-1"></a>      inflation_adjustment <span class="ot">&lt;-</span> <span class="fu">min</span>(<span class="fu">max</span>(inflation_rate <span class="sc">*</span> <span class="fl">0.5</span>, <span class="fl">0.01</span>), <span class="fl">0.03</span>)</span>
-<span id="cb47-72"><a href="#cb47-72" aria-hidden="true" tabindex="-1"></a>      trs_income <span class="ot">&lt;-</span> trs_income <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">+</span> inflation_adjustment)</span>
-<span id="cb47-73"><a href="#cb47-73" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb47-74"><a href="#cb47-74" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb47-75"><a href="#cb47-75" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculate ORP withdrawal and remaining balance</span></span>
-<span id="cb47-76"><a href="#cb47-76" aria-hidden="true" tabindex="-1"></a>    orp_withdrawal <span class="ot">&lt;-</span> orp_balance <span class="sc">*</span> withdraw_rate</span>
-<span id="cb47-77"><a href="#cb47-77" aria-hidden="true" tabindex="-1"></a>    orp_balance <span class="ot">&lt;-</span> orp_balance <span class="sc">-</span> orp_withdrawal <span class="sc">+</span> (orp_balance <span class="sc">*</span> expected_market_return)  <span class="co"># Account for market growth</span></span>
-<span id="cb47-78"><a href="#cb47-78" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb47-79"><a href="#cb47-79" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Ensure ORP balance doesn't go negative</span></span>
-<span id="cb47-80"><a href="#cb47-80" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (orp_balance <span class="sc">&lt;</span> <span class="dv">0</span>) {</span>
-<span id="cb47-81"><a href="#cb47-81" aria-hidden="true" tabindex="-1"></a>      orp_balance <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb47-82"><a href="#cb47-82" aria-hidden="true" tabindex="-1"></a>      orp_withdrawal <span class="ot">&lt;-</span> <span class="dv">0</span>  <span class="co"># No withdrawal possible if balance is zero</span></span>
-<span id="cb47-83"><a href="#cb47-83" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb47-84"><a href="#cb47-84" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb47-85"><a href="#cb47-85" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculate income gap</span></span>
-<span id="cb47-86"><a href="#cb47-86" aria-hidden="true" tabindex="-1"></a>    income_gap <span class="ot">&lt;-</span> trs_income <span class="sc">-</span> orp_withdrawal</span>
-<span id="cb47-87"><a href="#cb47-87" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb47-88"><a href="#cb47-88" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Store results in the table</span></span>
-<span id="cb47-89"><a href="#cb47-89" aria-hidden="true" tabindex="-1"></a>    comparison_table <span class="ot">&lt;-</span> <span class="fu">rbind</span>(comparison_table, <span class="fu">data.frame</span>(</span>
-<span id="cb47-90"><a href="#cb47-90" aria-hidden="true" tabindex="-1"></a>      <span class="at">Iteration =</span> i,</span>
-<span id="cb47-91"><a href="#cb47-91" aria-hidden="true" tabindex="-1"></a>      <span class="at">Year =</span> year,</span>
-<span id="cb47-92"><a href="#cb47-92" aria-hidden="true" tabindex="-1"></a>      <span class="at">Age =</span> age,</span>
-<span id="cb47-93"><a href="#cb47-93" aria-hidden="true" tabindex="-1"></a>      <span class="at">TRS_Income =</span> trs_income,</span>
-<span id="cb47-94"><a href="#cb47-94" aria-hidden="true" tabindex="-1"></a>      <span class="at">ORP_Withdrawal =</span> orp_withdrawal,</span>
-<span id="cb47-95"><a href="#cb47-95" aria-hidden="true" tabindex="-1"></a>      <span class="at">ORP_Balance =</span> orp_balance,</span>
-<span id="cb47-96"><a href="#cb47-96" aria-hidden="true" tabindex="-1"></a>      <span class="at">Income_Gap =</span> income_gap</span>
-<span id="cb47-97"><a href="#cb47-97" aria-hidden="true" tabindex="-1"></a>    ))</span>
-<span id="cb47-98"><a href="#cb47-98" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb47-99"><a href="#cb47-99" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb47-100"><a href="#cb47-100" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Append the results for this iteration to the all_iterations dataframe</span></span>
-<span id="cb47-101"><a href="#cb47-101" aria-hidden="true" tabindex="-1"></a>  all_iterations <span class="ot">&lt;-</span> <span class="fu">rbind</span>(all_iterations, comparison_table)</span>
-<span id="cb47-102"><a href="#cb47-102" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb47-103"><a href="#cb47-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-104"><a href="#cb47-104" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming the `voo_data` data frame contains a column named "Yearly_Growth" with the historical growth rates</span></span>
-<span id="cb47-105"><a href="#cb47-105" aria-hidden="true" tabindex="-1"></a><span class="co"># Load necessary library</span></span>
-<span id="cb47-106"><a href="#cb47-106" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb47-107"><a href="#cb47-107" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb47-108"><a href="#cb47-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-109"><a href="#cb47-109" aria-hidden="true" tabindex="-1"></a><span class="co"># Define assumptions</span></span>
-<span id="cb47-110"><a href="#cb47-110" aria-hidden="true" tabindex="-1"></a>iterations <span class="ot">&lt;-</span> <span class="dv">200</span>  <span class="co"># Number of Monte Carlo iterations</span></span>
-<span id="cb47-111"><a href="#cb47-111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-112"><a href="#cb47-112" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a data frame for returns used in each iteration by sampling from the "Yearly_Growth" column</span></span>
-<span id="cb47-113"><a href="#cb47-113" aria-hidden="true" tabindex="-1"></a>expected_returns_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb47-114"><a href="#cb47-114" aria-hidden="true" tabindex="-1"></a>  <span class="at">Iteration =</span> <span class="dv">1</span><span class="sc">:</span>iterations,</span>
-<span id="cb47-115"><a href="#cb47-115" aria-hidden="true" tabindex="-1"></a>  <span class="at">Expected_Market_Return =</span> <span class="fu">sample</span>(voo_data<span class="sc">$</span>Yearly_Growth, iterations, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb47-116"><a href="#cb47-116" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb47-117"><a href="#cb47-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-118"><a href="#cb47-118" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualization 1: Histogram of Expected Market Returns</span></span>
-<span id="cb47-119"><a href="#cb47-119" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(expected_returns_df, <span class="fu">aes</span>(<span class="at">x =</span> Expected_Market_Return)) <span class="sc">+</span></span>
-<span id="cb47-120"><a href="#cb47-120" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">20</span>, <span class="at">fill =</span> <span class="st">"steelblue"</span>, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb47-121"><a href="#cb47-121" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb47-122"><a href="#cb47-122" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Histogram of Expected Market Returns Used in Monte Carlo Simulation"</span>,</span>
-<span id="cb47-123"><a href="#cb47-123" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Expected Market Return (%)"</span>,</span>
-<span id="cb47-124"><a href="#cb47-124" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Frequency"</span></span>
-<span id="cb47-125"><a href="#cb47-125" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb47-126"><a href="#cb47-126" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold">
+<summary>Monte Carlo Analysis</summary>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load necessary library</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Define assumptions</span></span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>retirement_age <span class="ot">&lt;-</span> <span class="dv">55</span></span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a>death_age <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a>withdraw_rate <span class="ot">&lt;-</span> <span class="fl">0.04</span>  <span class="co"># ORP annual withdrawal rate</span></span>
+<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a>inflation_rate <span class="ot">&lt;-</span> <span class="fl">0.02</span> <span class="co"># Average inflation adjustment for TRS</span></span>
+<span id="cb46-11"><a href="#cb46-11" aria-hidden="true" tabindex="-1"></a>years_in_retirement <span class="ot">&lt;-</span> death_age <span class="sc">-</span> retirement_age</span>
+<span id="cb46-12"><a href="#cb46-12" aria-hidden="true" tabindex="-1"></a>iterations <span class="ot">&lt;-</span> <span class="dv">200</span>  <span class="co"># Number of Monte Carlo iterations</span></span>
+<span id="cb46-13"><a href="#cb46-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-14"><a href="#cb46-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming you have employee salary data, calculate Final Average Salary (FAS)</span></span>
+<span id="cb46-15"><a href="#cb46-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Here, we assume the employee served for 30 years and calculate the average of the last 3 years</span></span>
+<span id="cb46-16"><a href="#cb46-16" aria-hidden="true" tabindex="-1"></a>employee_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb46-17"><a href="#cb46-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">Year =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">30</span>,</span>
+<span id="cb46-18"><a href="#cb46-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">Salary =</span> <span class="fu">seq</span>(<span class="dv">45000</span>, <span class="dv">120000</span>, <span class="at">length.out =</span> <span class="dv">30</span>)  <span class="co"># Example salary progression from 50,000 to 80,000 over 30 years</span></span>
+<span id="cb46-19"><a href="#cb46-19" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb46-20"><a href="#cb46-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-21"><a href="#cb46-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate FAS for the last 3 years</span></span>
+<span id="cb46-22"><a href="#cb46-22" aria-hidden="true" tabindex="-1"></a>FAS <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">tail</span>(employee_data<span class="sc">$</span>Salary, <span class="dv">3</span>))</span>
+<span id="cb46-23"><a href="#cb46-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-24"><a href="#cb46-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate initial TRS income based on FAS and years of service (assuming 30 years of service)</span></span>
+<span id="cb46-25"><a href="#cb46-25" aria-hidden="true" tabindex="-1"></a>years_of_service <span class="ot">&lt;-</span> <span class="dv">30</span></span>
+<span id="cb46-26"><a href="#cb46-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-27"><a href="#cb46-27" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (years_of_service <span class="sc">&lt;=</span> <span class="dv">20</span>) {</span>
+<span id="cb46-28"><a href="#cb46-28" aria-hidden="true" tabindex="-1"></a>  initial_trs_income <span class="ot">&lt;-</span> <span class="fl">1.67</span> <span class="sc">/</span> <span class="dv">100</span> <span class="sc">*</span> FAS <span class="sc">*</span> years_of_service</span>
+<span id="cb46-29"><a href="#cb46-29" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (years_of_service <span class="sc">==</span> <span class="dv">20</span>) {</span>
+<span id="cb46-30"><a href="#cb46-30" aria-hidden="true" tabindex="-1"></a>  initial_trs_income <span class="ot">&lt;-</span> <span class="fl">1.75</span> <span class="sc">/</span> <span class="dv">100</span> <span class="sc">*</span> FAS <span class="sc">*</span> years_of_service</span>
+<span id="cb46-31"><a href="#cb46-31" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb46-32"><a href="#cb46-32" aria-hidden="true" tabindex="-1"></a>  initial_trs_income <span class="ot">&lt;-</span> (<span class="fl">0.35</span> <span class="sc">+</span> <span class="fl">0.02</span> <span class="sc">*</span> (years_of_service)) <span class="sc">*</span> FAS</span>
+<span id="cb46-33"><a href="#cb46-33" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb46-34"><a href="#cb46-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-35"><a href="#cb46-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an empty data frame to store the results for each iteration</span></span>
+<span id="cb46-36"><a href="#cb46-36" aria-hidden="true" tabindex="-1"></a>all_iterations <span class="ot">&lt;-</span> <span class="fu">data.frame</span>()</span>
+<span id="cb46-37"><a href="#cb46-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-38"><a href="#cb46-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Monte Carlo Simulation Loop</span></span>
+<span id="cb46-39"><a href="#cb46-39" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)  <span class="co"># Set seed for reproducibility</span></span>
+<span id="cb46-40"><a href="#cb46-40" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>iterations) {</span>
+<span id="cb46-41"><a href="#cb46-41" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Randomly sample expected market return from "Yearly_Growth" column of voo_data</span></span>
+<span id="cb46-42"><a href="#cb46-42" aria-hidden="true" tabindex="-1"></a>  expected_market_return <span class="ot">&lt;-</span> <span class="fu">sample</span>(voo_data<span class="sc">$</span>Yearly_Growth, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb46-43"><a href="#cb46-43" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb46-44"><a href="#cb46-44" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Initialize ORP balance with the 30th row value of orp_75_years dataset (assuming it exists)</span></span>
+<span id="cb46-45"><a href="#cb46-45" aria-hidden="true" tabindex="-1"></a>  orp_balance <span class="ot">&lt;-</span> orp_75_years<span class="sc">$</span>Account_Balance[<span class="dv">30</span>]  <span class="co"># Use the 30th row as starting balance</span></span>
+<span id="cb46-46"><a href="#cb46-46" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb46-47"><a href="#cb46-47" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create a data frame to store the comparison for this iteration</span></span>
+<span id="cb46-48"><a href="#cb46-48" aria-hidden="true" tabindex="-1"></a>  comparison_table <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb46-49"><a href="#cb46-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">Iteration =</span> <span class="fu">numeric</span>(),</span>
+<span id="cb46-50"><a href="#cb46-50" aria-hidden="true" tabindex="-1"></a>    <span class="at">Year =</span> <span class="fu">numeric</span>(),</span>
+<span id="cb46-51"><a href="#cb46-51" aria-hidden="true" tabindex="-1"></a>    <span class="at">Age =</span> <span class="fu">numeric</span>(),</span>
+<span id="cb46-52"><a href="#cb46-52" aria-hidden="true" tabindex="-1"></a>    <span class="at">TRS_Income =</span> <span class="fu">numeric</span>(),</span>
+<span id="cb46-53"><a href="#cb46-53" aria-hidden="true" tabindex="-1"></a>    <span class="at">ORP_Withdrawal =</span> <span class="fu">numeric</span>(),</span>
+<span id="cb46-54"><a href="#cb46-54" aria-hidden="true" tabindex="-1"></a>    <span class="at">ORP_Balance =</span> <span class="fu">numeric</span>(),</span>
+<span id="cb46-55"><a href="#cb46-55" aria-hidden="true" tabindex="-1"></a>    <span class="at">Income_Gap =</span> <span class="fu">numeric</span>()</span>
+<span id="cb46-56"><a href="#cb46-56" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb46-57"><a href="#cb46-57" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb46-58"><a href="#cb46-58" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Loop through each year of retirement</span></span>
+<span id="cb46-59"><a href="#cb46-59" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (year <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>years_in_retirement) {</span>
+<span id="cb46-60"><a href="#cb46-60" aria-hidden="true" tabindex="-1"></a>    age <span class="ot">&lt;-</span> retirement_age <span class="sc">+</span> year <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb46-61"><a href="#cb46-61" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb46-62"><a href="#cb46-62" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculate TRS income with inflation adjustments</span></span>
+<span id="cb46-63"><a href="#cb46-63" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (year <span class="sc">==</span> <span class="dv">1</span>) {</span>
+<span id="cb46-64"><a href="#cb46-64" aria-hidden="true" tabindex="-1"></a>      trs_income <span class="ot">&lt;-</span> initial_trs_income  <span class="co"># Set this as the first year's benefit</span></span>
+<span id="cb46-65"><a href="#cb46-65" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb46-66"><a href="#cb46-66" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Adjust based on inflation rate (capped between 1% and 3%)</span></span>
+<span id="cb46-67"><a href="#cb46-67" aria-hidden="true" tabindex="-1"></a>      inflation_adjustment <span class="ot">&lt;-</span> <span class="fu">min</span>(<span class="fu">max</span>(inflation_rate <span class="sc">*</span> <span class="fl">0.5</span>, <span class="fl">0.01</span>), <span class="fl">0.03</span>)</span>
+<span id="cb46-68"><a href="#cb46-68" aria-hidden="true" tabindex="-1"></a>      trs_income <span class="ot">&lt;-</span> trs_income <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">+</span> inflation_adjustment)</span>
+<span id="cb46-69"><a href="#cb46-69" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb46-70"><a href="#cb46-70" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb46-71"><a href="#cb46-71" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculate ORP withdrawal and remaining balance</span></span>
+<span id="cb46-72"><a href="#cb46-72" aria-hidden="true" tabindex="-1"></a>    orp_withdrawal <span class="ot">&lt;-</span> orp_balance <span class="sc">*</span> withdraw_rate</span>
+<span id="cb46-73"><a href="#cb46-73" aria-hidden="true" tabindex="-1"></a>    orp_balance <span class="ot">&lt;-</span> orp_balance <span class="sc">-</span> orp_withdrawal <span class="sc">+</span> (orp_balance <span class="sc">*</span> expected_market_return)  <span class="co"># Account for market growth</span></span>
+<span id="cb46-74"><a href="#cb46-74" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb46-75"><a href="#cb46-75" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Ensure ORP balance doesn't go negative</span></span>
+<span id="cb46-76"><a href="#cb46-76" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (orp_balance <span class="sc">&lt;</span> <span class="dv">0</span>) {</span>
+<span id="cb46-77"><a href="#cb46-77" aria-hidden="true" tabindex="-1"></a>      orp_balance <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb46-78"><a href="#cb46-78" aria-hidden="true" tabindex="-1"></a>      orp_withdrawal <span class="ot">&lt;-</span> <span class="dv">0</span>  <span class="co"># No withdrawal possible if balance is zero</span></span>
+<span id="cb46-79"><a href="#cb46-79" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb46-80"><a href="#cb46-80" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb46-81"><a href="#cb46-81" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculate income gap</span></span>
+<span id="cb46-82"><a href="#cb46-82" aria-hidden="true" tabindex="-1"></a>    income_gap <span class="ot">&lt;-</span> trs_income <span class="sc">-</span> orp_withdrawal</span>
+<span id="cb46-83"><a href="#cb46-83" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb46-84"><a href="#cb46-84" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Store results in the table</span></span>
+<span id="cb46-85"><a href="#cb46-85" aria-hidden="true" tabindex="-1"></a>    comparison_table <span class="ot">&lt;-</span> <span class="fu">rbind</span>(comparison_table, <span class="fu">data.frame</span>(</span>
+<span id="cb46-86"><a href="#cb46-86" aria-hidden="true" tabindex="-1"></a>      <span class="at">Iteration =</span> i,</span>
+<span id="cb46-87"><a href="#cb46-87" aria-hidden="true" tabindex="-1"></a>      <span class="at">Year =</span> year,</span>
+<span id="cb46-88"><a href="#cb46-88" aria-hidden="true" tabindex="-1"></a>      <span class="at">Age =</span> age,</span>
+<span id="cb46-89"><a href="#cb46-89" aria-hidden="true" tabindex="-1"></a>      <span class="at">TRS_Income =</span> trs_income,</span>
+<span id="cb46-90"><a href="#cb46-90" aria-hidden="true" tabindex="-1"></a>      <span class="at">ORP_Withdrawal =</span> orp_withdrawal,</span>
+<span id="cb46-91"><a href="#cb46-91" aria-hidden="true" tabindex="-1"></a>      <span class="at">ORP_Balance =</span> orp_balance,</span>
+<span id="cb46-92"><a href="#cb46-92" aria-hidden="true" tabindex="-1"></a>      <span class="at">Income_Gap =</span> income_gap</span>
+<span id="cb46-93"><a href="#cb46-93" aria-hidden="true" tabindex="-1"></a>    ))</span>
+<span id="cb46-94"><a href="#cb46-94" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb46-95"><a href="#cb46-95" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb46-96"><a href="#cb46-96" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Append the results for this iteration to the all_iterations dataframe</span></span>
+<span id="cb46-97"><a href="#cb46-97" aria-hidden="true" tabindex="-1"></a>  all_iterations <span class="ot">&lt;-</span> <span class="fu">rbind</span>(all_iterations, comparison_table)</span>
+<span id="cb46-98"><a href="#cb46-98" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb46-99"><a href="#cb46-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-100"><a href="#cb46-100" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming the `voo_data` data frame contains a column named "Yearly_Growth" with the historical growth rates</span></span>
+<span id="cb46-101"><a href="#cb46-101" aria-hidden="true" tabindex="-1"></a><span class="co"># Load necessary library</span></span>
+<span id="cb46-102"><a href="#cb46-102" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb46-103"><a href="#cb46-103" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb46-104"><a href="#cb46-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-105"><a href="#cb46-105" aria-hidden="true" tabindex="-1"></a><span class="co"># Define assumptions</span></span>
+<span id="cb46-106"><a href="#cb46-106" aria-hidden="true" tabindex="-1"></a>iterations <span class="ot">&lt;-</span> <span class="dv">200</span>  <span class="co"># Number of Monte Carlo iterations</span></span>
+<span id="cb46-107"><a href="#cb46-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-108"><a href="#cb46-108" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a data frame for returns used in each iteration by sampling from the "Yearly_Growth" column</span></span>
+<span id="cb46-109"><a href="#cb46-109" aria-hidden="true" tabindex="-1"></a>expected_returns_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb46-110"><a href="#cb46-110" aria-hidden="true" tabindex="-1"></a>  <span class="at">Iteration =</span> <span class="dv">1</span><span class="sc">:</span>iterations,</span>
+<span id="cb46-111"><a href="#cb46-111" aria-hidden="true" tabindex="-1"></a>  <span class="at">Expected_Market_Return =</span> <span class="fu">sample</span>(voo_data<span class="sc">$</span>Yearly_Growth, iterations, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb46-112"><a href="#cb46-112" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb46-113"><a href="#cb46-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-114"><a href="#cb46-114" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualization 1: Histogram of Expected Market Returns</span></span>
+<span id="cb46-115"><a href="#cb46-115" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(expected_returns_df, <span class="fu">aes</span>(<span class="at">x =</span> Expected_Market_Return)) <span class="sc">+</span></span>
+<span id="cb46-116"><a href="#cb46-116" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">20</span>, <span class="at">fill =</span> <span class="st">"steelblue"</span>, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb46-117"><a href="#cb46-117" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb46-118"><a href="#cb46-118" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Histogram of Expected Market Returns Used in Monte Carlo Simulation"</span>,</span>
+<span id="cb46-119"><a href="#cb46-119" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Expected Market Return (%)"</span>,</span>
+<span id="cb46-120"><a href="#cb46-120" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Frequency"</span></span>
+<span id="cb46-121"><a href="#cb46-121" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb46-122"><a href="#cb46-122" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -8024,122 +8179,52 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the results of one iteration (e.g., the first iteration)</span></span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(all_iterations[all_iterations<span class="sc">$</span>Iteration <span class="sc">==</span> <span class="dv">1</span>, ]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 13%">
-<col style="width: 6%">
-<col style="width: 5%">
-<col style="width: 15%">
-<col style="width: 20%">
-<col style="width: 18%">
-<col style="width: 19%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: right;">Iteration</th>
-<th style="text-align: right;">Year</th>
-<th style="text-align: right;">Age</th>
-<th style="text-align: right;">TRS_Income</th>
-<th style="text-align: right;">ORP_Withdrawal</th>
-<th style="text-align: right;">ORP_Balance</th>
-<th style="text-align: right;">Income_Gap</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">55</td>
-<td style="text-align: right;">111543.1</td>
-<td style="text-align: right;">3.217537e+04</td>
-<td style="text-align: right;">2.422813e+07</td>
-<td style="text-align: right;">7.936773e+04</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">56</td>
-<td style="text-align: right;">112658.5</td>
-<td style="text-align: right;">9.691253e+05</td>
-<td style="text-align: right;">7.297537e+08</td>
-<td style="text-align: right;">-8.564668e+05</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">57</td>
-<td style="text-align: right;">113785.1</td>
-<td style="text-align: right;">2.919015e+07</td>
-<td style="text-align: right;">2.198025e+10</td>
-<td style="text-align: right;">-2.907636e+07</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">58</td>
-<td style="text-align: right;">114923.0</td>
-<td style="text-align: right;">8.792101e+08</td>
-<td style="text-align: right;">6.620473e+11</td>
-<td style="text-align: right;">-8.790952e+08</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">59</td>
-<td style="text-align: right;">116072.2</td>
-<td style="text-align: right;">2.648189e+10</td>
-<td style="text-align: right;">1.994093e+13</td>
-<td style="text-align: right;">-2.648178e+10</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">60</td>
-<td style="text-align: right;">117232.9</td>
-<td style="text-align: right;">7.976372e+11</td>
-<td style="text-align: right;">6.006227e+14</td>
-<td style="text-align: right;">-7.976370e+11</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualization - Average TRS Income vs ORP Withdrawal</span></span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate average income and withdrawal across all iterations for each year</span></span>
-<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>average_results <span class="ot">&lt;-</span> all_iterations <span class="sc">%&gt;%</span></span>
-<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Year) <span class="sc">%&gt;%</span></span>
-<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Avg_TRS_Income =</span> <span class="fu">mean</span>(TRS_Income),</span>
-<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">Avg_ORP_Withdrawal =</span> <span class="fu">mean</span>(ORP_Withdrawal)</span>
-<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-10"><a href="#cb49-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-11"><a href="#cb49-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Probability that ORP employee exhausts their savings before death</span></span>
-<span id="cb49-12"><a href="#cb49-12" aria-hidden="true" tabindex="-1"></a>orp_exhausted <span class="ot">&lt;-</span> all_iterations <span class="sc">%&gt;%</span></span>
-<span id="cb49-13"><a href="#cb49-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Iteration) <span class="sc">%&gt;%</span></span>
-<span id="cb49-14"><a href="#cb49-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Year <span class="sc">==</span> years_in_retirement) <span class="sc">%&gt;%</span></span>
-<span id="cb49-15"><a href="#cb49-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Exhausted =</span> <span class="fu">ifelse</span>(ORP_Balance <span class="sc">==</span> <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb49-16"><a href="#cb49-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Probability_Exhausted =</span> <span class="fu">mean</span>(Exhausted))</span>
-<span id="cb49-17"><a href="#cb49-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-18"><a href="#cb49-18" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Probability that ORP employee exhausts their savings before death:"</span>, orp_exhausted<span class="sc">$</span>Probability_Exhausted, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold">
+<summary>Monte Carlo Analysis</summary>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the results of one iteration (e.g., the first iteration)</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="co">#kable(head(all_iterations[all_iterations$Iteration == 1, ])) </span></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualization - Average TRS Income vs ORP Withdrawal</span></span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate average income and withdrawal across all iterations for each year</span></span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>average_results <span class="ot">&lt;-</span> all_iterations <span class="sc">%&gt;%</span></span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Year) <span class="sc">%&gt;%</span></span>
+<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">Avg_TRS_Income =</span> <span class="fu">mean</span>(TRS_Income),</span>
+<span id="cb47-10"><a href="#cb47-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">Avg_ORP_Withdrawal =</span> <span class="fu">mean</span>(ORP_Withdrawal)</span>
+<span id="cb47-11"><a href="#cb47-11" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb47-12"><a href="#cb47-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-13"><a href="#cb47-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-14"><a href="#cb47-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Probability that ORP employee exhausts their savings before death</span></span>
+<span id="cb47-15"><a href="#cb47-15" aria-hidden="true" tabindex="-1"></a>orp_exhausted <span class="ot">&lt;-</span> all_iterations <span class="sc">%&gt;%</span></span>
+<span id="cb47-16"><a href="#cb47-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Iteration) <span class="sc">%&gt;%</span></span>
+<span id="cb47-17"><a href="#cb47-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Year <span class="sc">==</span> years_in_retirement) <span class="sc">%&gt;%</span></span>
+<span id="cb47-18"><a href="#cb47-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Exhausted =</span> <span class="fu">ifelse</span>(ORP_Balance <span class="sc">==</span> <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb47-19"><a href="#cb47-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Probability_Exhausted =</span> <span class="fu">mean</span>(Exhausted))</span>
+<span id="cb47-20"><a href="#cb47-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-21"><a href="#cb47-21" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Probability that ORP employee exhausts their savings before death:"</span>, orp_exhausted<span class="sc">$</span>Probability_Exhausted, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Probability that ORP employee exhausts their savings before death: 0.095 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Probability that ORP provides higher monthly income than TRS</span></span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>orp_higher_income <span class="ot">&lt;-</span> all_iterations <span class="sc">%&gt;%</span></span>
-<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Iteration) <span class="sc">%&gt;%</span></span>
-<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Higher_Income =</span> <span class="fu">mean</span>(ORP_Withdrawal <span class="sc">&gt;</span> TRS_Income)) <span class="sc">%&gt;%</span></span>
-<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Probability_Higher_Income =</span> <span class="fu">mean</span>(Higher_Income <span class="sc">&gt;</span> <span class="fl">0.5</span>))</span>
-<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Probability that ORP has a higher monthly income than TRS:"</span>, orp_higher_income<span class="sc">$</span>Probability_Higher_Income, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold">
+<summary>Monte Carlo Analysis</summary>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Probability that ORP provides higher monthly income than TRS</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>orp_higher_income <span class="ot">&lt;-</span> all_iterations <span class="sc">%&gt;%</span></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Iteration) <span class="sc">%&gt;%</span></span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Higher_Income =</span> <span class="fu">mean</span>(ORP_Withdrawal <span class="sc">&gt;</span> TRS_Income)) <span class="sc">%&gt;%</span></span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Probability_Higher_Income =</span> <span class="fu">mean</span>(Higher_Income <span class="sc">&gt;</span> <span class="fl">0.5</span>))</span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Probability that ORP has a higher monthly income than TRS:"</span>, orp_higher_income<span class="sc">$</span>Probability_Higher_Income, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Probability that ORP has a higher monthly income than TRS: 0.875 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluate the 4% withdrawal rate - average withdrawal rate across iterations</span></span>
-<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>average_withdrawal_rate <span class="ot">&lt;-</span> <span class="fu">mean</span>(all_iterations<span class="sc">$</span>ORP_Withdrawal <span class="sc">/</span> all_iterations<span class="sc">$</span>ORP_Balance, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Average withdrawal rate across all iterations:"</span>, average_withdrawal_rate, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold">
+<summary>Monte Carlo Analysis</summary>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluate the 4% withdrawal rate - average withdrawal rate across iterations</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>average_withdrawal_rate <span class="ot">&lt;-</span> <span class="fu">mean</span>(all_iterations<span class="sc">$</span>ORP_Withdrawal <span class="sc">/</span> all_iterations<span class="sc">$</span>ORP_Balance, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Average withdrawal rate across all iterations:"</span>, average_withdrawal_rate, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Average withdrawal rate across all iterations: 0.009035915 </code></pre>
 </div>
@@ -8147,12 +8232,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion"><span style="color: cyan;">6. Conclusion</span></h2>
-<p>[In conclusion, there is no set retirement plan that is perfect for everyone. The retirement plan must meet your type of lifestyle. Your must ask yourself a series of questions like: how long do you plan to stay at this job? Do you plan on leaving any money to your children? is 83% success rate a safe enough risk for you?</p>
+<p>In conclusion, there is no set retirement plan that is perfect for everyone. The retirement plan must meet your type of lifestyle. Your must ask yourself a series of questions like: how long do you plan to stay at this job? Do you plan on leaving any money to your children? is 83% success rate a safe enough risk for you?</p>
 <p>In general, everyone has a pain tolerance factor which relates how would it affect you know you left money on the table taking the safe route? Or how would is affect you know that you lost money taking the “risky” route?</p>
 <p>Additionally, there is a minimal chance that the participant will run out of money, this percentage is ~13%. Ideally, 4% withdrawal rate is recommended, however, if your portfolio performs better that 12% year over year you may want to increase your withdrawal rate up to 10%.</p>
 <p>I put “risky” in quotes because the data proves that 83% of the time ORP will out perform TRS. These odds are significant enough for me to confidently advise most CUNY employees to choose the ORP.</p>
 <p>If your overall portfolio consists of VOO and your returns are negative at the time of retirement then that means there are bigger issues in the United States than your personal finance. The US has a rich history of growth and a consistent decline would signify troublesome. To think positively, this would never happen and the United States will continue to grow as long as the education system has bright employees!</p>
-<p>You should choose the ORP plan, you will thank yourself in the future when you’re living better than your TRS counterparts.]{style=“color: orange;”}</p>
+<p>You should choose the ORP plan, you will thank yourself in the future when you’re living better than your TRS counterparts.</p>
 
 
 </section>
