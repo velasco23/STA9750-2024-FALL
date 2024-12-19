@@ -127,7 +127,6 @@ power_year <- power %>%
 
 ```
 
-Power Generation - source: https://www.eia.gov/electricity/data.php
 
 ```{r}
 #| label: 'EPA - Air Quality Code'
@@ -415,7 +414,7 @@ ggplot(data = energy_price_state_map) +
 ```
 
 
-## [Findings]{style="color: cyan;"}
+## [Analysis Results]{style="color: cyan;"}
 
 Our analysis aimed to determine which states stand to gain the most from an Electric Vehicle (EV) revolution by evaluating three critical factors: average miles driven per state, air quality levels, and electricity prices per state. To ensure fairness and comparability, we normalized the data for each state by calculating a percentage score. The formula used for normalization was:
 
@@ -427,23 +426,23 @@ Ranking = (Air Quality Percentage × 33%)+(Miles Driven Percentage × 33%)+(Elec
 
 The state with the highest overall score was identified as the state that would benefit the most from widespread EV adoption. This ranking methodology allowed us to comprehensively account for environmental, economic, and transportation-related factors.
 
-[Key Findings:]{style="color: orange;"}
+[Key Findings:]{style="color: cyan;"}
 
 Top 3 States Likely to Benefit the Most from EV Adoption:
 
-* California: With a leading score of 72.6, California stands out due to its high air quality concerns, extensive miles driven by residents, and relatively moderate electricity prices.
+* [California: With a leading score of 72.6, California stands out due to its high air quality concerns, extensive miles driven by residents, and relatively moderate electricity prices.]{style="color: orange;"}
 
-* Georgia: Ranking second at 64.1, Georgia's significant potential arises from its high driving rates and air quality challenges.
+* [Georgia: Ranking second at 64.1, Georgia's significant potential arises from its high driving rates and air quality challenges.]{style="color: orange;"}
 
-*Alabama: At 59.9, Alabama showcases a strong case for EV adoption, driven by similar factors as Georgia.
+* [Alabama: At 59.9, Alabama showcases a strong case for EV adoption, driven by similar factors as Georgia.]{style="color: orange;"}
 
 Bottom 3 States States Least Likely to Benefit:
 
-* North Dakota: Scoring just 29.2, North Dakota’s lower air quality concerns and relatively minimal driving distances reduce its potential benefits.
+* [North Dakota: Scoring just 29.2, North Dakota’s lower air quality concerns and relatively minimal driving distances reduce its potential benefits.]{style="color: orange;"}
 
-* South Dakota: At 31.7, similar factors to North Dakota lead to a low ranking.
+* [South Dakota: At 31.7, similar factors to North Dakota lead to a low ranking.]{style="color: orange;"}
 
-* Wyoming: With a score of 32.4, Wyoming's reliance on fossil fuels for electricity generation further diminishes its EV adoption appeal.
+* [Wyoming: With a score of 32.4, Wyoming's reliance on fossil fuels for electricity generation further diminishes its EV adoption appeal.]{style="color: orange;"}
 
 Below is a heat map of the United States illustrating each state's ranking based on their potential benefits from EV adoption, as determined by the formula incorporating air quality, miles driven, and electricity prices.
 
@@ -509,7 +508,7 @@ ggplot(data = formula_map) +
 ```
 
 
-## [Findings]{style="color: cyan;"}
+## [Conclusion]{style="color: cyan;"}
 
 States such as California, Georgia, and Alabama exhibit significant opportunities for improvement with EV adoption, particularly due to the high driving rates and pressing air quality challenges. These states stand to benefit from cleaner transportation options and reduced dependency on fossil fuels.
 
