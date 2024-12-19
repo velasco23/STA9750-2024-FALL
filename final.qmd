@@ -6,12 +6,12 @@ editor: visual
 
 #### Table of Contents
 
-- [1. Introduction] 
-- [2. Data Sources] 
-- [3. Background] 
-- [4. Key Motivators] 
-- [5. Analysis Results] 
-- [6. Conclusion]
+- 1. Introduction 
+- 2. Data Sources
+- 3. Background
+- 4. Key Motivators 
+- 5. Analysis Results 
+- 6. Conclusion
 
 ## [Introduction]{style="color: cyan;"}
 
