@@ -83,3 +83,4 @@ pie_chart <- state_summary %>%
 saveWidget(as_widget(pie_chart), "pie_chart.html", selfcontained = TRUE)
 
 # Render the saved HTML file in Quarto
+```
