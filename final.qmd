@@ -362,6 +362,19 @@ Electricity prices play a pivotal role in influencing a state's decision to enco
 #| cache: true
 #| code-summary: "Electricity Prices"
 
+energy_price_path <- "C:/Users/velas/Documents/STA9750-2024-FALL/elect_sales_revenue.xlsx"
+
+# Read the sheet
+energy_price <- read_excel(path = energy_price_path, sheet = "State-YTD-States")
+
+energy_price_usa <- energy_price %>%
+  filter(State == 'US') %>%
+  filter(Year !=2024)
+print(energy_price_usa)
+
+energy_price_state<- energy_price %>%
+  filter(Year == '2023')
+
 energy_price_usa <- energy_price %>%
   filter(State == 'US') %>%
   filter(Year !=2024)
