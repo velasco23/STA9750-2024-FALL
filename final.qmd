@@ -155,19 +155,19 @@ Air Quality - source: https://www.epa.gov/outdoor-air-quality-data/download-dail
 
 This analysis delves into the transformative potential of electric vehicles (EVs) in addressing some of the most pressing environmental and economic challenges of our time. It explores the environmental benefits of EV adoption, including significant reductions in greenhouse gas emissions, improvements in air quality, and advancements in sustainable resource utilization. Simultaneously, it examines the economic implications, focusing on shifts in energy markets, and the long-term cost savings EVs provide to both consumers and society. Additionally, it investigates which state is adopting EVs the fastest, showcasing the regional leaders setting examples for sustainable development. By analyzing these dimensions, the essay highlights how EVs are shaping a cleaner, more sustainable, and economically resilient future.
 
-![Annual Emissions](C:/Users/velas/OneDrive/Documents/STA9750-2024-FALL/annual_emissions1.png)
+![Annual Emissions 1](C:/Users/velas/OneDrive/Documents/STA9750-2024-FALL/annual_emissions1.png)
 
 Contrary to popular belief, electric vehicles (EV) also emit greenhouse gases. The graph above indicates that EVs emit a national average of 2,727 lbs of CO2 per vehicle, while internal combustion (ICE) emit a national average of 12,594 lbs of CO2 per vehicle. Evidently, ICEs produce about 6x more CO2 than EVs when we look at their entire life cycle.
 
 First, the manufacturing stage due to the energy intensive process of mining and processing materials needed for the batteries, like lithium, cobalt and nickel. When compared to internal combustion vehicles, EVs actually emit more greenhouse gases in the manufacturing stage. Which makes sense since most of the process will be similar except for the engine. The manufacturing of the battery accounts for a significant portion of greenhouse gas emissions.
 
-![Annual Emissions](C:/Users/velas/OneDrive/Documents/STA9750-2024-FALL/image21.png)
+![Annual Emissions 2](C:/Users/velas/OneDrive/Documents/STA9750-2024-FALL/image21.png)
 
-![Annual Emissions](C:/Users/velas/OneDrive/Documents/STA9750-2024-FALL/image31.png)
+![Annual Emissions 3](C:/Users/velas/OneDrive/Documents/STA9750-2024-FALL/image31.png)
 
 Second, EVs emit greenhouse gases indirectly by consuming electricity. A byproduct of electricity product is harmful emissions. It should be noted that every state produces electricity differently and their source of electricity portfolio will also be different. For example, an EV from a state that generates electricity from a clean source would emit less emissions than an EV from a state that primary generates electricity from fossil fuels. A great example would be to compare California (Image 2) vs West Virginia (Image 3), an EV from California emits an average of 1,385 lbs vs an EV from West Virginia that emits an average of 6,300 lbs. West Virginia generates 90% of their electricity from coal (Image 4).
 
-![Annual Emissions](C:/Users/velas/OneDrive/Documents/STA9750-2024-FALL/image41.png)
+![Annual Emissions 4](C:/Users/velas/OneDrive/Documents/STA9750-2024-FALL/image41.png)
 
 Below I have created an interactive pie chart. This chart uses EIA data to highlight the renewable profile of each state. As mentioned above, although EV release less emissions than ICEs, an EV in a state state that generates power from a non renewable source will emit more than a state that prioritize renewable gas generation.
 
@@ -177,7 +177,70 @@ Below I have created an interactive pie chart. This chart uses EIA data to highl
 #| message: false 
 #| warning: false
 #| cache: true
+#| results: 'asis'
 #| code-summary: "Energy Generation - by State"
+
+### interactive map - renewables per state
+library(plotly)
+
+power_2023 <- power %>%
+  filter(Year == 2023) %>%
+  group_by(Year, `State Code`, Renewable) %>%
+  summarize(Total_Nameplate_Capacity = sum(`Nameplate Capacity (Megawatts)`, na.rm = TRUE)) %>%
+  ungroup()
+
+
+# Summarize data by State Code and Renewable
+state_summary <- power_2023 %>%
+  mutate(Renewable = ifelse(Renewable == 1, "Renewable", "Non-Renewable")) %>%
+  group_by(`State Code`, Renewable) %>%
+  summarize(Total_Nameplate_Capacity = sum(Total_Nameplate_Capacity, na.rm = TRUE)) %>%
+  ungroup()
+
+# Create the interactive pie chart
+pie_chart <- state_summary %>%
+  plot_ly(
+    labels = ~ifelse(Renewable == 1, "Renewable", "Non-Renewable"),
+    values = ~Total_Nameplate_Capacity,
+    type = "pie",
+    textinfo = "label+percent",
+    insidetextorientation = "radial"
+  ) %>%
+  layout(
+    title = list(text = "Energy Production by Type"),
+    updatemenus = list(
+      list(
+        type = "dropdown",
+        active = 0,
+        buttons = lapply(unique(state_summary$`State Code`), function(state) {
+          list(
+            label = state,
+            method = "restyle",
+            args = list(
+              list(
+                labels = list(state_summary$Renewable[state_summary$`State Code` == state]),
+                values = list(state_summary$Total_Nameplate_Capacity[state_summary$`State Code` == state])
+              )
+            )
+          )
+        })
+      )
+    )
+  )
+# Display the pie chart
+
+print(pie_chart)
+
+
+```
+
+```{r}
+#| label: 'Energy Generation - by State (interactive) code pls'
+#| echo: false
+#| warning: false
+#| message: false
+#| code-summary: "Energy Generation - by State pls"
+
 
 ### interactive map - renewables per state
 library(plotly)
@@ -230,9 +293,7 @@ pie_chart <- state_summary %>%
 # Display the pie chart
 pie_chart
 
-
 ```
-
 ## [Motivations]{style="color: cyan;"}
 
 The transition to electric vehicles (EVs) is driven by a combination of economic, environmental, and practical factors that vary by state. While motivations for EV adoption can be broad, this analysis focuses on three key drivers: average miles driven, air quality, and electricity prices. States where residents drive longer distances stand to benefit economically from the lower operational costs of EVs. In regions struggling with poor air quality, EVs offer a sustainable solution to reduce vehicle emissions and improve public health. Additionally, electricity prices play a crucial role in determining the affordability and appeal of EV adoption, particularly in states with low energy costs or investments in renewable energy. By examining these motivators, we can better understand the strategic incentives for states to embrace electric vehicles as part of their transportation future.
@@ -290,7 +351,8 @@ miles_map <-miles_clean %>%
   select(state_abbr,miles_per_capita)
 
 miles_t10 <-miles_clean %>%
-  arrange(desc(miles_per_capita))
+  arrange(desc(miles_per_capita)) %>%
+  slice(1:10)
 
 # Table for top 10
 miles_t10 %>%
@@ -322,7 +384,8 @@ library(knitr)
 library(kableExtra)
 library(gt)
 miles_b10 <-miles_clean %>%
-  arrange(miles_per_capita)
+  arrange(miles_per_capita) %>%
+  slice(1:10)
 
 # Table for bottom 10
 miles_b10 %>%
