@@ -9,13 +9,23 @@ editor: visual
 - [1. Introduction] 
 - [2. Data Sources] 
 - [3. Background] 
-- [4. Analyzing Key Motivators] 
-- [5. Findings] 
+- [4. Key Motivators] 
+- [5. Analysis Results] 
 - [6. Conclusion]
 
 ## [Introduction]{style="color: cyan;"}
 
-Transportation accounts for nearly 30% of global greenhouse gas emissions, yet electric vehicles have the potential to cut these emissions by half when powered by clean energy. As adoption rates climb, the question isn’t whether EVs will reshape our environmental and economic landscape, but which states are leading the way and setting the example for others to follow. Electric vehicles (EVs) have a history that dates back to the 19th century, when some of the first automobiles were powered by electric motors. By the early 1900s, EVs were popular for their quiet operation and ease of use, particularly in urban areas. However, the rise of internal combustion engine (ICE) vehicles, fueled by abundant and inexpensive gasoline, led to a decline in EV production and adoption. Fast forward to the late 20th century, growing concerns about air pollution, fossil fuel dependence, and climate change recognition reignited interest in EV technology. Innovations in battery technology, particularly the development of lithium-ion batteries, dramatically increased the range and efficiency of EVs while reducing costs. The revolution had a clear change of tide. Tesla’s launch of the Roadster in 2008 marked a turning point, demonstrating that EVs could be high-performing and desirable. Prior to 2008, when someone mentioned EVs you would envision a soccer mom driving a Prius, now the image changed to a convertible sport car with. This event changed the whole perception of EVs. Since then, automakers worldwide have ramped up production, spurred by advancements in battery technology, decreasing costs, and supportive government policies. Clearly, the spark was lit. In recent years, EV adoption has surged due to a combination of environmental awareness, government incentives, and technological breakthroughs. The promise of EVs lies in their ability to reduce greenhouse gas emissions by replacing fossil-fueled vehicles and offering significant long-term economic benefits. Lower operating and maintenance costs make EVs more affordable for consumers over their lifetime. Their reliance on electricity opens up opportunities for renewable energy integration, which could be a key factor in reaching clean energy goals. Additionally, EVs reduce reliance on volatile oil markets, which are influenced by foreign markets. This revolution could actually contribute positive political diplomacy by alleviating tension in the geo-political oil industry. These advantages position EVs as a cornerstone of the transition to a sustainable and economically resilient future.
+Transportation accounts for nearly 30% of global greenhouse gas emissions, yet electric vehicles (EVs) have the potential to cut these emissions by half when powered by clean energy. As adoption rates climb, the question isn’t whether EVs will reshape our environmental and economic landscape, but which states are leading the way and setting the example for others to follow. In this portion of the report, we aim to answer which states stand to benefit the most from EV adoption.
+
+Electric vehicles have a history that dates back to the 19th century, when some of the first automobiles were powered by electric motors. By the early 1900s, EVs were popular for their quiet operation and ease of use, particularly in urban areas. However, the rise of internal combustion engine (ICE) vehicles, fueled by abundant and inexpensive gasoline, led to a decline in EV production and adoption.
+
+Fast forward to the late 20th century, growing concerns about air pollution, fossil fuel dependence, and climate change recognition reignited interest in EV technology. Innovations in battery technology, particularly the development of lithium-ion batteries, dramatically increased the range and efficiency of EVs while reducing costs. The revolution had a clear change of tide. Tesla’s launch of the Roadster in 2008 marked a turning point, demonstrating that EVs could be high-performing and desirable. Prior to 2008, when someone mentioned EVs, the image often conjured was that of a soccer mom driving a Prius. Tesla’s Roadster changed that perception to a sleek convertible sports car. This event transformed the narrative around EVs.
+
+Since then, automakers worldwide have ramped up production, spurred by advancements in battery technology, decreasing costs, and supportive government policies. Clearly, the spark was lit. In recent years, EV adoption has surged due to a combination of environmental awareness, government incentives, and technological breakthroughs. The promise of EVs lies in their ability to reduce greenhouse gas emissions by replacing fossil-fueled vehicles and offering significant long-term economic benefits.
+
+Lower operating and maintenance costs make EVs more affordable for consumers over their lifetime. Their reliance on electricity opens up opportunities for renewable energy integration, which could be a key factor in reaching clean energy goals. Additionally, EVs reduce reliance on volatile oil markets, which are influenced by foreign markets. This revolution could actually contribute positive political diplomacy by alleviating tension in the geopolitical oil industry. These advantages position EVs as a cornerstone of the transition to a sustainable and economically resilient future.
+
+In this portion of the report, we evaluate the factors that influence the potential benefits of EV adoption across different states. By examining air quality, miles driven per state, and electricity prices, we calculate a weighted ranking for each state to determine which regions are poised to gain the most from this transition to electric mobility.
 
 ## [Data Sources]{style="color: cyan;"}
 
@@ -173,7 +183,7 @@ Below I have created an interactive pie chart. This chart uses EIA data to highl
 <iframe src="pie_chart.html" width="100%" height="600" style="border:none;"></iframe>
 
 
-## [Analyzing Key Motivators]{style="color: cyan;"}
+## [Key Motivators]{style="color: cyan;"}
 
 The transition to electric vehicles (EVs) is driven by a combination of economic, environmental, and practical factors that vary by state. While motivations for EV adoption can be broad, this analysis focuses on three key drivers: average miles driven, air quality, and electricity prices. States where residents drive longer distances stand to benefit economically from the lower operational costs of EVs. In regions struggling with poor air quality, EVs offer a sustainable solution to reduce vehicle emissions and improve public health. Additionally, electricity prices play a crucial role in determining the affordability and appeal of EV adoption, particularly in states with low energy costs or investments in renewable energy. By examining these motivators, we can better understand the strategic incentives for states to embrace electric vehicles as part of their transportation future.
 
