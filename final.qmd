@@ -171,134 +171,18 @@ Second, EVs emit greenhouse gases indirectly by consuming electricity. A byprodu
 
 Below I have created an interactive pie chart. This chart uses EIA data to highlight the renewable profile of each state. As mentioned above, although EV release less emissions than ICEs, an EV in a state state that generates power from a non renewable source will emit more than a state that prioritize renewable gas generation.
 
-```{r}
-#| label: 'Energy Generation - by State (interactive) code'
-#| code-fold: true
-#| message: false 
-#| warning: false
-#| cache: true
-#| results: 'asis'
-#| code-summary: "Energy Generation - by State"
-
-### interactive map - renewables per state
-library(plotly)
-
-power_2023 <- power %>%
-  filter(Year == 2023) %>%
-  group_by(Year, `State Code`, Renewable) %>%
-  summarize(Total_Nameplate_Capacity = sum(`Nameplate Capacity (Megawatts)`, na.rm = TRUE)) %>%
-  ungroup()
+<iframe src="pie_chart.html" width="100%" height="600" style="border:none;"></iframe>
 
 
-# Summarize data by State Code and Renewable
-state_summary <- power_2023 %>%
-  mutate(Renewable = ifelse(Renewable == 1, "Renewable", "Non-Renewable")) %>%
-  group_by(`State Code`, Renewable) %>%
-  summarize(Total_Nameplate_Capacity = sum(Total_Nameplate_Capacity, na.rm = TRUE)) %>%
-  ungroup()
-
-# Create the interactive pie chart
-pie_chart <- state_summary %>%
-  plot_ly(
-    labels = ~ifelse(Renewable == 1, "Renewable", "Non-Renewable"),
-    values = ~Total_Nameplate_Capacity,
-    type = "pie",
-    textinfo = "label+percent",
-    insidetextorientation = "radial"
-  ) %>%
-  layout(
-    title = list(text = "Energy Production by Type"),
-    updatemenus = list(
-      list(
-        type = "dropdown",
-        active = 0,
-        buttons = lapply(unique(state_summary$`State Code`), function(state) {
-          list(
-            label = state,
-            method = "restyle",
-            args = list(
-              list(
-                labels = list(state_summary$Renewable[state_summary$`State Code` == state]),
-                values = list(state_summary$Total_Nameplate_Capacity[state_summary$`State Code` == state])
-              )
-            )
-          )
-        })
-      )
-    )
-  )
-# Display the pie chart
-
-print(pie_chart)
-
-
-```
-
-```{r}
-#| label: "Energy-Generation-Interactive"
-#| code-fold: true
-#| results: asis
-
-### interactive map - renewables per state
-library(dplyr)
-library(plotly)
-
-# Filter and process data
-power_2023 <- power %>%
-  filter(Year == 2023) %>%
-  group_by(Year, `State Code`, Renewable) %>%
-  summarize(Total_Nameplate_Capacity = sum(`Nameplate Capacity (Megawatts)`, na.rm = TRUE)) %>%
-  ungroup()
-
-# Summarize data by State Code and Renewable
-state_summary <- power_2023 %>%
-  mutate(Renewable = ifelse(Renewable == 1, "Renewable", "Non-Renewable")) %>%
-  group_by(`State Code`, Renewable) %>%
-  summarize(Total_Nameplate_Capacity = sum(Total_Nameplate_Capacity, na.rm = TRUE)) %>%
-  ungroup()
-
-# Create the interactive pie chart
-pie_chart <- state_summary %>%
-  plot_ly(
-    labels = ~Renewable,
-    values = ~Total_Nameplate_Capacity,
-    type = "pie",
-    textinfo = "label+percent",
-    insidetextorientation = "radial"
-  ) %>%
-  layout(
-    title = list(text = "Energy Production by Type"),
-    updatemenus = list(
-      list(
-        type = "dropdown",
-        active = 0,
-        buttons = lapply(unique(state_summary$`State Code`), function(state) {
-          list(
-            label = state,
-            method = "restyle",
-            args = list(
-              list(
-                labels = list(state_summary$Renewable[state_summary$`State Code` == state]),
-                values = list(state_summary$Total_Nameplate_Capacity[state_summary$`State Code` == state])
-              )
-            )
-          )
-        })
-      )
-    )
-  )
-
-# Ensure the plot is displayed in the HTML
-pie_chart
-
-```
 ## [Motivations]{style="color: cyan;"}
 
 The transition to electric vehicles (EVs) is driven by a combination of economic, environmental, and practical factors that vary by state. While motivations for EV adoption can be broad, this analysis focuses on three key drivers: average miles driven, air quality, and electricity prices. States where residents drive longer distances stand to benefit economically from the lower operational costs of EVs. In regions struggling with poor air quality, EVs offer a sustainable solution to reduce vehicle emissions and improve public health. Additionally, electricity prices play a crucial role in determining the affordability and appeal of EV adoption, particularly in states with low energy costs or investments in renewable energy. By examining these motivators, we can better understand the strategic incentives for states to embrace electric vehicles as part of their transportation future.
 
-Here's a structured draft for each motivator—average miles driven, air quality, and electricity prices—to help you craft strong, clear, and analytical paragraphs. Let me know if you'd like me to refine this further!
+Here's a structured draft for each motivator—average miles driven, air quality, and electricity prices—to help you craft strong, clear, and analytically paragraphs. Let me know if you'd like me to refine this further!
 
-###1. Average Miles Driven States with higher average miles driven per capita have a strong economic and environmental incentive to adopt electric vehicles (EVs). In regions where residents rely heavily on personal vehicles for daily commutes and long-distance travel, such as rural areas or states with limited public transportation infrastructure, fuel consumption and vehicle emissions are significant concerns.
+###1. Average Miles Driven 
+
+States with higher average miles driven per capita have a strong economic and environmental incentive to adopt electric vehicles (EVs). In regions where residents rely heavily on personal vehicles for daily commutes and long-distance travel, such as rural areas or states with limited public transportation infrastructure, fuel consumption and vehicle emissions are significant concerns.
 
 States with high average miles driven also face heightened environmental impacts, including greater greenhouse gas emissions and air quality degradation from traditional vehicles. By transitioning to EVs, states can mitigate these impacts while simultaneously reducing long-term transportation costs for consumers. Thus, states with above-average mileage have a unique motivation to embrace EV adoption as a strategy for improving economic efficiency and reducing reliance on fossil fuels.
 
@@ -431,7 +315,8 @@ ggplot(data = miles_map_usa) +
 
 ```
 
-###2. Air Quality Air quality is a critical driver for EV adoption, particularly in states grappling with pollution and poor environmental health outcomes. Areas with significant urbanization, high vehicular traffic, or industries contributing to air pollution face increased risks of respiratory diseases, such as asthma, and other health concerns linked to poor air quality. Adopting electric vehicles, which produce zero tailpipe emissions, can significantly reduce levels of nitrogen oxides, particulate matter, and other pollutants commonly associated with internal combustion engines. For instance, states like California, historically plagued by wildfires that produce smog, have adopted aggressive EV policies to combat air quality issues. Cleaner air not only improves public health but also reduces healthcare costs, creating a dual incentive for policymakers to support EV adoption. Moreover, better air quality aligns with federal and state environmental targets for reducing carbon emissions, positioning EV adoption as a tool for meeting climate goals while enhancing residents' quality of life.
+### 2. Air Quality 
+Air quality is a critical driver for EV adoption, particularly in states grappling with pollution and poor environmental health outcomes. Areas with significant urbanization, high vehicular traffic, or industries contributing to air pollution face increased risks of respiratory diseases, such as asthma, and other health concerns linked to poor air quality. Adopting electric vehicles, which produce zero tailpipe emissions, can significantly reduce levels of nitrogen oxides, particulate matter, and other pollutants commonly associated with internal combustion engines. For instance, states like California, historically plagued by wildfires that produce smog, have adopted aggressive EV policies to combat air quality issues. Cleaner air not only improves public health but also reduces healthcare costs, creating a dual incentive for policymakers to support EV adoption. Moreover, better air quality aligns with federal and state environmental targets for reducing carbon emissions, positioning EV adoption as a tool for meeting climate goals while enhancing residents' quality of life.
 
 ```{r}
 #| label: 'Air quality Code'
@@ -441,12 +326,98 @@ ggplot(data = miles_map_usa) +
 #| cache: true
 #| code-summary: "Air quality"
 
-print('hi')
+#analysis
+air_quality_map <- mainland_states %>%
+  left_join(air_quality, by = c("NAME" = "State"))
+
+print(air_quality_map)
+
+library(ggplot2)
+
+# Create the map using Value as the fill
+ggplot(data = air_quality_map) +
+  geom_sf(aes(fill = Average_Value), color = "black", lwd = 0.2) +  # Use Value for fill
+  scale_fill_viridis_c(option = "plasma", name = "Air Quality Index (µg/m³)") +  # Add color scale for fill
+  labs(
+    title = "Air Quality Values by State",
+    caption = "Source: https://ephtracking.cdc.gov/DataExplorer/"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(hjust = 0.5, size = 16),  # Center and style the title
+    plot.caption = element_text(size = 10)             # Style the caption
+  )
+
 
 ```
 
-###3. Electricity Prices Electricity prices play a pivotal role in influencing a state's decision to encourage EV adoption. States with lower electricity prices offer a cost-effective alternative to gasoline, increasing the financial attractiveness of EVs for residents. The cost per mile to operate an EV is directly tied to electricity rates, and in states with inexpensive, reliable electricity consumers stand to benefit from reduced transportation costs. This is especially true for states that generate power from renewable sources. For states investing in renewable energy, EV adoption presents an opportunity to integrate cleaner energy into the transportation sector. By leveraging existing electricity infrastructure and low prices, states can further reduce emissions and bolster energy independence. Additionally, reducing reliance on gasoline helps prevent dependency on oil-producing countries, which can promote economic and diplomatic stability. As EVs shift energy reliance to domestically produced electricity instead of imported fossil fuels, states can play a role in enhancing national energy security and fostering diplomacy. Conversely, for states with higher electricity costs, the case for EV adoption may require additional incentives, such as subsidies, time-of-use pricing, or investments in infrastructure to drive down costs over time. Nonetheless, transitioning to EVs remains an opportunity to stabilize transportation expenses, especially when compared to the volatility of fossil fuel prices.
+### 3. Electricity Prices 
+Electricity prices play a pivotal role in influencing a state's decision to encourage EV adoption. States with lower electricity prices offer a cost-effective alternative to gasoline, increasing the financial attractiveness of EVs for residents. The cost per mile to operate an EV is directly tied to electricity rates, and in states with inexpensive, reliable electricity consumers stand to benefit from reduced transportation costs. This is especially true for states that generate power from renewable sources. For states investing in renewable energy, EV adoption presents an opportunity to integrate cleaner energy into the transportation sector. By leveraging existing electricity infrastructure and low prices, states can further reduce emissions and bolster energy independence. Additionally, reducing reliance on gasoline helps prevent dependency on oil-producing countries, which can promote economic and diplomatic stability. As EVs shift energy reliance to domestically produced electricity instead of imported fossil fuels, states can play a role in enhancing national energy security and fostering diplomacy. Conversely, for states with higher electricity costs, the case for EV adoption may require additional incentives, such as subsidies, time-of-use pricing, or investments in infrastructure to drive down costs over time. Nonetheless, transitioning to EVs remains an opportunity to stabilize transportation expenses, especially when compared to the volatility of fossil fuel prices.
 
-<iframe src="pie_chart.html" width="100%" height="600" style="border:none;"></iframe>
+```{r}
+#| label: 'Electricity Prices Code'
+#| code-fold: true
+#| message: false 
+#| warning: false
+#| cache: true
+#| code-summary: "Electricity Prices"
+
+energy_price_usa <- energy_price %>%
+  filter(State == 'US') %>%
+  filter(Year !=2024)
+print(energy_price_usa)
+
+energy_price_state<- energy_price %>%
+  filter(Year == '2023')
 
 
+##USA MAP ELEC PRICE
+energy_price_state_map <- mainland_states %>%
+  left_join(energy_price_state, by = c("STUSPS" = "State"))
+print(energy_price_state_map)
+
+library(ggplot2)
+
+# Create the map using Cents/KWh as the fill the USA map
+ggplot(data = energy_price_state_map) +
+  geom_sf(aes(fill = `Cents/kWh`), color = "black", lwd = 0.2) +  # Use Cents/kWh for fill
+  scale_fill_viridis_c(option = "plasma", name = "Cents per kWh") +  # Add a color gradient
+  labs(
+    title = "Electricity Prices by State (2023)",
+    caption = "Source: https://www.eia.gov/electricity/data/eia861m/"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(hjust = 0.5, size = 16),  # Center and style the title
+    plot.caption = element_text(size = 10)             # Style the caption
+  )
+
+
+```
+
+
+```{r}
+#| label: 'Electricity Prices Increasing Code'
+#| code-fold: true
+#| message: false 
+#| warning: false
+#| cache: true
+#| code-summary: "Electricity Prices Increasing"
+##Energy prices rising. 
+# Create a line plot with points and trend line
+ggplot(energy_price_usa, aes(x = Year, y = `Cents/kWh`, group = 1)) +
+  geom_line(color = "blue", size = 1) +  # Add trend line
+  geom_point(color = "red", size = 2) + # Add points
+  labs(
+    title = "Electricity Prices Over Time",
+    x = "Year",
+    y = "Cents per kWh"
+
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(hjust = 0.5, size = 16),
+    axis.text.x = element_text(angle = 45, hjust = 1)
+  )
+
+```
