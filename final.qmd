@@ -235,23 +235,20 @@ print(pie_chart)
 ```
 
 ```{r}
-#| label: 'Energy Generation - by State (interactive) code pls'
-#| echo: false
-#| warning: false
-#| message: false
-#| code-summary: "Energy Generation - by State pls"
-
+#| label: "Energy-Generation-Interactive"
+#| code-fold: true
+#| results: asis
 
 ### interactive map - renewables per state
+library(dplyr)
 library(plotly)
 
+# Filter and process data
 power_2023 <- power %>%
   filter(Year == 2023) %>%
   group_by(Year, `State Code`, Renewable) %>%
   summarize(Total_Nameplate_Capacity = sum(`Nameplate Capacity (Megawatts)`, na.rm = TRUE)) %>%
   ungroup()
-
-print(power_2023)
 
 # Summarize data by State Code and Renewable
 state_summary <- power_2023 %>%
@@ -263,7 +260,7 @@ state_summary <- power_2023 %>%
 # Create the interactive pie chart
 pie_chart <- state_summary %>%
   plot_ly(
-    labels = ~ifelse(Renewable == 1, "Renewable", "Non-Renewable"),
+    labels = ~Renewable,
     values = ~Total_Nameplate_Capacity,
     type = "pie",
     textinfo = "label+percent",
@@ -290,7 +287,8 @@ pie_chart <- state_summary %>%
       )
     )
   )
-# Display the pie chart
+
+# Ensure the plot is displayed in the HTML
 pie_chart
 
 ```
