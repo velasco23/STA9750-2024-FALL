@@ -154,7 +154,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="table-of-contents" class="level4">
 <h4 class="anchored" data-anchor-id="table-of-contents">Table of Contents</h4>
-<p><a href="">1. Introduction</a> <a href="">2. Data Sources</a> <a href="">3. Background</a> <a href="">4. Analyzing Key Motivators</a> <a href="">5. Findings</a> <a href="">6. Conclusion</a></p>
+<ul>
+<li>[1. Introduction]</li>
+<li>[2. Data Sources]</li>
+<li>[3. Background]</li>
+<li>[4. Analyzing Key Motivators]</li>
+<li>[5. Findings]</li>
+<li>[6. Conclusion]</li>
+</ul>
 </section>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction"><span style="color: cyan;">Introduction</span></h2>
@@ -165,7 +172,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Our analysis will use data from multiple sources. The sources have been acquired and vetted to be from a credible source. We aimed to capture data from government website. Although, they may not always be the cleanest and geared to our specific intent, they are fact managed and maintained consistently enough for us to preference them as oppose to a one time study conducted by a university.</p>
 <div class="cell">
 <details class="code-fold">
-<summary>USA - SHPE Data</summary>
+<summary>USA - SHPE Data - source:https://www2.census.gov/geo/tiger/GENZ2020/shp/cb_2020_us_state_20m.zip</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load required libraries</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(httr)</span>
@@ -191,7 +198,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>Shapefile already downloaded.</code></pre>
 </div>
 <details class="code-fold">
-<summary>USA - SHPE Data</summary>
+<summary>USA - SHPE Data - source:https://www2.census.gov/geo/tiger/GENZ2020/shp/cb_2020_us_state_20m.zip</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>unzip_dir <span class="ot">&lt;-</span> <span class="fu">file.path</span>(download_dir, <span class="st">"cb_2020_us_state_20m"</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">dir.exists</span>(unzip_dir)) {</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unzip</span>(zip_path, <span class="at">exdir =</span> unzip_dir)</span>
@@ -211,10 +218,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>mainland_states <span class="ot">&lt;-</span> <span class="fu">st_simplify</span>(mainland_states, <span class="at">dTolerance =</span> <span class="fl">0.01</span>)  <span class="co"># Adjust tolerance for detail</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>USA SHPE Data - source: https://www2.census.gov/geo/tiger/GENZ2020/shp/cb_2020_us_state_20m.zip</p>
 <div class="cell">
 <details class="code-fold">
-<summary>DOE - City and County Energy Profiles</summary>
+<summary>DOE - City and County Energy Profiles - source: https://catalog.data.gov/dataset/city-and-county-energy-profiles-60fbd</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="do">####Miles</span></span>
@@ -233,10 +239,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">miles_per_capita =</span> total_miles <span class="sc">/</span> total_population)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>City and County Energy Profiles - source: https://catalog.data.gov/dataset/city-and-county-energy-profiles-60fbd</p>
 <div class="cell">
 <details class="code-fold">
-<summary>EIA - Power Generation</summary>
+<summary>EIA - Power Generation - source: https://www.eia.gov/electricity/data.php</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="do">####power generation</span></span>
@@ -256,7 +261,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Power Generation - source: https://www.eia.gov/electricity/data.php</p>
 <div class="cell">
 <details class="code-fold">
-<summary>EPA - Air Quality</summary>
+<summary>EPA - Air Quality - source: https://www.epa.gov/outdoor-air-quality-data/download-daily-data</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Air quality</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace 'path_to_your_file' with the actual path to your CSV file</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>air_quality_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"C:/Users/velas/Documents/STA9750-2024-FALL/air_quality_data_years.csv"</span>, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
@@ -268,7 +273,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>Air Quality - source: https://www.epa.gov/outdoor-air-quality-data/download-daily-data</p>
 </section>
 <section id="background" class="level2">
 <h2 class="anchored" data-anchor-id="background"><span style="color: cyan;">Background</span></h2>

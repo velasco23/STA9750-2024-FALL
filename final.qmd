@@ -6,12 +6,12 @@ editor: visual
 
 #### Table of Contents
 
-[1. Introduction]() 
-[2. Data Sources]() 
-[3. Background]() 
-[4. Analyzing Key Motivators]() 
-[5. Findings]() 
-[6. Conclusion]()
+- [1. Introduction] 
+- [2. Data Sources] 
+- [3. Background] 
+- [4. Analyzing Key Motivators] 
+- [5. Findings] 
+- [6. Conclusion]
 
 ## [Introduction]{style="color: cyan;"}
 
@@ -27,7 +27,7 @@ Our analysis will use data from multiple sources. The sources have been acquired
 #| message: false 
 #| warning: false
 #| cache: true
-#| code-summary: "USA - SHPE Data"
+#| code-summary: "USA - SHPE Data - source:https://www2.census.gov/geo/tiger/GENZ2020/shp/cb_2020_us_state_20m.zip"
 
 # Load required libraries
 library(sf)
@@ -71,7 +71,7 @@ mainland_states <- st_simplify(mainland_states, dTolerance = 0.01)  # Adjust tol
 
 
 ```
-USA SHPE Data - source: https://www2.census.gov/geo/tiger/GENZ2020/shp/cb_2020_us_state_20m.zip
+
 
 ```{r}
 #| label: 'DOE - City and County Energy Profiles Code'
@@ -79,7 +79,7 @@ USA SHPE Data - source: https://www2.census.gov/geo/tiger/GENZ2020/shp/cb_2020_u
 #| message: false 
 #| warning: false
 #| cache: false
-#| code-summary: "DOE - City and County Energy Profiles"
+#| code-summary: "DOE - City and County Energy Profiles - source: https://catalog.data.gov/dataset/city-and-county-energy-profiles-60fbd"
 
 library(readxl)
 library(dplyr)
@@ -100,7 +100,7 @@ miles_clean <- miles %>%
 
 ```
 
-City and County Energy Profiles - source: https://catalog.data.gov/dataset/city-and-county-energy-profiles-60fbd
+
 
 ```{r}
 #| label: 'EIA - Power Generation Code'
@@ -108,7 +108,7 @@ City and County Energy Profiles - source: https://catalog.data.gov/dataset/city-
 #| message: false 
 #| warning: false
 #| cache: true
-#| code-summary: "EIA - Power Generation"
+#| code-summary: "EIA - Power Generation - source: https://www.eia.gov/electricity/data.php"
 
 library(readxl)
 library(dplyr)
@@ -135,7 +135,7 @@ Power Generation - source: https://www.eia.gov/electricity/data.php
 #| message: false 
 #| warning: false
 #| cache: true
-#| code-summary: "EPA - Air Quality"
+#| code-summary: "EPA - Air Quality - source: https://www.epa.gov/outdoor-air-quality-data/download-daily-data"
 
 ### Air quality
 # Replace 'path_to_your_file' with the actual path to your CSV file
@@ -149,7 +149,7 @@ air_quality<- air_quality_data %>%
 
 ```
 
-Air Quality - source: https://www.epa.gov/outdoor-air-quality-data/download-daily-data
+
 
 ## [Background]{style="color: cyan;"}
 
