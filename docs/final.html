@@ -308,10 +308,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="analyzing-key-motivators"><span style="color: cyan;">Analyzing Key Motivators</span></h2>
 <p>The transition to electric vehicles (EVs) is driven by a combination of economic, environmental, and practical factors that vary by state. While motivations for EV adoption can be broad, this analysis focuses on three key drivers: average miles driven, air quality, and electricity prices. States where residents drive longer distances stand to benefit economically from the lower operational costs of EVs. In regions struggling with poor air quality, EVs offer a sustainable solution to reduce vehicle emissions and improve public health. Additionally, electricity prices play a crucial role in determining the affordability and appeal of EV adoption, particularly in states with low energy costs or investments in renewable energy. By examining these motivators, we can better understand the strategic incentives for states to embrace electric vehicles as part of their transportation future.</p>
 <p>Here’s a structured draft for each motivator—average miles driven, air quality, and electricity prices—to help you craft strong, clear, and analytically paragraphs. Let me know if you’d like me to refine this further!</p>
-<section id="average-miles-driven" class="level3" style="color: orange;">
-<h3 style="color: orange;" class="anchored" data-anchor-id="average-miles-driven">Average Miles Driven</h3>
+<section id="average-miles-driven" class="level5">
+<h5 class="anchored" data-anchor-id="average-miles-driven"><span style="color: orange;">Average Miles Driven</span></h5>
 <p>States with higher average miles driven per capita have a strong economic and environmental incentive to adopt electric vehicles (EVs). In regions where residents rely heavily on personal vehicles for daily commutes and long-distance travel, such as rural areas or states with limited public transportation infrastructure, fuel consumption and vehicle emissions are significant concerns.</p>
 <p>States with high average miles driven also face heightened environmental impacts, including greater greenhouse gas emissions and air quality degradation from traditional vehicles. By transitioning to EVs, states can mitigate these impacts while simultaneously reducing long-term transportation costs for consumers. Thus, states with above-average mileage have a unique motivation to embrace EV adoption as a strategy for improving economic efficiency and reducing reliance on fossil fuels.</p>
+<p>The tables below will highlight the states with the most and least average driven miles per capita. The graph will put into perspective where the rest of the states lie in terms of driven miles. Clearly, Georgians drive the most and that may be due to poor public transportation as mentioned above.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Average Miles Drive</summary>
@@ -582,9 +583,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="air-quality" class="level3" style="color: orange;">
-<h3 style="color: orange;" class="anchored" data-anchor-id="air-quality">Air Quality</h3>
+<section id="air-quality" class="level5">
+<h5 class="anchored" data-anchor-id="air-quality"><span style="color: orange;">Air Quality</span></h5>
 <p>Air quality is a critical driver for EV adoption, particularly in states grappling with pollution and poor environmental health outcomes. Areas with significant urbanization, high vehicular traffic, or industries contributing to air pollution face increased risks of respiratory diseases, such as asthma, and other health concerns linked to poor air quality. Adopting electric vehicles, which produce zero tailpipe emissions, can significantly reduce levels of nitrogen oxides, particulate matter, and other pollutants commonly associated with internal combustion engines. For instance, states like California, historically plagued by wildfires that produce smog, have adopted aggressive EV policies to combat air quality issues. Cleaner air not only improves public health but also reduces healthcare costs, creating a dual incentive for policymakers to support EV adoption. Moreover, better air quality aligns with federal and state environmental targets for reducing carbon emissions, positioning EV adoption as a tool for meeting climate goals while enhancing residents’ quality of life.</p>
+<p>Below we can see a heat map of air quality through out the United States. It is evident thtat California and Oregon would benefit from an EV revolution.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Air quality</summary>
@@ -618,9 +620,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="electricity-prices" class="level3" style="color: orange;">
-<h3 style="color: orange;" class="anchored" data-anchor-id="electricity-prices">Electricity Prices</h3>
+<section id="electricity-prices" class="level5">
+<h5 class="anchored" data-anchor-id="electricity-prices"><span style="color: orange;">Electricity Prices</span></h5>
 <p>Electricity prices play a pivotal role in influencing a state’s decision to encourage EV adoption. States with lower electricity prices offer a cost-effective alternative to gasoline, increasing the financial attractiveness of EVs for residents. The cost per mile to operate an EV is directly tied to electricity rates, and in states with inexpensive, reliable electricity consumers stand to benefit from reduced transportation costs. This is especially true for states that generate power from renewable sources. For states investing in renewable energy, EV adoption presents an opportunity to integrate cleaner energy into the transportation sector. By leveraging existing electricity infrastructure and low prices, states can further reduce emissions and bolster energy independence. Additionally, reducing reliance on gasoline helps prevent dependency on oil-producing countries, which can promote economic and diplomatic stability. As EVs shift energy reliance to domestically produced electricity instead of imported fossil fuels, states can play a role in enhancing national energy security and fostering diplomacy. Conversely, for states with higher electricity costs, the case for EV adoption may require additional incentives, such as subsidies, time-of-use pricing, or investments in infrastructure to drive down costs over time. Nonetheless, transitioning to EVs remains an opportunity to stabilize transportation expenses, especially when compared to the volatility of fossil fuel prices.</p>
+<p>Below we can see a heat map of electrical prices throughout the United States. Clearly, California leads the charge in electricity prices.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Electricity Prices</summary>
@@ -675,37 +678,99 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+</section>
+</section>
+<section id="findings" class="level2">
+<h2 class="anchored" data-anchor-id="findings"><span style="color: cyan;">Findings</span></h2>
+<p>Our analysis aimed to determine which states stand to gain the most from an Electric Vehicle (EV) revolution by evaluating three critical factors: average miles driven per state, air quality levels, and electricity prices per state. To ensure fairness and comparability, we normalized the data for each state by calculating a percentage score. The formula used for normalization was:</p>
+<p>Percentage = State’s Value / Maximum Value Across States</p>
+<p>This approach yielded a normalized percentage for each state across the three categories. We then weighted each category equally, assigning a weight of 33%. For each state, the final ranking was calculated as follows:</p>
+<p>Ranking = (Air Quality Percentage × 33%)+(Miles Driven Percentage × 33%)+(Electricity Prices Percentage × 33%)</p>
+<p>The state with the highest overall score was identified as the state that would benefit the most from widespread EV adoption. This ranking methodology allowed us to comprehensively account for environmental, economic, and transportation-related factors.</p>
+<p><span style="color: orange;">Key Findings:</span></p>
+<p>Top 3 States Likely to Benefit the Most from EV Adoption:</p>
+<ul>
+<li><p>California: With a leading score of 72.6, California stands out due to its high air quality concerns, extensive miles driven by residents, and relatively moderate electricity prices.</p></li>
+<li><p>Georgia: Ranking second at 64.1, Georgia’s significant potential arises from its high driving rates and air quality challenges.</p></li>
+</ul>
+<p>*Alabama: At 59.9, Alabama showcases a strong case for EV adoption, driven by similar factors as Georgia.</p>
+<p>Bottom 3 States States Least Likely to Benefit:</p>
+<ul>
+<li><p>North Dakota: Scoring just 29.2, North Dakota’s lower air quality concerns and relatively minimal driving distances reduce its potential benefits.</p></li>
+<li><p>South Dakota: At 31.7, similar factors to North Dakota lead to a low ranking.</p></li>
+<li><p>Wyoming: With a score of 32.4, Wyoming’s reliance on fossil fuels for electricity generation further diminishes its EV adoption appeal.</p></li>
+</ul>
+<p>Below is a heat map of the United States illustrating each state’s ranking based on their potential benefits from EV adoption, as determined by the formula incorporating air quality, miles driven, and electricity prices.</p>
 <div class="cell">
 <details class="code-fold">
-<summary>Electricity Prices Increasing</summary>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="do">##Energy prices rising. </span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a line plot with points and trend line</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(energy_price_usa, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> <span class="st">`</span><span class="at">Cents/kWh</span><span class="st">`</span>, <span class="at">group =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span>  <span class="co"># Add trend line</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span> <span class="co"># Add points</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Electricity Prices Over Time"</span>,</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Year"</span>,</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Cents per kWh"</span></span>
+<summary>States Potential Benefit from EVs</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Scoring for formulas </span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>state2abr <span class="ot">&lt;-</span>mainland_states <span class="sc">%&gt;%</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_drop_geometry</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(NAME,STUSPS)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co">#energy price</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>energy_score <span class="ot">&lt;-</span> energy_price_state <span class="sc">%&gt;%</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(State, <span class="st">`</span><span class="at">Cents/kWh</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">price_score =</span> <span class="st">`</span><span class="at">Cents/kWh</span><span class="st">`</span> <span class="sc">/</span> <span class="fu">max</span>(<span class="st">`</span><span class="at">Cents/kWh</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="st">`</span><span class="at">Cents/kWh</span><span class="st">`</span>)</span>
 <span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">16</span>),</span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>)</span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co">#avg miles driven</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>miles_score <span class="ot">&lt;-</span> miles_map <span class="sc">%&gt;%</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">miles_score =</span> miles_per_capita <span class="sc">/</span> <span class="fu">max</span>(miles_per_capita, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>miles_per_capita)</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="co">#air quality score</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>air_score<span class="ot">&lt;-</span> air_quality <span class="sc">%&gt;%</span></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">air_quality_score =</span> Average_Value <span class="sc">/</span> <span class="fu">max</span>(Average_Value, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>Average_Value)</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>formula <span class="ot">&lt;-</span> state2abr <span class="sc">%&gt;%</span></span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(energy_score, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"STUSPS"</span> <span class="ot">=</span> <span class="st">"State"</span>))<span class="sc">%&gt;%</span></span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(miles_score, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"STUSPS"</span> <span class="ot">=</span> <span class="st">"state_abbr"</span>))<span class="sc">%&gt;%</span></span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(air_score, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"NAME"</span> <span class="ot">=</span> <span class="st">"State"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">score =</span> (price_score<span class="sc">*</span><span class="dv">33</span>)<span class="sc">+</span>(miles_score<span class="sc">*</span><span class="dv">34</span>)<span class="sc">+</span>(air_quality_score<span class="sc">*</span><span class="dv">33</span>))</span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a><span class="co">#formula map usa</span></span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a>formula1 <span class="ot">&lt;-</span> formula<span class="sc">%&gt;%</span></span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>NAME,<span class="sc">-</span>price_score,<span class="sc">-</span>miles_score,<span class="sc">-</span>air_quality_score)</span>
+<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a>formula_map <span class="ot">&lt;-</span> mainland_states <span class="sc">%&gt;%</span></span>
+<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(formula1, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"STUSPS"</span> <span class="ot">=</span> <span class="st">"STUSPS"</span>))</span>
+<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the map with fill based on the score column</span></span>
+<span id="cb13-39"><a href="#cb13-39" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> formula_map) <span class="sc">+</span></span>
+<span id="cb13-40"><a href="#cb13-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">fill =</span> score), <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span>  <span class="co"># Fill color based on score and black border</span></span>
+<span id="cb13-41"><a href="#cb13-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>(<span class="at">option =</span> <span class="st">"plasma"</span>, <span class="at">name =</span> <span class="st">"Score"</span>) <span class="sc">+</span>  <span class="co"># Use a color gradient</span></span>
+<span id="cb13-42"><a href="#cb13-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb13-43"><a href="#cb13-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb13-44"><a href="#cb13-44" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Beneficiary Scores by State"</span></span>
+<span id="cb13-45"><a href="#cb13-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-46"><a href="#cb13-46" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb13-47"><a href="#cb13-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb13-48"><a href="#cb13-48" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>),  <span class="co"># Center the title</span></span>
+<span id="cb13-49"><a href="#cb13-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"right"</span>  <span class="co"># Place the legend on the right</span></span>
+<span id="cb13-50"><a href="#cb13-50" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="final_files/figure-html/Electricity Prices Increasing Code-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="final_files/figure-html/States Potential Benefit from EV code-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-
-
 </section>
+<section id="findings-1" class="level2">
+<h2 class="anchored" data-anchor-id="findings-1"><span style="color: cyan;">Findings</span></h2>
+<p>States such as California, Georgia, and Alabama exhibit significant opportunities for improvement with EV adoption, particularly due to the high driving rates and pressing air quality challenges. These states stand to benefit from cleaner transportation options and reduced dependency on fossil fuels.</p>
+<p>Conversely, states like North Dakota and South Dakota demonstrate lower incentives for EV adoption, as their electricity prices, air quality concerns, and driving patterns do not make EVs as impactful. For these states, other sustainable energy initiatives may hold more promise than a widespread EV revolution.</p>
+<p>This analysis underscores the importance of tailoring EV policies to state-specific contexts, focusing on the areas where they can deliver the most substantial benefits.</p>
+
+
 </section>
 
 </main> <!-- /main -->

@@ -180,11 +180,13 @@ The transition to electric vehicles (EVs) is driven by a combination of economic
 
 Here's a structured draft for each motivator—average miles driven, air quality, and electricity prices—to help you craft strong, clear, and analytically paragraphs. Let me know if you'd like me to refine this further!
 
-### Average Miles Driven {style="color: orange;"}
+##### [Average Miles Driven]{style="color: orange;"}
 
 States with higher average miles driven per capita have a strong economic and environmental incentive to adopt electric vehicles (EVs). In regions where residents rely heavily on personal vehicles for daily commutes and long-distance travel, such as rural areas or states with limited public transportation infrastructure, fuel consumption and vehicle emissions are significant concerns.
 
 States with high average miles driven also face heightened environmental impacts, including greater greenhouse gas emissions and air quality degradation from traditional vehicles. By transitioning to EVs, states can mitigate these impacts while simultaneously reducing long-term transportation costs for consumers. Thus, states with above-average mileage have a unique motivation to embrace EV adoption as a strategy for improving economic efficiency and reducing reliance on fossil fuels.
+
+The tables below will highlight the states with the most and least average driven miles per capita. The graph will put into perspective where the rest of the states lie in terms of driven miles. Clearly, Georgians drive the most and that may be due to poor public transportation as mentioned above. 
 
 ```{r}
 #| label: 'Average Miles Drive Code'
@@ -315,8 +317,11 @@ ggplot(data = miles_map_usa) +
 
 ```
 
-### Air Quality {style="color: orange;"}
+##### [Air Quality]{style="color: orange;"}
+
 Air quality is a critical driver for EV adoption, particularly in states grappling with pollution and poor environmental health outcomes. Areas with significant urbanization, high vehicular traffic, or industries contributing to air pollution face increased risks of respiratory diseases, such as asthma, and other health concerns linked to poor air quality. Adopting electric vehicles, which produce zero tailpipe emissions, can significantly reduce levels of nitrogen oxides, particulate matter, and other pollutants commonly associated with internal combustion engines. For instance, states like California, historically plagued by wildfires that produce smog, have adopted aggressive EV policies to combat air quality issues. Cleaner air not only improves public health but also reduces healthcare costs, creating a dual incentive for policymakers to support EV adoption. Moreover, better air quality aligns with federal and state environmental targets for reducing carbon emissions, positioning EV adoption as a tool for meeting climate goals while enhancing residents' quality of life.
+
+Below we can see a heat map of air quality through out the United States. It is evident thtat California and Oregon would benefit from an EV revolution. 
 
 ```{r}
 #| label: 'Air quality Code'
@@ -350,9 +355,11 @@ ggplot(data = air_quality_map) +
 
 ```
 
-### Electricity Prices {style="color: orange;"}
+##### [Electricity Prices]{style="color: orange;"}
+
 Electricity prices play a pivotal role in influencing a state's decision to encourage EV adoption. States with lower electricity prices offer a cost-effective alternative to gasoline, increasing the financial attractiveness of EVs for residents. The cost per mile to operate an EV is directly tied to electricity rates, and in states with inexpensive, reliable electricity consumers stand to benefit from reduced transportation costs. This is especially true for states that generate power from renewable sources. For states investing in renewable energy, EV adoption presents an opportunity to integrate cleaner energy into the transportation sector. By leveraging existing electricity infrastructure and low prices, states can further reduce emissions and bolster energy independence. Additionally, reducing reliance on gasoline helps prevent dependency on oil-producing countries, which can promote economic and diplomatic stability. As EVs shift energy reliance to domestically produced electricity instead of imported fossil fuels, states can play a role in enhancing national energy security and fostering diplomacy. Conversely, for states with higher electricity costs, the case for EV adoption may require additional incentives, such as subsidies, time-of-use pricing, or investments in infrastructure to drive down costs over time. Nonetheless, transitioning to EVs remains an opportunity to stabilize transportation expenses, especially when compared to the volatility of fossil fuel prices.
 
+Below we can see a heat map of electrical prices throughout the United States. Clearly, California leads the charge in electricity prices.  
 ```{r}
 #| label: 'Electricity Prices Code'
 #| code-fold: true
@@ -408,29 +415,104 @@ ggplot(data = energy_price_state_map) +
 ```
 
 
+## [Findings]{style="color: cyan;"}
+
+Our analysis aimed to determine which states stand to gain the most from an Electric Vehicle (EV) revolution by evaluating three critical factors: average miles driven per state, air quality levels, and electricity prices per state. To ensure fairness and comparability, we normalized the data for each state by calculating a percentage score. The formula used for normalization was:
+
+Percentage = State's Value / Maximum Value Across States
+
+This approach yielded a normalized percentage for each state across the three categories. We then weighted each category equally, assigning a weight of 33%. For each state, the final ranking was calculated as follows:
+
+Ranking = (Air Quality Percentage × 33%)+(Miles Driven Percentage × 33%)+(Electricity Prices Percentage × 33%)
+
+The state with the highest overall score was identified as the state that would benefit the most from widespread EV adoption. This ranking methodology allowed us to comprehensively account for environmental, economic, and transportation-related factors.
+
+[Key Findings:]{style="color: orange;"}
+
+Top 3 States Likely to Benefit the Most from EV Adoption:
+
+* California: With a leading score of 72.6, California stands out due to its high air quality concerns, extensive miles driven by residents, and relatively moderate electricity prices.
+
+* Georgia: Ranking second at 64.1, Georgia's significant potential arises from its high driving rates and air quality challenges.
+
+*Alabama: At 59.9, Alabama showcases a strong case for EV adoption, driven by similar factors as Georgia.
+
+Bottom 3 States States Least Likely to Benefit:
+
+* North Dakota: Scoring just 29.2, North Dakota’s lower air quality concerns and relatively minimal driving distances reduce its potential benefits.
+
+* South Dakota: At 31.7, similar factors to North Dakota lead to a low ranking.
+
+* Wyoming: With a score of 32.4, Wyoming's reliance on fossil fuels for electricity generation further diminishes its EV adoption appeal.
+
+Below is a heat map of the United States illustrating each state's ranking based on their potential benefits from EV adoption, as determined by the formula incorporating air quality, miles driven, and electricity prices.
+
 ```{r}
-#| label: 'Electricity Prices Increasing Code'
+#| label: 'States Potential Benefit from EV code'
 #| code-fold: true
 #| message: false 
 #| warning: false
 #| cache: true
-#| code-summary: "Electricity Prices Increasing"
-##Energy prices rising. 
-# Create a line plot with points and trend line
-ggplot(energy_price_usa, aes(x = Year, y = `Cents/kWh`, group = 1)) +
-  geom_line(color = "blue", size = 1) +  # Add trend line
-  geom_point(color = "red", size = 2) + # Add points
+#| code-summary: "States Potential Benefit from EVs"
+
+#Scoring for formulas 
+state2abr <-mainland_states %>%
+  st_drop_geometry() %>%
+  select(NAME,STUSPS)
+#energy price
+energy_score <- energy_price_state %>%
+  select(State, `Cents/kWh`) %>%
+  mutate(price_score = `Cents/kWh` / max(`Cents/kWh`, na.rm = TRUE)) %>%
+  select(-`Cents/kWh`)
+
+#avg miles driven
+miles_score <- miles_map %>%
+  mutate(miles_score = miles_per_capita / max(miles_per_capita, na.rm = TRUE)) %>%
+  select(-miles_per_capita)
+
+#air quality score
+air_score<- air_quality %>%
+  mutate(air_quality_score = Average_Value / max(Average_Value, na.rm = TRUE)) %>%
+  select(-Average_Value)
+
+formula <- state2abr %>%
+  left_join(energy_score, by = c("STUSPS" = "State"))%>%
+  left_join(miles_score, by = c("STUSPS" = "state_abbr"))%>%
+  left_join(air_score, by = c("NAME" = "State")) %>%
+  mutate(score = (price_score*33)+(miles_score*34)+(air_quality_score*33))
+
+
+#formula map usa
+formula1 <- formula%>%
+  select(-NAME,-price_score,-miles_score,-air_quality_score)
+  
+formula_map <- mainland_states %>%
+  left_join(formula1, by = c("STUSPS" = "STUSPS"))
+
+
+library(ggplot2)
+
+# Plot the map with fill based on the score column
+ggplot(data = formula_map) +
+  geom_sf(aes(fill = score), color = "black") +  # Fill color based on score and black border
+  scale_fill_viridis_c(option = "plasma", name = "Score") +  # Use a color gradient
+  theme_minimal() +
   labs(
-    title = "Electricity Prices Over Time",
-    x = "Year",
-    y = "Cents per kWh"
+    title = "Beneficiary Scores by State"
 
   ) +
-  theme_minimal() +
   theme(
-    plot.title = element_text(hjust = 0.5, size = 16),
-    axis.text.x = element_text(angle = 45, hjust = 1)
+    plot.title = element_text(hjust = 0.5),  # Center the title
+    legend.position = "right"  # Place the legend on the right
   )
 
 ```
 
+
+## [Findings]{style="color: cyan;"}
+
+States such as California, Georgia, and Alabama exhibit significant opportunities for improvement with EV adoption, particularly due to the high driving rates and pressing air quality challenges. These states stand to benefit from cleaner transportation options and reduced dependency on fossil fuels.
+
+Conversely, states like North Dakota and South Dakota demonstrate lower incentives for EV adoption, as their electricity prices, air quality concerns, and driving patterns do not make EVs as impactful. For these states, other sustainable energy initiatives may hold more promise than a widespread EV revolution.
+
+This analysis underscores the importance of tailoring EV policies to state-specific contexts, focusing on the areas where they can deliver the most substantial benefits.
