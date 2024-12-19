@@ -1,3 +1,54 @@
+# url and string for file
+library(sf)
+library(httr)
+base_url <- "https://cdmaps.polisci.ucla.edu/shp/"
+file_names <- sprintf("districts%03d.zip", 1:114)  # Generates file names from districts001.zip to districts114.zip
+
+# temp directory
+download_dir <- "congressional_shapefiles"
+if (!dir.exists(download_dir)) dir.create(download_dir)
+
+# download & unzip 
+download_and_load_shapefile <- function(file_name) {
+  local_zip_path <- file.path(download_dir, file_name)
+  url <- paste0(base_url, file_name)
+  
+  # checking if already downloaded
+  if (!file.exists(local_zip_path)) {
+    cat("Downloading", file_name, "...\n")
+    GET(url, write_disk(local_zip_path, overwrite = TRUE))
+  } else {
+    cat(file_name, "already exists, skipping download.\n")
+  }
+  
+  # Unzip and load the shapefile
+  unzip_dir <- file.path(download_dir, sub(".zip$", "", file_name))  # Unzipped folder
+  if (!dir.exists(unzip_dir)) {
+    unzip(local_zip_path, exdir = unzip_dir)
+  }
+  
+  # loadthe .shp file
+  district_shapes_dir <- file.path(unzip_dir, "districtShapes")
+  shp_file <- list.files(district_shapes_dir, pattern = "\\.shp$", full.names = TRUE)
+  
+  if (length(shp_file) > 0) {
+    shapefile_data <- st_read(shp_file)
+    return(shapefile_data)
+  } else {
+    message("No shapefile found in 'districtShapes' for", file_name)
+    return(NULL)
+  }
+}
+
+# loop through and see if downloaded is needed
+shapefiles_list <- list()
+for (file_name in file_names) {
+  shapefile_data <- download_and_load_shapefile(file_name)
+  if (!is.null(shapefile_data)) {
+    shapefiles_list[[file_name]] <- shapefile_data
+  }
+}
+
 #US MAP
 
 # Load required libraries
@@ -19,7 +70,7 @@ library(dplyr)
 ####Miles
 file_path <- "C:/Users/velas/Documents/STA9750-2024-FALL/2016cityandcountymiles.xlsx"
 
-# Read the sheet
+# Read data
 miles <- read_excel(path = file_path, sheet = "Sheet1")
 
 miles_clean <- miles %>%
@@ -31,6 +82,8 @@ miles_clean <- miles %>%
   ) %>%
   mutate(miles_per_capita = total_miles / total_population)
 
+
+# analysis
 miles_map <-miles_clean %>%
   select(state_abbr,miles_per_capita)
 
@@ -78,7 +131,7 @@ power_year <- power %>%
   summarize(Total_Nameplate_Capacity = sum(`Nameplate Capacity (Megawatts)`, na.rm = TRUE)) %>%
   ungroup()
 
-
+#analysis
 ### Energy production Graphs - Annual
 library(ggplot2)
 
@@ -146,7 +199,7 @@ pie_chart <- state_summary %>%
       )
     )
   )
-# Step 4: Display the pie chart
+# Display the pie chart
 pie_chart
 
 
@@ -205,6 +258,7 @@ air_quality<- air_quality_data %>%
 
 print(air_quality)
 
+#analysis
 air_quality_map <- mainland_states %>%
   left_join(air_quality, by = c("NAME" = "State"))
 

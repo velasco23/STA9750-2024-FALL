@@ -6,10 +6,12 @@ editor: visual
 
 #### Table of Contents
 
-[Motivation](Jorge%20website) 
-[Strategies: Policies & Incentives](https://chrismontano129.github.io/STA9750-2024-FALL/courseproject.html) [Strategies: Adoption Barriers](Siddhi%20Website) 
-[Metrics: Charger Infrastructure](Mussa%20Website) 
-[Metrics: EV Adoption Trends](Haina%20website) [Conclusion](TBD%20Website)
+[Motivation]() 
+[Strategies: Policies & Incentives]() 
+[Strategies: Adoption Barriers]() 
+[Metrics: Charger Infrastructure]() 
+[Metrics: EV Adoption Trends]() 
+[Conclusion]()
 
 ## [Introduction]{style="color: cyan;"}
 
@@ -17,10 +19,7 @@ Transportation accounts for nearly 30% of global greenhouse gas emissions, yet e
 
 ## [Data Sources]{style="color: cyan;"}
 
-Our analysis will use data from multiple sources. The sources have been acquired and vetted to be from a credible source. We aimed to capture data from government website. Although, they may not always be the cleanest and geared to our specific intent, they are fact managed and maintained consistently enough for us to preference them as oppose to a one time study conducted by a university.  
-
-
-
+Our analysis will use data from multiple sources. The sources have been acquired and vetted to be from a credible source. We aimed to capture data from government website. Although, they may not always be the cleanest and geared to our specific intent, they are fact managed and maintained consistently enough for us to preference them as oppose to a one time study conducted by a university.
 
 ```{r}
 #| label: 'SHPE data for our USA graphics'
@@ -28,106 +27,51 @@ Our analysis will use data from multiple sources. The sources have been acquired
 #| message: false 
 #| warning: false
 #| cache: true
-#| code-summary: "SHPE USA"
+#| code-summary: "USA - SHPE Data"
 
-library(dplyr)
+# Load required libraries
 library(sf)
 library(httr)
-
-# Base URL and file names
-base_url <- "https://cdmaps.polisci.ucla.edu/shp/"
-file_names <- sprintf("districts%03d.zip", 1:114)  # Generates file names from districts001.zip to districts114.zip
-
-# Temporary directory to store downloads
-download_dir <- "congressional_shapefiles"
-if (!dir.exists(download_dir)) dir.create(download_dir)
-
-# Function to download and load shapefiles
-download_and_load_shapefile <- function(file_name) {
-  local_zip_path <- file.path(download_dir, file_name)
-  url <- paste0(base_url, file_name)
-  
-  # Download file if it doesn't exist
-  if (!file.exists(local_zip_path)) {
-    cat("Downloading", file_name, "...\n")
-    tryCatch({
-      GET(url, write_disk(local_zip_path, overwrite = TRUE))
-    }, error = function(e) {
-      message("Error downloading ", file_name, ": ", e$message)
-      return(NULL)
-    })
-  } else {
-    cat(file_name, "already exists, skipping download.\n")
-  }
-  
-  # Unzip the file
-  unzip_dir <- file.path(download_dir, sub(".zip$", "", file_name))
-  if (!dir.exists(unzip_dir)) {
-    tryCatch({
-      unzip(local_zip_path, exdir = unzip_dir)
-    }, error = function(e) {
-      message("Error unzipping ", file_name, ": ", e$message)
-      return(NULL)
-    })
-  }
-  
-  # Load the shapefile
-  shp_file <- list.files(unzip_dir, pattern = "\\.shp$", full.names = TRUE, recursive = TRUE)
-  if (length(shp_file) > 0) {
-    cat("Loading shapefile for", file_name, "\n")
-    shapefile_data <- tryCatch({
-      st_read(shp_file[1], quiet = TRUE)  # Load the first shapefile found
-    }, error = function(e) {
-      message("Error loading shapefile for ", file_name, ": ", e$message)
-      return(NULL)
-    })
-    return(shapefile_data)
-  } else {
-    message("No shapefile found for ", file_name)
-    return(NULL)
-  }
-}
-
-# Loop through and download/load shapefiles
-shapefiles_list <- list()
-for (file_name in file_names) {
-  shapefile_data <- download_and_load_shapefile(file_name)
-  if (!is.null(shapefile_data)) {
-    shapefiles_list[[file_name]] <- shapefile_data
-  }
-}
-
-# Combine all shapefiles into one
-combined_shapefiles <- do.call(rbind, shapefiles_list)
-
-# ==== US MAP ====
 library(ggplot2)
 
-# Load US States shapefile
-shapefile_path <- "C:/Users/velas/Documents/STA9750-2024-FALL/cb_2018_us_state_500k.shp"
-if (file.exists(shapefile_path)) {
-  us_states <- st_read(shapefile_path, quiet = TRUE)
-  
-  # Filter out Hawaii, Alaska, and other territories
-  mainland_states <- us_states %>%
-    filter(!NAME %in% c("Hawaii", "Alaska", "Puerto Rico", 
-                        "United States Virgin Islands", 
-                        "Commonwealth of the Northern Mariana Islands", 
-                        "Guam", "American Samoa"))
-  
-  # Plot mainland USA with shapefiles overlay
-  ggplot() +
-    geom_sf(data = mainland_states, fill = "lightgrey", color = "white") +
-    geom_sf(data = combined_shapefiles, fill = "blue", color = "black", alpha = 0.5) +
-    labs(title = "US Congressional Districts and State Boundaries",
-         caption = "Source: UCLA CD Maps & US Census Bureau") +
-    theme_minimal()
+# Directory and file setup
+download_dir <- "usa_shapefiles"
+if (!dir.exists(download_dir)) dir.create(download_dir)
+
+# URL for the U.S. states shapefile (Census Bureau TIGER/Line Shapefiles)
+url <- "https://www2.census.gov/geo/tiger/GENZ2020/shp/cb_2020_us_state_20m.zip"
+zip_path <- file.path(download_dir, "cb_2020_us_state_20m.zip")
+
+# Download and unzip the shapefile
+if (!file.exists(zip_path)) {
+  cat("Downloading shapefile...\n")
+  GET(url, write_disk(zip_path, overwrite = TRUE))
 } else {
-  message("US States shapefile not found at the specified path.")
+  cat("Shapefile already downloaded.\n")
 }
+
+unzip_dir <- file.path(download_dir, "cb_2020_us_state_20m")
+if (!dir.exists(unzip_dir)) {
+  unzip(zip_path, exdir = unzip_dir)
+}
+
+# Load the shapefile using sf
+shapefile_path <- file.path(unzip_dir, "cb_2020_us_state_20m.shp")
+us_states <- st_read(shapefile_path, quiet = TRUE)
+
+# Filter out non-mainland areas
+mainland_states <- us_states[!us_states$NAME %in% c("Hawaii", "Alaska", "Puerto Rico", 
+                                                    "United States Virgin Islands", 
+                                                    "Commonwealth of the Northern Mariana Islands", 
+                                                    "Guam", "American Samoa"), ]
+
+# Simplify geometries to reduce complexity
+mainland_states <- st_simplify(mainland_states, dTolerance = 0.01)  # Adjust tolerance for detail
+
 
 
 ```
+USA SHPE Data - source: https://www2.census.gov/geo/tiger/GENZ2020/shp/cb_2020_us_state_20m.zip
 
 ```{r}
 #| label: 'DOE - City and County Energy Profiles Code'
@@ -156,7 +100,7 @@ miles_clean <- miles %>%
 
 ```
 
-City and County Energy Profiles source: https://catalog.data.gov/dataset/city-and-county-energy-profiles-60fbd
+City and County Energy Profiles - source: https://catalog.data.gov/dataset/city-and-county-energy-profiles-60fbd
 
 ```{r}
 #| label: 'EIA - Power Generation Code'
@@ -166,13 +110,14 @@ City and County Energy Profiles source: https://catalog.data.gov/dataset/city-an
 #| cache: true
 #| code-summary: "EIA - Power Generation"
 
+library(readxl)
+library(dplyr)
 ####power generation
 file_path_power <- "C:/Users/velas/Documents/STA9750-2024-FALL/EIA_powergeneration.xlsx"
 
 # Read the sheet
 power <- read_excel(path = file_path_power, sheet = "Sheet1")
 
-print(power)
 
 # Summarize the dataset by Year, State Code, and Renewable columns
 power_year <- power %>%
@@ -182,7 +127,7 @@ power_year <- power %>%
 
 ```
 
-Power Generation source: https://www.eia.gov/electricity/data.php
+Power Generation - source: https://www.eia.gov/electricity/data.php
 
 ```{r}
 #| label: 'EPA - Air Quality Code'
@@ -204,33 +149,28 @@ air_quality<- air_quality_data %>%
 
 ```
 
-Air Quality source: https://www.epa.gov/outdoor-air-quality-data/download-daily-data
+Air Quality - source: https://www.epa.gov/outdoor-air-quality-data/download-daily-data
 
 ## [Background]{style="color: cyan;"}
 
 This analysis delves into the transformative potential of electric vehicles (EVs) in addressing some of the most pressing environmental and economic challenges of our time. It explores the environmental benefits of EV adoption, including significant reductions in greenhouse gas emissions, improvements in air quality, and advancements in sustainable resource utilization. Simultaneously, it examines the economic implications, focusing on shifts in energy markets, and the long-term cost savings EVs provide to both consumers and society. Additionally, it investigates which state is adopting EVs the fastest, showcasing the regional leaders setting examples for sustainable development. By analyzing these dimensions, the essay highlights how EVs are shaping a cleaner, more sustainable, and economically resilient future.
 
-![Annual Emissions](C:/Users/velas/OneDrive/Documents/STA9750-2024-FALL/annual_emissions.png)
+![Annual Emissions](C:/Users/velas/OneDrive/Documents/STA9750-2024-FALL/annual_emissions1.png)
 
-
-
-Contrary to popular belief, electric vehicles (EV) also emit greenhouse gases. The graph above indicates that EVs emit a national average of 2,727 lbs of CO2 per vehicle, while internal combustion (ICE) emit a national average of 12,594 lbs of CO2 per vehicle. Evidently, ICEs produce about 6x more CO2 than EVs when we look at their entire life cycle. 
+Contrary to popular belief, electric vehicles (EV) also emit greenhouse gases. The graph above indicates that EVs emit a national average of 2,727 lbs of CO2 per vehicle, while internal combustion (ICE) emit a national average of 12,594 lbs of CO2 per vehicle. Evidently, ICEs produce about 6x more CO2 than EVs when we look at their entire life cycle.
 
 First, the manufacturing stage due to the energy intensive process of mining and processing materials needed for the batteries, like lithium, cobalt and nickel. When compared to internal combustion vehicles, EVs actually emit more greenhouse gases in the manufacturing stage. Which makes sense since most of the process will be similar except for the engine. The manufacturing of the battery accounts for a significant portion of greenhouse gas emissions.
 
-![Annual Emissions](C:/Users/velas/OneDrive/Documents/STA9750-2024-FALL/image2.png)
+![Annual Emissions](C:/Users/velas/OneDrive/Documents/STA9750-2024-FALL/image21.png)
 
+![Annual Emissions](C:/Users/velas/OneDrive/Documents/STA9750-2024-FALL/image31.png)
 
+Second, EVs emit greenhouse gases indirectly by consuming electricity. A byproduct of electricity product is harmful emissions. It should be noted that every state produces electricity differently and their source of electricity portfolio will also be different. For example, an EV from a state that generates electricity from a clean source would emit less emissions than an EV from a state that primary generates electricity from fossil fuels. A great example would be to compare California (Image 2) vs West Virginia (Image 3), an EV from California emits an average of 1,385 lbs vs an EV from West Virginia that emits an average of 6,300 lbs. West Virginia generates 90% of their electricity from coal (Image 4).
 
-![Annual Emissions](C:/Users/velas/OneDrive/Documents/STA9750-2024-FALL/image3.png)
+![Annual Emissions](C:/Users/velas/OneDrive/Documents/STA9750-2024-FALL/image41.png)
 
-Second, EVs emit greenhouse gases indirectly by consuming electricity. A byproduct of electricity product is harmful emissions. It should be noted that every state produces electricity differently and their source of electricity portfolio will also be different. For example, an EV from a state that generates electricity from a clean source would emit less emissions than an EV from a state that primary generates electricity from fossil fuels. A great example would be to compare California (Image 2) vs West Virginia (Image 3), an EV from California emits an average of 1,385 lbs vs an EV from West Virginia that emits an average of 6,300 lbs. West Virginia generates 90% of their electricity from coal (Image 4). 
+Below I have created an interactive pie chart. This chart uses EIA data to highlight the renewable profile of each state. As mentioned above, although EV release less emissions than ICEs, an EV in a state state that generates power from a non renewable source will emit more than a state that prioritize renewable gas generation.
 
-![Annual Emissions](C:/Users/velas/OneDrive/Documents/STA9750-2024-FALL/image4.png)
-
-
-
-Below I have created an interactive pie chart. This chart uses EIA data to highlight the renewable profile of each state. As mentioned above, although EV release less emissions than ICEs, an EV in a state state that generates power from a non renewable source will emit more than a state that prioritize renewable gas generation.   
 ```{r}
 #| label: 'Energy Generation - by State (interactive) code'
 #| code-fold: true
@@ -293,20 +233,15 @@ pie_chart
 
 ```
 
-
 ## [Motivations]{style="color: cyan;"}
 
 The transition to electric vehicles (EVs) is driven by a combination of economic, environmental, and practical factors that vary by state. While motivations for EV adoption can be broad, this analysis focuses on three key drivers: average miles driven, air quality, and electricity prices. States where residents drive longer distances stand to benefit economically from the lower operational costs of EVs. In regions struggling with poor air quality, EVs offer a sustainable solution to reduce vehicle emissions and improve public health. Additionally, electricity prices play a crucial role in determining the affordability and appeal of EV adoption, particularly in states with low energy costs or investments in renewable energy. By examining these motivators, we can better understand the strategic incentives for states to embrace electric vehicles as part of their transportation future.
 
-
 Here's a structured draft for each motivator—average miles driven, air quality, and electricity prices—to help you craft strong, clear, and analytical paragraphs. Let me know if you'd like me to refine this further!
 
-###1. Average Miles Driven
-States with higher average miles driven per capita have a strong economic and environmental incentive to adopt electric vehicles (EVs). In regions where residents rely heavily on personal vehicles for daily commutes and long-distance travel, such as rural areas or states with limited public transportation infrastructure, fuel consumption and vehicle emissions are significant concerns.
+###1. Average Miles Driven States with higher average miles driven per capita have a strong economic and environmental incentive to adopt electric vehicles (EVs). In regions where residents rely heavily on personal vehicles for daily commutes and long-distance travel, such as rural areas or states with limited public transportation infrastructure, fuel consumption and vehicle emissions are significant concerns.
 
 States with high average miles driven also face heightened environmental impacts, including greater greenhouse gas emissions and air quality degradation from traditional vehicles. By transitioning to EVs, states can mitigate these impacts while simultaneously reducing long-term transportation costs for consumers. Thus, states with above-average mileage have a unique motivation to embrace EV adoption as a strategy for improving economic efficiency and reducing reliance on fossil fuels.
-
-
 
 ```{r}
 #| label: 'Average Miles Drive Code'
@@ -318,18 +253,135 @@ States with high average miles driven also face heightened environmental impacts
 
 
 
-print('hi')
+library(readxl)
+library(dplyr)
+####Miles
+file_path <- "C:/Users/velas/Documents/STA9750-2024-FALL/2016cityandcountymiles.xlsx"
+
+# Read data
+miles <- read_excel(path = file_path, sheet = "Sheet1")
+
+miles_clean <- miles %>%
+  select(state_abbr, population, `vehicle miles traveled (miles)`) %>% # Select specific columns
+  group_by(state_abbr) %>%
+  summarise(
+    total_population = sum(population, na.rm = TRUE),
+    total_miles = sum(`vehicle miles traveled (miles)`, na.rm = TRUE)
+  ) %>%
+  mutate(miles_per_capita = total_miles / total_population)
+```
+
+```{r}
+#| label: 'Average Miles Drive Top 10 Code'
+#| code-fold: true
+#| message: false 
+#| warning: false
+#| cache: true
+#| code-summary: "Average Miles Driven Top 10"
+
+library(readxl)
+library(dplyr)
+library(knitr)
+library(kableExtra)
+library(gt)
+
+# analysis
+miles_map <-miles_clean %>%
+  select(state_abbr,miles_per_capita)
+
+miles_t10 <-miles_clean %>%
+  arrange(desc(miles_per_capita))
+
+# Table for top 10
+miles_t10 %>%
+  kable(
+    format = "html",
+    col.names = c("State", "Total Population", "Total Miles", "Miles Per Capita"),
+    caption = "Top 10 States by Miles Per Capita"
+  ) %>%
+  kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed", "responsive"),
+    full_width = FALSE,
+    position = "center"
+  ) %>%
+  column_spec(4, bold = TRUE, color = "white", background = "steelblue") %>%
+  row_spec(0, bold = TRUE, background = "gray")
+```
+
+```{r}
+#| label: 'Average Miles Drive Bottom 10 Code'
+#| code-fold: true
+#| message: false 
+#| warning: false
+#| cache: true
+#| code-summary: "Average Miles Driven Bottom 10"
+
+library(readxl)
+library(dplyr)
+library(knitr)
+library(kableExtra)
+library(gt)
+miles_b10 <-miles_clean %>%
+  arrange(miles_per_capita)
+
+# Table for bottom 10
+miles_b10 %>%
+  kable(
+    format = "html",
+    col.names = c("State", "Total Population", "Total Miles", "Miles Per Capita"),
+    caption = "Bottom 10 States by Miles Per Capita"
+  ) %>%
+  kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed", "responsive"),
+    full_width = FALSE,
+    position = "center"
+  ) %>%
+  column_spec(4, bold = TRUE, color = "white", background = "tomato") %>%
+  row_spec(0, bold = TRUE, background = "gray")
+
+```
+
+
+```{r}
+#| label: 'Average Miles Drive USA Code'
+#| code-fold: true
+#| message: false 
+#| warning: false
+#| cache: true
+#| code-summary: "Average Miles Driven USA"
+# Perform the join while ensuring geometry is preserved
+miles_map_usa <- mainland_states %>%
+  inner_join(miles_map, by = c("STUSPS" = "state_abbr"))
+
+
+# Plot the mainland United States and color by miles_per_capita
+ggplot(data = miles_map_usa) +
+  geom_sf(aes(fill = miles_per_capita), color = "black") +  # Map fill to miles_per_capita
+  scale_fill_viridis_c(option = "plasma", name = "Miles per Capita") +  # Use a color gradient
+  theme_minimal() +
+  labs(
+    title = "Miles per Capita by State"
+  ) +
+  theme(
+    plot.title = element_text(hjust = 0.5),  # Center the title
+    legend.position = "right"  # Place legend on the right
+  )
 
 
 ```
 
-###2. Air Quality
-Air quality is a critical driver for EV adoption, particularly in states grappling with pollution and poor environmental health outcomes. Areas with significant urbanization, high vehicular traffic, or industries contributing to air pollution face increased risks of respiratory diseases, such as asthma, and other health concerns linked to poor air quality. Adopting electric vehicles, which produce zero tailpipe emissions, can significantly reduce levels of nitrogen oxides, particulate matter, and other pollutants commonly associated with internal combustion engines.
-For instance, states like California, historically plagued by wildfires that produce smog, have adopted aggressive EV policies to combat air quality issues. Cleaner air not only improves public health but also reduces healthcare costs, creating a dual incentive for policymakers to support EV adoption. Moreover, better air quality aligns with federal and state environmental targets for reducing carbon emissions, positioning EV adoption as a tool for meeting climate goals while enhancing residents' quality of life.
+###2. Air Quality Air quality is a critical driver for EV adoption, particularly in states grappling with pollution and poor environmental health outcomes. Areas with significant urbanization, high vehicular traffic, or industries contributing to air pollution face increased risks of respiratory diseases, such as asthma, and other health concerns linked to poor air quality. Adopting electric vehicles, which produce zero tailpipe emissions, can significantly reduce levels of nitrogen oxides, particulate matter, and other pollutants commonly associated with internal combustion engines. For instance, states like California, historically plagued by wildfires that produce smog, have adopted aggressive EV policies to combat air quality issues. Cleaner air not only improves public health but also reduces healthcare costs, creating a dual incentive for policymakers to support EV adoption. Moreover, better air quality aligns with federal and state environmental targets for reducing carbon emissions, positioning EV adoption as a tool for meeting climate goals while enhancing residents' quality of life.
 
-###3. Electricity Prices
-Electricity prices play a pivotal role in influencing a state's decision to encourage EV adoption. States with lower electricity prices offer a cost-effective alternative to gasoline, increasing the financial attractiveness of EVs for residents. The cost per mile to operate an EV is directly tied to electricity rates, and in states with inexpensive, reliable electricity consumers stand to benefit from reduced transportation costs. This is especially true for states that generate power from renewable sources.
-For states investing in renewable energy, EV adoption presents an opportunity to integrate cleaner energy into the transportation sector. By leveraging existing electricity infrastructure and low prices, states can further reduce emissions and bolster energy independence. Additionally, reducing reliance on gasoline helps prevent dependency on oil-producing countries, which can promote economic and diplomatic stability. As EVs shift energy reliance to domestically produced electricity instead of imported fossil fuels, states can play a role in enhancing national energy security and fostering diplomacy.
-Conversely, for states with higher electricity costs, the case for EV adoption may require additional incentives, such as subsidies, time-of-use pricing, or investments in infrastructure to drive down costs over time. Nonetheless, transitioning to EVs remains an opportunity to stabilize transportation expenses, especially when compared to the volatility of fossil fuel prices.
+```{r}
+#| label: 'Air quality Code'
+#| code-fold: true
+#| message: false 
+#| warning: false
+#| cache: true
+#| code-summary: "Air quality"
 
+print('hi')
 
+```
+
+###3. Electricity Prices Electricity prices play a pivotal role in influencing a state's decision to encourage EV adoption. States with lower electricity prices offer a cost-effective alternative to gasoline, increasing the financial attractiveness of EVs for residents. The cost per mile to operate an EV is directly tied to electricity rates, and in states with inexpensive, reliable electricity consumers stand to benefit from reduced transportation costs. This is especially true for states that generate power from renewable sources. For states investing in renewable energy, EV adoption presents an opportunity to integrate cleaner energy into the transportation sector. By leveraging existing electricity infrastructure and low prices, states can further reduce emissions and bolster energy independence. Additionally, reducing reliance on gasoline helps prevent dependency on oil-producing countries, which can promote economic and diplomatic stability. As EVs shift energy reliance to domestically produced electricity instead of imported fossil fuels, states can play a role in enhancing national energy security and fostering diplomacy. Conversely, for states with higher electricity costs, the case for EV adoption may require additional incentives, such as subsidies, time-of-use pricing, or investments in infrastructure to drive down costs over time. Nonetheless, transitioning to EVs remains an opportunity to stabilize transportation expenses, especially when compared to the volatility of fossil fuel prices.
